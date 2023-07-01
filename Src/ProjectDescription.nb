@@ -1,0 +1,669 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     26866,        661]
+NotebookOptionsPosition[     20656,        549]
+NotebookOutlinePosition[     21084,        566]
+CellTagsIndexPosition[     21041,        563]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Implementing Chemical Space Networks in Wolfram Language", "Title",
+ CellChangeTimes->{{3.866199601523086*^9, 3.8661996185005827`*^9}, {
+  3.897007262364821*^9, 3.897007295198431*^9}, {3.897008281615449*^9, 
+  3.8970082821741867`*^9}},ExpressionUUID->"b00b1899-95f4-49ae-8be3-\
+fc79c4c21a99"],
+
+Cell["Joshua Khorsandi", "Subtitle",
+ CellChangeTimes->{{3.897008741745201*^9, 
+  3.897008755049513*^9}},ExpressionUUID->"6c540101-7449-4fb6-b2ec-\
+2d79a4f7f569"],
+
+Cell[CellGroupData[{
+
+Cell["Chemical Space Networks", "Chapter",
+ CellChangeTimes->{
+  3.866197910742544*^9, {3.866197950532321*^9, 3.866197972890904*^9}, {
+   3.866198078654592*^9, 3.8661982077678003`*^9}, {3.866198263643091*^9, 
+   3.866198264137147*^9}, {3.866198327436187*^9, 3.86619833422685*^9}, {
+   3.866198380740388*^9, 3.86619846406647*^9}, 3.866198514855938*^9, {
+   3.866198575133999*^9, 3.86619872243983*^9}, {3.866199220202124*^9, 
+   3.8661992255104237`*^9}, {3.897007299968605*^9, 3.897007305969329*^9}, {
+   3.8970082774159813`*^9, 
+   3.897008279522626*^9}},ExpressionUUID->"ecc3cd90-6e67-4f1d-a0f5-\
+8cb50f59f1cb"],
+
+Cell[CellGroupData[{
+
+Cell["Project description", "Section",
+ CellChangeTimes->{
+  3.866197910742544*^9, {3.866197950532321*^9, 3.866197972890904*^9}, {
+   3.866198078654592*^9, 3.8661982077678003`*^9}, {3.866198263643091*^9, 
+   3.866198264137147*^9}, {3.866198327436187*^9, 3.86619833422685*^9}, {
+   3.866198380740388*^9, 3.86619846406647*^9}, {3.866198736072315*^9, 
+   3.86619874891017*^9}, {3.897007346184607*^9, 
+   3.8970073472167387`*^9}},ExpressionUUID->"9abc0ba3-0dda-47fa-b117-\
+b6f9d5170e5b"],
+
+Cell[CellGroupData[{
+
+Cell["Goals And Motivation", "Subsection",
+ CellChangeTimes->{{3.897007364364717*^9, 
+  3.897007370471325*^9}},ExpressionUUID->"581fb2d7-c17d-43cb-b949-\
+dcd6e24f483f"],
+
+Cell[TextData[{
+ "It is estimated that there are approximately ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["10", "60"], TraditionalForm]],ExpressionUUID->
+  "87eabdd4-6be9-4559-b0f8-ca701dd3cfa7"],
+ " possible biologically active chemical compounds, of which less than 1% \
+have been synthesized. Characterizing this \[OpenCurlyQuote]chemical space\
+\[CloseCurlyQuote] of available molecules using networks has become an \
+increasingly relevant and important feature of chemical informatics and drug \
+discovery. Chemical space networks (CSNs) are graphs of molecules where the \
+vertices are compounds and the edges are determined by a measure of chemical \
+similarity. The analysis and deployment of these networks has yielded new \
+chemical insights and is an active area of current chemical informatics \
+research. "
+}], "Text",
+ CellChangeTimes->{{3.897007420601211*^9, 3.897007506805901*^9}, {
+   3.897007560286091*^9, 3.897007648534741*^9}, {3.8970077138567257`*^9, 
+   3.897007820008362*^9}, {3.897008240523821*^9, 3.897008424596739*^9}, {
+   3.897008473649102*^9, 3.89700850683219*^9}, {3.8970849888101892`*^9, 
+   3.8970849902321157`*^9}, 
+   3.8970859514705963`*^9},ExpressionUUID->"a9697435-8436-4659-8c4d-\
+ea16e89d4e28"],
+
+Cell["\<\
+The goal of this project is to design and implement a WL super-function to \
+deploy chemical space networks directly from user-supplied chemical structure \
+and bio-activity data, computationally generated similarity measures, and \
+sophisticated visualization methods. Additionally, parallel and grid methods \
+will be evaluated as a means reduce the overall computation time needed to \
+calculate the pairwise similarity for a library of molecules. An ultimate \
+project goal would be to submit this function to the Wolfram Function \
+Repository. \
+\>", "Text",
+ CellChangeTimes->{{3.897008429276641*^9, 3.897008466970272*^9}, {
+  3.897008510630719*^9, 3.8970086463599*^9}, {3.8970854005667467`*^9, 
+  3.897085411068369*^9}, {3.897085445293248*^9, 3.897085461791737*^9}, {
+  3.897085525331945*^9, 3.897085555172244*^9}, {3.897085595954515*^9, 
+  3.897085628792294*^9}, {3.897085713761644*^9, 3.897085717048444*^9}, {
+  3.897085784809557*^9, 3.897085894573235*^9}, {3.8970859301081448`*^9, 
+  3.897086006382085*^9}},ExpressionUUID->"189ba7da-34a9-4324-b297-\
+9abec03a01ec"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Function Specification", "Subsection",
+ CellChangeTimes->{{3.8970086868440113`*^9, 
+  3.897008715200642*^9}},ExpressionUUID->"8abc60b8-1975-4d73-beb9-\
+d661e33a2fb6"],
+
+Cell["\<\
+Here we describe the proposed function ChemicalNetwork[] and describe some \
+possible issues\
+\>", "Text",
+ CellChangeTimes->{{3.8970087250149727`*^9, 3.897008731654037*^9}, {
+  3.897008780137061*^9, 3.897008808993623*^9}, {3.897008914235374*^9, 
+  3.897008921645743*^9}},ExpressionUUID->"285ba0c1-ff12-43bf-ba2f-\
+b8ffc2e99ab3"],
+
+Cell[CellGroupData[{
+
+Cell["Parameters", "Subsubsection",
+ CellChangeTimes->{{3.89694417264823*^9, 3.896944178855281*^9}, {
+  3.89695396188229*^9, 
+  3.896953977364017*^9}},ExpressionUUID->"24694519-cc5e-4569-8fff-\
+7ce62a1f17f2"],
+
+Cell[CellGroupData[{
+
+Cell["List of Molecule[]", "Subitem",
+ CellChangeTimes->{{3.896954000373767*^9, 3.896954013105109*^9}, 
+   3.896954560289406*^9, 
+   3.8970088535061083`*^9},ExpressionUUID->"e9fec46c-22bd-4f56-890a-\
+750c972b7f17"],
+
+Cell["SMILE strings", "Subsubitem",
+ CellChangeTimes->{{3.896954025797299*^9, 
+  3.8969540403677588`*^9}},ExpressionUUID->"6efbf0a3-25c1-43b1-b372-\
+d682e058dc40"],
+
+Cell["ChEMBL/ZINC ID?", "Subsubitem",
+ CellChangeTimes->{{3.896954025797299*^9, 3.896954049067438*^9}, {
+  3.896954359187893*^9, 3.896954370806129*^9}, {3.896954524836855*^9, 
+  3.896954524837886*^9}},ExpressionUUID->"b40aa928-b1b5-441d-8655-\
+72a80890b9c1"],
+
+Cell["Dataset[]", "Subsubitem",
+ CellChangeTimes->{{3.896954025797299*^9, 3.896954049067438*^9}, {
+  3.896954359187893*^9, 3.896954370806129*^9}, {3.896954525786367*^9, 
+  3.896954557199768*^9}},ExpressionUUID->"0a2dd50c-f6dd-4fbf-9d5d-\
+353ef10a1d14"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Measure of Similarity", "Subitem",
+ CellChangeTimes->{{3.896954025797299*^9, 
+  3.8969540643900347`*^9}},ExpressionUUID->"3382f44e-1c96-465b-83af-\
+6aec78fa3153"],
+
+Cell["Tanimoto", "Subsubitem",
+ CellChangeTimes->{{3.896954025797299*^9, 
+  3.896954086551997*^9}},ExpressionUUID->"4c0ec7db-866a-4a3a-aee6-\
+6264e82edce6"],
+
+Cell["Matched Molecular Pairs", "Subsubitem",
+ CellChangeTimes->{{3.896954025797299*^9, 
+  3.8969540947820597`*^9}},ExpressionUUID->"d978afc3-daff-4795-8170-\
+895edb877a35"],
+
+Cell["Maximum Common Substructure ", "Subsubitem",
+ CellChangeTimes->{{3.896954025797299*^9, 
+  3.8969541072625027`*^9}},ExpressionUUID->"ef85f89a-e795-4b51-b959-\
+9fc0ade4c365"],
+
+Cell["Tversky", "Subsubitem",
+ CellChangeTimes->{{3.896954025797299*^9, 3.8969541070891333`*^9}, {
+  3.8969541962913837`*^9, 3.896954240947172*^9}, {3.8969559516971807`*^9, 
+  3.896955951698831*^9}},ExpressionUUID->"964dbeb2-925f-40db-8743-\
+3006d4807664"],
+
+Cell["Other possible similarity measures?", "Subsubitem",
+ CellChangeTimes->{{3.896954025797299*^9, 3.8969541070891333`*^9}, {
+  3.8969541962913837`*^9, 3.896954240947172*^9}, {3.8969559523336687`*^9, 
+  3.8969559587762833`*^9}},ExpressionUUID->"0e6739d9-2f06-429f-b151-\
+75beb7a509ea"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Fuzzy Network", "Subitem",
+ CellChangeTimes->{{3.896954025797299*^9, 3.8969541070891333`*^9}, {
+  3.8969541962913837`*^9, 
+  3.896954224116331*^9}},ExpressionUUID->"63e95b2f-df63-4f5a-a602-\
+27f3434e86c0"],
+
+Cell["Default: False", "Subsubitem",
+ CellChangeTimes->{{3.896954025797299*^9, 3.8969541070891333`*^9}, {
+  3.8969541962913837`*^9, 3.896954236943584*^9}, {3.896954269692554*^9, 
+  3.8969542696934347`*^9}},ExpressionUUID->"de1716ef-e707-4073-909b-\
+0db0f5827043"],
+
+Cell["Weights edges by similarity", "Subsubitem",
+ CellChangeTimes->{{3.896954025797299*^9, 3.8969541070891333`*^9}, {
+  3.8969541962913837`*^9, 3.896954236943584*^9}, {3.896954270249571*^9, 
+  3.896954292416695*^9}},ExpressionUUID->"36bfdad5-9282-46f2-a2e7-\
+6e98a99a2682"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Edge cutoff", "Subitem",
+ CellChangeTimes->{{3.896954025797299*^9, 3.8969541070891333`*^9}, {
+  3.8969541962913837`*^9, 3.896954236943584*^9}, {3.896954270249571*^9, 
+  3.896954296860778*^9}},ExpressionUUID->"70528290-4d79-48ec-aa17-\
+03665b8815e5"],
+
+Cell["\<\
+Some number in [0,1] such that for all similarity greater than or equal to \
+the cutoff an edge is created between two nodes\
+\>", "Subsubitem",
+ CellChangeTimes->{{3.896954025797299*^9, 3.8969541070891333`*^9}, {
+  3.8969541962913837`*^9, 3.896954236943584*^9}, {3.896954270249571*^9, 
+  3.896954340530631*^9}},ExpressionUUID->"e2962e44-547b-46e1-af32-\
+3a683346daf4"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Biological Data[Optional]", "Subitem",
+ CellChangeTimes->{{3.896954025797299*^9, 3.8969541070891333`*^9}, {
+  3.8969541962913837`*^9, 3.896954215096262*^9}, {3.896954343183084*^9, 
+  3.896954343183901*^9}},ExpressionUUID->"98af116d-b4f6-4a15-b5f5-\
+c5b6698afd00"],
+
+Cell["\<\
+If True: Need to pass a Dataset[] with parameter to use as activity data\
+\>", "Subsubitem",
+ CellChangeTimes->{{3.896954025797299*^9, 3.8969541070891333`*^9}, {
+  3.8969541962913837`*^9, 3.896954215096262*^9}, {3.896954398560544*^9, 
+  3.8969544227777567`*^9}, {3.896954539673909*^9, 
+  3.89695457328828*^9}},ExpressionUUID->"7bf397cd-357f-4de8-8327-\
+a7e660f8b76a"],
+
+Cell["Coloring by value", "Subsubitem",
+ CellChangeTimes->{{3.896954025797299*^9, 3.8969541070891333`*^9}, {
+  3.8969541962913837`*^9, 3.896954215096262*^9}, {3.896954398560544*^9, 
+  3.8969544227777567`*^9}, {3.896954539673909*^9, 
+  3.896954602421245*^9}},ExpressionUUID->"884f4b3c-9d43-4319-95b4-\
+6f1eb74dcc04"],
+
+Cell["\<\
+Low --> High coloring scheme or vice versa if pass an Option for \
+\[OpenCurlyQuote]Reverse Coloring\[CloseCurlyQuote]\
+\>", "Subsubitem",
+ CellChangeTimes->{{3.896954025797299*^9, 3.8969541070891333`*^9}, {
+  3.8969541962913837`*^9, 3.896954215096262*^9}, {3.896954398560544*^9, 
+  3.8969544227777567`*^9}, {3.896954539673909*^9, 3.896954640048767*^9}, {
+  3.896956010552836*^9, 
+  3.896956010553783*^9}},ExpressionUUID->"17c44c0d-c164-48a5-aed3-\
+7c7cf3eb80e8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Embedding ", "Subitem",
+ CellChangeTimes->{{3.896954025797299*^9, 3.8969541070891333`*^9}, {
+  3.8969541962913837`*^9, 3.896954215096262*^9}, {3.896954398560544*^9, 
+  3.8969544227777567`*^9}, {3.896954539673909*^9, 3.896954640048767*^9}, {
+  3.8969560120074253`*^9, 
+  3.896956014507084*^9}},ExpressionUUID->"6f41c0d5-8cb9-4844-a859-\
+83f17081f319"],
+
+Cell["Default: Gravity Embedding", "Subsubitem",
+ CellChangeTimes->{{3.896954025797299*^9, 3.8969541070891333`*^9}, {
+  3.8969541962913837`*^9, 3.896954215096262*^9}, {3.896954398560544*^9, 
+  3.8969544227777567`*^9}, {3.896954539673909*^9, 3.896954640048767*^9}, {
+  3.8969560120074253`*^9, 
+  3.896956024835411*^9}},ExpressionUUID->"4e6ad294-3cb2-4c5e-ae39-\
+54d20fa6b165"]
+}, Open  ]],
+
+Cell[TextData[StyleBox["Issues", "Subsubsection"]], "Text",
+ CellChangeTimes->{{3.896955287538671*^9, 3.896955298592765*^9}, {
+  3.8969555143483143`*^9, 
+  3.896955529923502*^9}},ExpressionUUID->"4e4d1a53-0a30-48ef-838a-\
+120f959221d8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"edgeData", "=", "\n", 
+    RowBox[{
+     RowBox[{"ParallelMap", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"<|", 
+         RowBox[{
+          RowBox[{"\"\<Edge\>\"", "->", 
+           RowBox[{"UndirectedEdge", "@@", "#"}]}], ",", 
+          RowBox[{"\"\<RDKitTanimotoSimilarity\>\"", "->", "\n", "\t", 
+           RowBox[{
+            RowBox[{
+            "ResourceFunction", "[", "\"\<MoleculeFingerprintSimilarity\>\"", 
+             "]"}], "@@", 
+            RowBox[{"nodeData", "[", 
+             RowBox[{"#", ",", "\"\<Molecule\>\""}], "]"}]}]}], ",", "\n", 
+          "\t", 
+          RowBox[{"\"\<MCSTanimotoSimilarity\>\"", "->", 
+           RowBox[{"mcsSimilarity", "@@", 
+            RowBox[{"nodeData", "[", 
+             RowBox[{"#", ",", "\"\<Molecule\>\""}], "]"}]}]}]}], "|>"}], 
+        "&"}], ",", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Take", "[", 
+            RowBox[{"#", ",", "500"}], "]"}], "&"}], ")"}], "@"}], "*)"}], 
+       "\n", "  ", 
+       RowBox[{"Subsets", "[", 
+        RowBox[{
+         RowBox[{"Normal", "@", 
+          RowBox[{"Keys", "@", "nodeData"}]}], ",", 
+         RowBox[{"{", "2", "}"}]}], "]"}]}], "]"}], "//", "Dataset"}]}], 
+   ")"}], "//", "AbsoluteTiming"}]], "Code",
+ CellChangeTimes->{{3.8969555525834913`*^9, 3.8969555921403933`*^9}, {
+  3.8970089371337433`*^9, 
+  3.897008938046112*^9}},ExpressionUUID->"38262e85-6e39-4c02-a550-\
+bd69bd011610"],
+
+Cell[TextData[{
+ "Calculating edge similarity takes a very long time - Network computation \
+time grows in ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["O", "TI"], "(", 
+         SuperscriptBox[
+          StyleBox["n", "TI"], "2"], ")"}], TraditionalForm], "errors" -> {}, 
+     "input" -> "O(n^2)", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "fbb9ee80-517b-4528-9c1c-034bd86a2af3"],
+ " as the number of compounds increases. \nPossible solutions:\n\t\
+FunctionCompile[] and Parallelize[] \n\tCForm[]\n\tImprove pairwise \
+similarity comparisons"
+}], "Text",
+ CellChangeTimes->{{3.896955597238928*^9, 3.896955693403881*^9}, {
+  3.896955727281425*^9, 3.896955727934894*^9}, {3.896955799328587*^9, 
+  3.896955815287649*^9}, {3.89695591607628*^9, 3.896955925674858*^9}, {
+  3.897008954737496*^9, 
+  3.8970089592085857`*^9}},ExpressionUUID->"ec806210-6168-427c-b052-\
+41e148b510ca"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Proposed Preliminary Timeline", "Subsection",
+ CellChangeTimes->{{3.897008972373893*^9, 3.897008982220696*^9}, {
+  3.897009264534966*^9, 
+  3.897009266229932*^9}},ExpressionUUID->"aaac2038-372d-4bf4-81d4-\
+24b83b0bdc0f"],
+
+Cell[CellGroupData[{
+
+Cell["By Tuesday (July 4th)", "Item",
+ CellChangeTimes->{{3.897009031748921*^9, 3.897009112921433*^9}, {
+  3.897009173473289*^9, 
+  3.897009176085168*^9}},ExpressionUUID->"3f4e40dc-0fd2-4001-b25a-\
+9a16fe71e381"],
+
+Cell["\<\
+Working prototype that can execute workflow described in Scalfani et. al\
+\>", "Subitem",
+ CellChangeTimes->{{3.897009031748921*^9, 
+  3.897009149160627*^9}},ExpressionUUID->"59c80500-80f2-4575-9c2d-\
+6f0beabc668c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["By Thursday (July 6th)", "Item",
+ CellChangeTimes->{{3.897009031748921*^9, 
+  3.897009188551519*^9}},ExpressionUUID->"e4d2a03e-1edc-45b5-b5f6-\
+fdb099079923"],
+
+Cell["Fine tuning and timing edgeData function", "Subitem",
+ CellChangeTimes->{{3.897009031748921*^9, 
+  3.897009217442898*^9}},ExpressionUUID->"80873ee8-4078-48a4-bf28-\
+90dfdbd0e7c2"],
+
+Cell["\<\
+Compilation to Machine Code/Parallelization or other optimizations\
+\>", "Subitem",
+ CellChangeTimes->{{3.897009031748921*^9, 3.897009242876964*^9}, {
+  3.897010041656076*^9, 
+  3.897010041657454*^9}},ExpressionUUID->"28ed6282-1c7e-4386-b1da-\
+8329564b801e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["By Tuesday(July 11th) ", "Item",
+ CellChangeTimes->{{3.897009031748921*^9, 3.897009242876964*^9}, {
+  3.8970100425512857`*^9, 
+  3.897010064628441*^9}},ExpressionUUID->"4502c9e8-e33f-4304-9def-\
+f0017615e6d9"],
+
+Cell["\<\
+Additional function features, prepare for submission to function repository, \
+workflow and pipeline\
+\>", "Subitem",
+ CellChangeTimes->{{3.897009031748921*^9, 3.897009242876964*^9}, {
+  3.8970100425512857`*^9, 
+  3.897010103142189*^9}},ExpressionUUID->"0ef6fdd8-ba6b-413c-88e6-\
+70a60f2e792f"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Implementation Details", "Subsection",
+ CellChangeTimes->{{3.8970444868710957`*^9, 
+  3.8970444928597403`*^9}},ExpressionUUID->"a783c877-dba1-4bf2-83c4-\
+3bc07f6aef23"],
+
+Cell[CellGroupData[{
+
+Cell["Biological Data", "Subsubsection",
+ CellChangeTimes->{{3.897044653762033*^9, 3.8970446577552156`*^9}, {
+  3.8970447187661333`*^9, 
+  3.8970447517680483`*^9}},ExpressionUUID->"c8df2198-e0ed-41ec-8e18-\
+f72a2c730824"],
+
+Cell["\<\
+Implement biological data into the VertexCapacity Annotation on the Graph[] \
+function.
+Sow/Reap paradigm to draw the graph coloring\
+\>", "Text",
+ CellChangeTimes->{{3.897044759327325*^9, 
+  3.8970447603616858`*^9}},ExpressionUUID->"705776d4-e5b5-4cda-bcfb-\
+8cee9a68bdc8"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Future Directions", "Subsection",
+ CellChangeTimes->{{3.897009276906803*^9, 
+  3.897009283322879*^9}},ExpressionUUID->"b904273a-17f7-4b36-8d7f-\
+afacd85ab9c5"],
+
+Cell["\<\
+There are two promising examples in the literature that integrate well with \
+existing WL tools that could be areas of future exploration\
+\>", "Text",
+ CellChangeTimes->{{3.8970092873467703`*^9, 
+  3.897009357547165*^9}},ExpressionUUID->"4d449d01-71d9-426d-86ba-\
+dbdf49561a1f"],
+
+Cell[CellGroupData[{
+
+Cell["Graph Neural Networks(GNNS)", "Item",
+ CellChangeTimes->{{3.897009361086461*^9, 
+  3.897009382173732*^9}},ExpressionUUID->"75ceb2c9-c0d1-4c66-a857-\
+5981d6d6c69a"],
+
+Cell["\<\
+GNN\[CloseCurlyQuote]s use graph convolutions to perform machine learning \
+tasks on networks and graphs. This approach has been applied to CSNs and \
+yielded promising results in the areas of drug discovery. By operating \
+directly on graphs, these networks are better suited to work with CSNs than \
+other proposed machine learning models\
+\>", "Subitem",
+ CellChangeTimes->{{3.897009361086461*^9, 3.8970094690340433`*^9}, {
+  3.8970095320913363`*^9, 3.8970095521372013`*^9}, {3.897009600562891*^9, 
+  3.897009635650332*^9}},ExpressionUUID->"54b17dba-4fea-403b-8e06-\
+c70c6bc1ff11"],
+
+Cell["\<\
+Implementing GNNs in the Wolfram ecosystem would form a structured chemical \
+informatics workflow, where chemical networks could be directly generated and \
+then analyzed\
+\>", "Subitem",
+ CellChangeTimes->{{3.897009361086461*^9, 3.8970094690340433`*^9}, {
+  3.8970095320913363`*^9, 3.8970095521372013`*^9}, {3.897009600562891*^9, 
+  3.897009686120948*^9}},ExpressionUUID->"7cc37665-062c-4fb0-b9fa-\
+07a7b3740a75"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Random Matrix Theory (RMT) and Graph Analysis", "Item",
+ CellChangeTimes->{{3.897009361086461*^9, 3.8970094690340433`*^9}, {
+  3.8970095320913363`*^9, 3.8970095521372013`*^9}, {3.897009600562891*^9, 
+  3.897009708437121*^9}},ExpressionUUID->"3f63666e-d297-47ef-8c28-\
+7628cf39c94a"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+RMT algorithms analyze the spectra of the adjacency matrix generated from \
+CSNs. The generation of sample statistics drawn from sampling eigenvalues of \
+the adjacency matrix  can yield new insights about the graph and chemical \
+properties, some of which have already been explored in the literature \
+\>", "Subitem",
+ CellChangeTimes->{{3.897009361086461*^9, 3.8970094690340433`*^9}, {
+  3.8970095320913363`*^9, 3.8970095521372013`*^9}, {3.897009600562891*^9, 
+  3.8970097570745697`*^9}, {3.8970098173926992`*^9, 3.8970098729038563`*^9}, {
+  3.897010019758417*^9, 
+  3.897010020998218*^9}},ExpressionUUID->"75b1aceb-4452-407c-accb-\
+1bcf05401b12"],
+
+Cell["\<\
+There already exist WL implementations of RMT algorithms and statistics that \
+could be easily incorporated into a a workflow from a chemical space network. \
+\>", "Subsubitem",
+ CellChangeTimes->{{3.897009361086461*^9, 3.8970094690340433`*^9}, {
+  3.8970095320913363`*^9, 3.8970095521372013`*^9}, {3.897009600562891*^9, 
+  3.8970097570745697`*^9}, {3.8970098173926992`*^9, 
+  3.897009910204329*^9}},ExpressionUUID->"760125db-274c-4b1b-8cb6-\
+14aac8f97ad7"]
+}, Open  ]],
+
+Cell["\<\
+Conventional graph measures are already a core part of WL graph analysis \
+tools, regardless  understanding how these measures relate chemical space \
+networks is a promising area of future study. \
+\>", "Subitem",
+ CellChangeTimes->{{3.897009361086461*^9, 3.8970094690340433`*^9}, {
+  3.8970095320913363`*^9, 3.8970095521372013`*^9}, {3.897009600562891*^9, 
+  3.8970097570745697`*^9}, {3.8970098173926992`*^9, 
+  3.897009985326371*^9}},ExpressionUUID->"6f18f8f5-9089-4140-bffb-\
+2310d29f4a51"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1440, 756},
+WindowMargins->{{Automatic, 54}, {Automatic, 50}},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"13.2 for Mac OS X ARM (64-bit) (January 31, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"9803bbb6-374a-4c66-a2e9-7f162d37e846"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 298, 4, 200, "Title",ExpressionUUID->"b00b1899-95f4-49ae-8be3-fc79c4c21a99"],
+Cell[881, 28, 162, 3, 67, "Subtitle",ExpressionUUID->"6c540101-7449-4fb6-b2ec-2d79a4f7f569"],
+Cell[CellGroupData[{
+Cell[1068, 35, 611, 10, 86, "Chapter",ExpressionUUID->"ecc3cd90-6e67-4f1d-a0f5-8cb50f59f1cb"],
+Cell[CellGroupData[{
+Cell[1704, 49, 483, 8, 84, "Section",ExpressionUUID->"9abc0ba3-0dda-47fa-b117-b6f9d5170e5b"],
+Cell[CellGroupData[{
+Cell[2212, 61, 168, 3, 67, "Subsection",ExpressionUUID->"581fb2d7-c17d-43cb-b949-dcd6e24f483f"],
+Cell[2383, 66, 1237, 22, 131, "Text",ExpressionUUID->"a9697435-8436-4659-8c4d-ea16e89d4e28"],
+Cell[3623, 90, 1084, 17, 131, "Text",ExpressionUUID->"189ba7da-34a9-4324-b297-9abec03a01ec"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4744, 112, 172, 3, 67, "Subsection",ExpressionUUID->"8abc60b8-1975-4d73-beb9-d661e33a2fb6"],
+Cell[4919, 117, 339, 7, 44, "Text",ExpressionUUID->"285ba0c1-ff12-43bf-ba2f-b8ffc2e99ab3"],
+Cell[CellGroupData[{
+Cell[5283, 128, 208, 4, 56, "Subsubsection",ExpressionUUID->"24694519-cc5e-4569-8fff-7ce62a1f17f2"],
+Cell[CellGroupData[{
+Cell[5516, 136, 214, 4, 34, "Subitem",ExpressionUUID->"e9fec46c-22bd-4f56-890a-750c972b7f17"],
+Cell[5733, 142, 163, 3, 31, "Subsubitem",ExpressionUUID->"6efbf0a3-25c1-43b1-b372-d682e058dc40"],
+Cell[5899, 147, 258, 4, 31, "Subsubitem",ExpressionUUID->"b40aa928-b1b5-441d-8655-72a80890b9c1"],
+Cell[6160, 153, 252, 4, 31, "Subsubitem",ExpressionUUID->"0a2dd50c-f6dd-4fbf-9d5d-353ef10a1d14"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6449, 162, 168, 3, 34, "Subitem",ExpressionUUID->"3382f44e-1c96-465b-83af-6aec78fa3153"],
+Cell[6620, 167, 156, 3, 31, "Subsubitem",ExpressionUUID->"4c0ec7db-866a-4a3a-aee6-6264e82edce6"],
+Cell[6779, 172, 173, 3, 31, "Subsubitem",ExpressionUUID->"d978afc3-daff-4795-8170-895edb877a35"],
+Cell[6955, 177, 178, 3, 31, "Subsubitem",ExpressionUUID->"ef85f89a-e795-4b51-b959-9fc0ade4c365"],
+Cell[7136, 182, 256, 4, 31, "Subsubitem",ExpressionUUID->"964dbeb2-925f-40db-8743-3006d4807664"],
+Cell[7395, 188, 286, 4, 31, "Subsubitem",ExpressionUUID->"0e6739d9-2f06-429f-b151-75beb7a509ea"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7718, 197, 211, 4, 34, "Subitem",ExpressionUUID->"63e95b2f-df63-4f5a-a602-27f3434e86c0"],
+Cell[7932, 203, 263, 4, 31, "Subsubitem",ExpressionUUID->"de1716ef-e707-4073-909b-0db0f5827043"],
+Cell[8198, 209, 274, 4, 31, "Subsubitem",ExpressionUUID->"36bfdad5-9282-46f2-a2e7-6e98a99a2682"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8509, 218, 255, 4, 34, "Subitem",ExpressionUUID->"70528290-4d79-48ec-aa17-03665b8815e5"],
+Cell[8767, 224, 379, 7, 31, "Subsubitem",ExpressionUUID->"e2962e44-547b-46e1-af32-3a683346daf4"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9183, 236, 269, 4, 34, "Subitem",ExpressionUUID->"98af116d-b4f6-4a15-b5f5-c5b6698afd00"],
+Cell[9455, 242, 377, 7, 31, "Subsubitem",ExpressionUUID->"7bf397cd-357f-4de8-8327-a7e660f8b76a"],
+Cell[9835, 251, 315, 5, 31, "Subsubitem",ExpressionUUID->"884f4b3c-9d43-4319-95b4-6f1eb74dcc04"],
+Cell[10153, 258, 473, 9, 31, "Subsubitem",ExpressionUUID->"17c44c0d-c164-48a5-aed3-7c7cf3eb80e8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10663, 272, 356, 6, 34, "Subitem",ExpressionUUID->"6f41c0d5-8cb9-4844-a859-83f17081f319"],
+Cell[11022, 280, 375, 6, 31, "Subsubitem",ExpressionUUID->"4e6ad294-3cb2-4c5e-ae39-54d20fa6b165"]
+}, Open  ]],
+Cell[11412, 289, 236, 4, 50, "Text",ExpressionUUID->"4e4d1a53-0a30-48ef-838a-120f959221d8"],
+Cell[11651, 295, 1522, 41, 162, "Code",ExpressionUUID->"38262e85-6e39-4c02-a550-bd69bd011610"],
+Cell[13176, 338, 977, 22, 162, "Text",ExpressionUUID->"ec806210-6168-427c-b052-41e148b510ca"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14202, 366, 226, 4, 67, "Subsection",ExpressionUUID->"aaac2038-372d-4bf4-81d4-24b83b0bdc0f"],
+Cell[CellGroupData[{
+Cell[14453, 374, 212, 4, 40, "Item",ExpressionUUID->"3f4e40dc-0fd2-4001-b25a-9a16fe71e381"],
+Cell[14668, 380, 225, 5, 34, "Subitem",ExpressionUUID->"59c80500-80f2-4575-9c2d-6f0beabc668c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14930, 390, 164, 3, 40, "Item",ExpressionUUID->"e4d2a03e-1edc-45b5-b5f6-fdb099079923"],
+Cell[15097, 395, 185, 3, 34, "Subitem",ExpressionUUID->"80873ee8-4078-48a4-bf28-90dfdbd0e7c2"],
+Cell[15285, 400, 268, 6, 34, "Subitem",ExpressionUUID->"28ed6282-1c7e-4386-b1da-8329564b801e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15590, 411, 215, 4, 40, "Item",ExpressionUUID->"4502c9e8-e33f-4304-9def-f0017615e6d9"],
+Cell[15808, 417, 304, 7, 34, "Subitem",ExpressionUUID->"0ef6fdd8-ba6b-413c-88e6-70a60f2e792f"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16161, 430, 174, 3, 67, "Subsection",ExpressionUUID->"a783c877-dba1-4bf2-83c4-3bc07f6aef23"],
+Cell[CellGroupData[{
+Cell[16360, 437, 221, 4, 56, "Subsubsection",ExpressionUUID->"c8df2198-e0ed-41ec-8e18-f72a2c730824"],
+Cell[16584, 443, 284, 7, 73, "Text",ExpressionUUID->"705776d4-e5b5-4cda-bcfb-8cee9a68bdc8"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16917, 456, 165, 3, 67, "Subsection",ExpressionUUID->"b904273a-17f7-4b36-8d7f-afacd85ab9c5"],
+Cell[17085, 461, 289, 6, 44, "Text",ExpressionUUID->"4d449d01-71d9-426d-86ba-dbdf49561a1f"],
+Cell[CellGroupData[{
+Cell[17399, 471, 169, 3, 40, "Item",ExpressionUUID->"75ceb2c9-c0d1-4c66-a857-5981d6d6c69a"],
+Cell[17571, 476, 594, 10, 58, "Subitem",ExpressionUUID->"54b17dba-4fea-403b-8e06-c70c6bc1ff11"],
+Cell[18168, 488, 425, 8, 58, "Subitem",ExpressionUUID->"7cc37665-062c-4fb0-b9fa-07a7b3740a75"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18630, 501, 288, 4, 40, "Item",ExpressionUUID->"3f63666e-d297-47ef-8c28-7628cf39c94a"],
+Cell[CellGroupData[{
+Cell[18943, 509, 660, 11, 58, "Subitem",ExpressionUUID->"75b1aceb-4452-407c-accb-1bcf05401b12"],
+Cell[19606, 522, 467, 8, 31, "Subsubitem",ExpressionUUID->"760125db-274c-4b1b-8cb6-14aac8f97ad7"]
+}, Open  ]],
+Cell[20088, 533, 504, 9, 58, "Subitem",ExpressionUUID->"6f18f8f5-9089-4140-bffb-2310d29f4a51"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
