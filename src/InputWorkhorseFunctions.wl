@@ -31,7 +31,7 @@ DeleteDuplicates[dataset]
 generateDataset[file_]:=Module[{dataset,keys},
 dataset=Import[file,"Table","FieldSeparators"->";","RepeatedSeparators"->False];
 keys=First@dataset;
-dataset=AssociationThread[keys,#]&/@Rest@data//Dataset;
+dataset=AssociationThread[keys,#]&/@Rest@dataset//Dataset;
 dataset[Select[NumberQ[Slot["Standard Value"]]&],<|"Molecule ChEMBL ID"->#"Molecule ChEMBL ID","Smiles"->#"Smiles","pKi"->9-Log10[#"Standard Value"]|>&]//SortBy[#"Molecule ChEMBL ID"&]]
 
 
