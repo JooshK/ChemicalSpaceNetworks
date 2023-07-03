@@ -15,13 +15,9 @@ Cell["ChemicalSpaceNetwork", "Title",
  CellTags->{"Name", "TemplateCell", "Title", "TabNext"},
  CellID->863144461,ExpressionUUID->"e23cbf28-e053-4aa2-910b-69f8ce65c67e"],
 
-Cell[TextData[{
- Cell[BoxData["\[Placeholder]"], "InlineFormula",
-  FontFamily->"Source Sans Pro",ExpressionUUID->
-  "5416cfb3-d7cc-4c3d-9bcc-8c57eab91806"],
- "\nSuper function that generates a chemical space network and related \
-metrics from given molecule data. "
-}], "Text",
+Cell["\<\
+A function that generates a chemical space network from molecule data\
+\>", "Text",
  Deletable->False,
  TaggingRules->{},
  CellEventActions->{Inherited, {"KeyDown", "\t"} :> Replace[SelectionMove[
@@ -33,9 +29,11 @@ metrics from given molecule data. "
  CellChangeTimes->{{3.897294416041163*^9, 3.8972944315718603`*^9}, 
    3.897294519194368*^9, {3.8972945991652727`*^9, 3.897294615728578*^9}, {
    3.897294831329327*^9, 3.897294872319854*^9}, {3.897294914296294*^9, 
-   3.8972949186543503`*^9}, {3.8972949578694468`*^9, 3.897295005456258*^9}},
+   3.8972949186543503`*^9}, {3.8972949578694468`*^9, 3.897295005456258*^9}, {
+   3.8973152336968107`*^9, 3.89731525035884*^9}, {3.897316711304227*^9, 
+   3.8973167610347347`*^9}},
  CellTags->{"DefaultContent", "Description", "TabNext", "TemplateCell"},
- CellID->660820806,ExpressionUUID->"fed190b7-0e34-41c1-a223-7dcb5617e132"],
+ CellID->660820806,ExpressionUUID->"d7c00359-0607-403d-8059-4f4814557e35"],
 
 Cell[CellGroupData[{
 
@@ -386,11 +384,8 @@ Cell[TextData[Cell[BoxData[
      ButtonData->"ref/format/SMILES",
      ContentPadding->False],
     MouseAppearanceTag["LinkHand"]], 
-   StyleBox["strings", "TI"], 
-   StyleBox["with", "TI"], 
-   StyleBox["edges", "TI"], 
-   StyleBox["having", "TI"], 
-   StyleBox["similarity", "TI"]}], ">=", 
+   StyleBox["stringswithedgeshavingsimilarity", "TI"]}], 
+  StyleBox["<=", "TI"], 
   StyleBox["cutoff", "TI"]}]], "InlineFormula",
  FontFamily->
   "Source Sans Pro",ExpressionUUID->"e8448206-606c-412d-a8b0-4dd892841553"]], \
@@ -398,7 +393,8 @@ Cell[TextData[Cell[BoxData[
  TaggingRules->{},
  CellChangeTimes->{{3.89729476350249*^9, 3.897294789794879*^9}, {
   3.897294934369711*^9, 3.8972949438562927`*^9}, {3.897295580482514*^9, 
-  3.897295593370905*^9}, {3.897296300406204*^9, 3.8972963493006277`*^9}},
+  3.897295593370905*^9}, {3.897296300406204*^9, 3.8972963493006277`*^9}, {
+  3.8973152709839582`*^9, 3.8973152724864197`*^9}},
  CellTags->{"DefaultContent", "TabNext"},
  CellID->746063541,ExpressionUUID->"9ddb5f09-c4f9-4fe9-9f77-38ef9f48b771"]
 }, Open  ]],
@@ -425,6 +421,7 @@ Cell[BoxData[
   RowBox[{
    StyleBox["list", "TI"], ",", 
    StyleBox["cutoff", "TI"]}], "]"}]], "UsageInputs",
+ TaggingRules->{},
  CellChangeTimes->{{3.89729503120019*^9, 3.8972950362120733`*^9}, {
    3.897295131960875*^9, 3.897295135866602*^9}, {3.897295172815627*^9, 
    3.8972951822364597`*^9}, {3.897295332727336*^9, 3.897295333074915*^9}, {
@@ -457,17 +454,17 @@ Cell[TextData[Cell[BoxData[
      ButtonData->"ref/format/SMILES",
      ContentPadding->False],
     MouseAppearanceTag["LinkHand"]], 
-   StyleBox["strings", "TI"], 
-   StyleBox["withedges", "TI"], 
-   StyleBox["having", "TI"], 
-   StyleBox["similarity", "TI"]}], ">=", 
+   StyleBox["stringswithedgeshavingsimilarity", "TI"]}], 
+  StyleBox["<=", "TI"], 
   StyleBox["cutoff", "TI"]}]], "InlineFormula",
  FontFamily->
   "Source Sans Pro",ExpressionUUID->"181933da-58d4-4946-ac39-23683485e7cb"]], \
 "UsageDescription",
+ TaggingRules->{},
  CellChangeTimes->{{3.897295038708143*^9, 3.897295048989983*^9}, {
   3.8972951762213593`*^9, 3.897295190769761*^9}, {3.8972956046859093`*^9, 
-  3.897295606542264*^9}, {3.89729632489017*^9, 3.897296336057158*^9}},
+  3.897295606542264*^9}, {3.89729632489017*^9, 3.897296336057158*^9}, {
+  3.8973152751985064`*^9, 3.897315276599689*^9}},
  CellID->1246017302,ExpressionUUID->"eb95a40d-8003-4af1-9da7-5ef8fdacc20a"]
 }, Open  ]]
 }, Open  ]],
@@ -509,25 +506,33 @@ function, its development, and its usage.", "MoreInfoText"], Background ->
  CellTags->{"Details & Options", "Notes", "TemplateCellGroup"},
  CellID->447261062,ExpressionUUID->"5c86beb4-e8d4-4ae0-8297-911d091a34e5"],
 
-Cell["\<\
-The edge cutoff is a real number \[Alpha] between [0,1], all similarity \
-measures greater than or equal to the cutoff generate an edge in the network\
-\>", "Notes",
- CellChangeTimes->{{3.897296150891712*^9, 3.897296275051186*^9}},
+Cell[TextData[StyleBox["The edge cutoff is a real number \[Alpha] \
+between[0,1], all distance measures less than or equal to the cutoff generate \
+an edge in the network", "Text"]], "Notes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.897296150891712*^9, 3.897296275051186*^9}, {
+   3.8973152195172157`*^9, 3.897315223440773*^9}, 3.897316802512038*^9},
  CellID->805444828,ExpressionUUID->"d877054f-5c43-4011-b34c-27aeafe57ad5"],
 
-Cell["", "Notes",
+Cell["\<\
+The function accepts a csv formatted with at least an ID and SMILES string \
+for each molecule\
+\>", "Notes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.897314820354623*^9, 3.897314823434341*^9}, {
+  3.897315189563006*^9, 3.897315195195942*^9}, {3.897315364319758*^9, 
+  3.897315412194644*^9}},
  CellID->1522191972,ExpressionUUID->"501245f6-64c0-4324-b075-baede492fd46"],
 
 Cell[BoxData[GridBox[{
    {Cell["BioData", "TableText",ExpressionUUID->
-     "6ce18c64-2ee1-4bc5-b68a-6c2e1fc25613"], Cell[
+     "6ba75c3a-a224-4423-a962-2498bc099ac0"], Cell[
     "False", "TableText",ExpressionUUID->
-     "3798d733-db6c-4090-8cb2-7d3c9a6d4c13"], Cell[
-    "Whether to include biological data as a graph coloring", "TableText",
-     ExpressionUUID->"75eb3cfa-89f6-422d-8832-bda6b68470d4"]},
+     "bea32510-e705-458c-bc8c-7de54a6e9448"], Cell[
+    "whether to include biological data as a graph coloring", "TableText",
+     ExpressionUUID->"dc39976b-b7d4-4020-9fe1-c7ae7f13a75e"]},
    {Cell["Embedding", "TableText",ExpressionUUID->
-     "e4091129-2d81-4ff9-8a7e-01db2bb7ddf5"], Cell[TextData[ButtonBox[
+     "8c2484da-3067-4905-bdfe-f888798bc5f1"], Cell[TextData[ButtonBox[
     "Gravity",
      BaseStyle->"Hyperlink",
      ButtonData->{
@@ -535,16 +540,17 @@ Cell[BoxData[GridBox[{
        None},
      ButtonNote->
       "https://reference.wolfram.com/language/ref/GraphLayout.html"]], 
-     "TableText",ExpressionUUID->"18a16b83-faae-4139-8687-f936f41196c4"], 
-    Cell["The type of embedding used to render the final graph", "TableText",
-     ExpressionUUID->"aa39173f-ae55-4c3e-b34e-73e0b1fffd4b"]},
-   {Cell["", "TableText",ExpressionUUID->
-     "19bc4e83-ec14-4587-b53c-25fae03b038e"], Cell[
-    "", "TableText",ExpressionUUID->"178a2a19-ffe8-4609-8402-9e0ad512403e"], 
-    Cell["", "TableText",ExpressionUUID->
-     "9fc89f3c-a9bb-4a39-b800-15f3682daf7e"]},
+     "TableText",ExpressionUUID->"6477d90a-bcf4-4ac2-9106-fb162c5404c6"], 
+    Cell["the type of embedding used to render the final graph", "TableText",
+     ExpressionUUID->"9f97e322-5783-48ee-8cfa-8fe768006833"]},
+   {Cell["Matrix", "TableText",ExpressionUUID->
+     "94173be4-e4d7-4768-8904-542c999cbe99"], Cell[
+    "False", "TableText",ExpressionUUID->
+     "5d349a00-f0e9-45e7-bce4-6dbf15b2345b"], Cell[
+    "whether to return a distance matrix or a graph", "TableText",
+     ExpressionUUID->"dfe97556-01c1-4781-9728-f80577a22522"]},
    {Cell["Fingerprint", "TableText",ExpressionUUID->
-     "fdd12e73-75f6-4c81-832d-7ebdf532ef94"], Cell[TextData[ButtonBox[
+     "86d90a63-9c2d-4603-abfa-c0e6acf5299e"], Cell[TextData[ButtonBox[
     "Topological",
      BaseStyle->"Hyperlink",
      ButtonData->{
@@ -554,33 +560,142 @@ WolframChemistry/MoleculeFingerprints/ref/TopologicalFingerprint.html"], None},
      ButtonNote->
       "https://resources.wolframcloud.com/PacletRepository/resources/\
 WolframChemistry/MoleculeFingerprints/ref/TopologicalFingerprint.html"]], 
-     "TableText",ExpressionUUID->"ac09b2c8-22ac-4a46-a8ba-bc1e0e43fe5d"], 
-    Cell[TextData[{
-     "The fingerprint used to encode molecular ",
-     Cell[BoxData[
-      StyleBox["features", "TI"]], "InlineFormula",
-      FontFamily->"Source Sans Pro",ExpressionUUID->
-      "aa06b4ff-73ea-4ffa-be6e-ffd62c7e6af8"]
-    }], "TableText",ExpressionUUID->"2cda55c2-a4a4-4497-8d30-e690b6a7b0ed"]},
+     "TableText",ExpressionUUID->"3e4f0d34-0aff-49de-84d2-e628eacc39a1"], 
+    Cell["the fingerprint used to encode molecular features", "TableText",
+     ExpressionUUID->"b3f3fe33-a6b1-438d-9e35-56f3a78ec6eb"]},
    {Cell["Parallel", "TableText",ExpressionUUID->
-     "f6606ac9-0d81-4241-93bc-16fe7a4930ab"], Cell[
+     "4e9d0646-5143-4117-b355-e1e6808aff69"], Cell[
     "True", "TableText",ExpressionUUID->
-     "df965405-9bd6-4a84-a17e-87ec6456c210"], Cell[
-    "Whether to use parallel computation to generate the graph", "TableText",
-     ExpressionUUID->"49a3bd74-2b4e-454b-bb87-f51723470894"]},
-   {Cell["\[Placeholder]", "TableText",ExpressionUUID->
-     "04b83e7f-4f7c-4512-b38a-aa3af5f993b9"], Cell[
-    "\[Placeholder]", "TableText",ExpressionUUID->
-     "94cfcf5b-a946-4c15-a91b-c55bfb51fe20"], Cell[
-    "\[Placeholder]", "TableText",ExpressionUUID->
-     "d10f119b-8972-4abb-97ca-b29494ce1e66"]}
+     "5898733e-9589-423f-8d7f-6aee73678ca0"], Cell[
+    "whether to use parallel computation to generate the graph", "TableText",
+     ExpressionUUID->"8b94dfe3-86a4-4729-b908-5d383b48a39d"]},
+   {Cell["DistanceFunction", "TableText",ExpressionUUID->
+     "5ca476b5-80da-491d-9cba-dc8e05be08d7"], Cell[TextData[ButtonBox[
+    "JaccardDissimilarity",
+     BaseStyle->"Hyperlink",
+     ButtonData->{
+       URL[
+       "https://reference.wolfram.com/language/ref/JaccardDissimilarity.html"]\
+, None},
+     ButtonNote->
+      "https://reference.wolfram.com/language/ref/JaccardDissimilarity.html"]]\
+, "TableText",ExpressionUUID->"f1068251-7435-4d66-b466-494f81d5c69d"], Cell[
+    "the function that generates distances between features", "TableText",
+     ExpressionUUID->"861a17be-b72e-4283-a148-12273ed7b42d"]}
   }]], "TableNotes",
+ TaggingRules->{},
  CellChangeTimes->{{3.897295515950042*^9, 3.897295551936143*^9}, {
   3.89729560897815*^9, 3.8972957153288393`*^9}, {3.897295745790678*^9, 
   3.8972958294185057`*^9}, {3.897295939274868*^9, 3.8972959674623117`*^9}, {
   3.8972959987413797`*^9, 3.8972960036682043`*^9}, {3.897296066018704*^9, 
-  3.897296133037812*^9}, {3.897296181212219*^9, 3.897296182243307*^9}},
- CellID->1178444279,ExpressionUUID->"e94392f4-535b-446d-8a3b-c25bfb4ef33f"]
+  3.897296133037812*^9}, {3.897296181212219*^9, 3.897296182243307*^9}, {
+  3.897314827032927*^9, 3.897314939146854*^9}, {3.897315252287179*^9, 
+  3.89731526114799*^9}, {3.897315413707489*^9, 3.897315421658277*^9}, {
+  3.897315899695511*^9, 3.8973158996956387`*^9}},
+ CellID->1178444279,ExpressionUUID->"463642a8-95d6-456b-9dbb-8065bc87912b"],
+
+Cell["\<\
+The options for the Fingerprint option derive from the MolecularFingerprints \
+paclet and are\
+\>", "Notes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.8973154803197947`*^9, 3.8973154831412077`*^9}, {
+  3.897315521549262*^9, 3.8973155590758963`*^9}, {3.897315623903214*^9, 
+  3.8973156390804157`*^9}, {3.897315935111524*^9, 3.897315937934417*^9}},
+ CellID->1113000328,ExpressionUUID->"649505e8-1bfb-4c63-bc4a-284460e3375d"],
+
+Cell[BoxData[GridBox[{
+   {Cell["TopologicalFingerprint", "TableText",ExpressionUUID->
+     "a9795cdd-10f4-402e-ba43-bcc0ad7cf98b"], Cell[
+    "Features based on paths", "TableText",ExpressionUUID->
+     "39def6d5-cc84-478b-a243-0a702c2bc959"]},
+   {Cell["ExtendedConnectivityFingerprint", "TableText",ExpressionUUID->
+     "7e9bd4dd-289d-4344-a1ab-0d196fbdca4d"], Cell[
+    "Features based on all atoms in a given \"radius\"", "TableText",
+     ExpressionUUID->"fb68e333-2914-4df4-a992-9ced0003a941"]},
+   {Cell["AtomPairFingerprint", "TableText",ExpressionUUID->
+     "9e477532-a50d-446e-b9b4-b18bfa57493f"], Cell[
+    "Feature based on pairs of atoms and distances", "TableText",
+     ExpressionUUID->"6837c458-0601-4451-a1be-43b75453a055"]},
+   {Cell["MACCSKeyFingerprint", "TableText",ExpressionUUID->
+     "11b87762-86d1-4a2e-b296-554fa9951e27"], Cell[
+    "Predefined set of substrucutre keys", "TableText",ExpressionUUID->
+     "7980d05b-e156-4e59-8cb0-7dcdc001b7f2"]},
+   {Cell["SubstructureKeyFingerprint", "TableText",ExpressionUUID->
+     "77a3801b-8a11-44fa-8234-0deee3faae0f"], Cell[
+    "Use a custom set of molecule patterns", "TableText",ExpressionUUID->
+     "faf1c4fd-2958-4b5a-ab7d-3b1f7271968e"]},
+   {Cell["LayeredFingerprint", "TableText",ExpressionUUID->
+     "e8561bd3-65fa-41e9-976b-0d70d4dbf6f1"], Cell["\<\
+Alternate topological fingerprint using different graph hashing\
+\>", "TableText",ExpressionUUID->"25b0fdfc-4454-476b-a356-3917fb146b19"]}
+  }]], "TableNotes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.8973155689723682`*^9, 3.897315571827196*^9}, {
+  3.897315640907384*^9, 3.897315849784544*^9}},
+ CellID->1297652550,ExpressionUUID->"c1025e18-ad98-45ab-aec3-60f5d1b11070"],
+
+Cell[TextData[{
+ "The DistanceFunction option derives from the options for the \
+MolecularDistance function in the MolecularFingerprints paclet and can be any \
+valid ",
+ Cell[BoxData[
+  TagBox[
+   ButtonBox[
+    StyleBox["DistanceFunction", "SymbolsRefLink",
+     ShowStringCharacters->True,
+     FontFamily->"Source Sans Pro"],
+    BaseStyle->Dynamic[
+      FEPrivate`If[
+       CurrentValue["MouseOver"], {
+       "Link", FontColor -> RGBColor[0.8549, 0.39608, 0.1451]}, {"Link"}]],
+    ButtonData->"paclet:ref/DistanceFunction",
+    ContentPadding->False],
+   MouseAppearanceTag["LinkHand"]]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "004886ad-f904-4896-9e8d-3740b982ce00"],
+ ". The most common options are the default ",
+ Cell[BoxData[
+  TagBox[
+   ButtonBox[
+    StyleBox["JaccardDissimilarity", "SymbolsRefLink",
+     ShowStringCharacters->True,
+     FontFamily->"Source Sans Pro"],
+    BaseStyle->Dynamic[
+      FEPrivate`If[
+       CurrentValue["MouseOver"], {
+       "Link", FontColor -> RGBColor[0.8549, 0.39608, 0.1451]}, {"Link"}]],
+    ButtonData->"paclet:ref/JaccardDissimilarity",
+    ContentPadding->False],
+   MouseAppearanceTag["LinkHand"]]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "0782d7b0-4268-4779-a9e2-32e11e0ae890"],
+ " and the ",
+ Cell[BoxData[
+  TagBox[
+   ButtonBox[
+    StyleBox["DiceDissimilarity", "SymbolsRefLink",
+     ShowStringCharacters->True,
+     FontFamily->"Source Sans Pro"],
+    BaseStyle->Dynamic[
+      FEPrivate`If[
+       CurrentValue["MouseOver"], {
+       "Link", FontColor -> RGBColor[0.8549, 0.39608, 0.1451]}, {"Link"}]],
+    ButtonData->"paclet:ref/DiceDissimilarity",
+    ContentPadding->False],
+   MouseAppearanceTag["LinkHand"]]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "e499c301-399f-4fca-a7be-0861dde8b02e"],
+ ". When fingerprints return count vectors, multi set versions of the \
+DistanceFunctions are used."
+}], "Notes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.89731585667638*^9, 3.8973158594986067`*^9}, {
+  3.897315897331382*^9, 3.897315933026319*^9}, {3.897316052024589*^9, 
+  3.897316069881246*^9}, {3.8973161081627607`*^9, 3.8973161852437887`*^9}, {
+  3.8973162155581093`*^9, 3.897316216136216*^9}, {3.89731670189013*^9, 
+  3.89731670358794*^9}},
+ CellID->48358283,ExpressionUUID->"bc8c648d-99d2-49c9-b8da-2655640aadc2"]
 }, Open  ]]
 }, Open  ]],
 
@@ -916,7 +1031,7 @@ concepts) that should be used to include the function in search results.",
  CellTags->{"Keywords", "TemplateCellGroup"},
  CellID->854882061,ExpressionUUID->"492f866b-d5a0-417f-b106-d5aa021b7094"],
 
-Cell["Chemistry, ", "Item",
+Cell["Chemistry,", "Item",
  TaggingRules->{},
  CellEventActions->{Inherited, {"KeyDown", "\t"} :> Replace[SelectionMove[
        SelectedNotebook[], After, Cell]; NotebookFind[
@@ -925,22 +1040,13 @@ Cell["Chemistry, ", "Item",
        SelectedNotebook[], All, CellContents, AutoScroll -> True]], 
    PassEventsDown -> False, PassEventsUp -> False},
  CellChangeTimes->{{3.897294675630411*^9, 3.897294700787383*^9}, {
-  3.89729485229366*^9, 3.897294852296026*^9}},
+   3.89729485229366*^9, 3.897294852296026*^9}, 3.8973168137308064`*^9},
  CellTags->{"DefaultContent", "TabNext"},
  CellID->560424104,ExpressionUUID->"dff747e2-596d-408b-9cae-74055cbb5494"],
 
-Cell["Biology, ", "Item",
- TaggingRules->{},
- CellEventActions->{Inherited, {"KeyDown", "\t"} :> Replace[SelectionMove[
-       SelectedNotebook[], After, Cell]; NotebookFind[
-       SelectedNotebook[], "TabNext", Next, CellTags, AutoScroll -> True, 
-       WrapAround -> True], Blank[NotebookSelection] :> SelectionMove[
-       SelectedNotebook[], All, CellContents, AutoScroll -> True]], 
-   PassEventsDown -> False, PassEventsUp -> False},
- CellChangeTimes->{{3.897294675630411*^9, 3.897294700787383*^9}, {
-  3.8972948539837513`*^9, 3.8972948539863377`*^9}},
- CellTags->{"DefaultContent", "TabNext"},
- CellID->115867281,ExpressionUUID->"24215f7b-eae4-4756-b40a-9caa32c5d5b8"],
+Cell["Biology", "Item",
+ CellChangeTimes->{3.897316817883192*^9},
+ CellID->1742993323,ExpressionUUID->"5aac3f6c-3fc4-4e56-93da-3364d181609e"],
 
 Cell["Graphs", "Item",
  TaggingRules->{},
@@ -1807,7 +1913,6 @@ Cell[BoxData[
          StyleBox[
           TemplateBox[{
             CheckboxBox["WebEvaluation", {False, "WebEvaluation"}], "\" \"", 
-            
             TemplateBox[{
              "\"WebEvaluation\"", 
               "\"Cloud evaluation initiated by an HTTP request\""}, 
@@ -2133,7 +2238,11 @@ WyabbVsUI30dbWyR5mC4Y6npzAQV7A7CHW8e0ORJGTUV01ufdzMGR2GbTwVmCj3d8A9cd0NNHoiRcl\
     "Contexts" -> {
      "FunctionResource`", "FunctionResource`DefinitionNotebook`"}, 
     "DefaultContentMethod" -> "Legacy"}, "ToolsOpen" -> True, "StatusMessage" -> 
-  "", "SubmissionReviewData" -> {"Review" -> False}, "AutoUpdate" -> True},
+  "", "SubmissionReviewData" -> {"Review" -> False}, "AutoUpdate" -> True, 
+  "PreviewNotebook" -> 
+  NotebookObject[
+   "94cf840c-af88-46b2-b3e8-489bd4993e01", 
+    "49c58308-ebe5-4a77-84c7-b82a30445ed8"]},
 CreateCellID->True,
 FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (June 8, 2023)",
 StyleDefinitions->Notebook[{

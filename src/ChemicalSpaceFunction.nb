@@ -1,0 +1,138 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[      5144,        130]
+NotebookOptionsPosition[      4370,        109]
+NotebookOutlinePosition[      4793,        126]
+CellTagsIndexPosition[      4750,        123]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"SetDirectory", "@", 
+  RowBox[{"NotebookDirectory", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.897326844637547*^9, 3.897326866321504*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"5ae539f4-ff0c-4a8d-9314-8c6523204e4e"],
+
+Cell[BoxData["\<\"/Users/joshuakhorsandi/Documents/Summer Research - 2023/WSS \
+2023/Chem Space - #225/ChemicalSpaceNetworks/ChemicalSpaceNetworks/Src\"\>"], \
+"Output",
+ CellChangeTimes->{3.897326866595636*^9, 3.8973823206159782`*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"b1a17883-ffc7-4f5b-aa0a-c2101779ff20"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{"<<", "InputWorkhorseFunctions.wl"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "GraphGeneration.wl"}], "\[IndentingNewLine]", 
+ RowBox[{"Needs", "[", "\"\<WolframChemistry`MoleculeFingerprints`\>\"", 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.897326869513302*^9, 3.897326869646081*^9}, {
+  3.897326963692751*^9, 3.8973269909495707`*^9}, {3.8973758490131207`*^9, 
+  3.897375859395546*^9}},
+ CellLabel->
+  "In[174]:=",ExpressionUUID->"3f7fa92d-e471-4851-992c-c5e8bc1cd8be"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.8973823157150517`*^9, 
+  3.8973823192563953`*^9}},ExpressionUUID->"e1fbe312-0a23-4d1a-9bcf-\
+1f8791de9a58"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Options", "[", "generateInput", "]"}], "=", 
+   RowBox[{"Options", "[", "assignFingerprints", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"generateInput", "[", 
+   RowBox[{"input_", ",", 
+    RowBox[{"opts", ":", 
+     RowBox[{"OptionsPattern", "[", "]"}]}]}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "mols", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"mols", "=", 
+      RowBox[{"Which", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"StringEndsQ", "[", 
+         RowBox[{"input", ",", "\"\<.csv\>\""}], "]"}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"generateDataset", "[", "input", "]"}], "//", 
+          "cleanDataset"}], "//", "removeDuplicates"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"validSmilesQ", "[", 
+         RowBox[{"First", "[", "input", "]"}], "]"}], ",", 
+        RowBox[{"Molecule", "/@", "input"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"StringEndsQ", "[", 
+         RowBox[{"input", ",", "\"\<.smi\>\""}], "]"}], ",", 
+        RowBox[{"Import", "[", "input", "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"moleculeListQ", "[", "input", "]"}], ",", "input"}], "]"}]}],
+      ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"ListQ", "[", "mols", "]"}], ",", 
+       RowBox[{"assignFingerprintsList", "[", 
+        RowBox[{"mols", ",", 
+         RowBox[{"\"\<Fingerprint\>\"", "->", 
+          RowBox[{"OptionValue", "[", "\"\<Fingerprint\>\"", "]"}]}]}], "]"}],
+        ",", 
+       RowBox[{"assignFingerprints", "[", 
+        RowBox[{"mols", ",", 
+         RowBox[{"\"\<Fingerprint\>\"", "->", 
+          RowBox[{"OptionValue", "[", "\"\<Fingerprint\>\"", "]"}]}]}], 
+        "]"}]}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.897375096291411*^9, 3.897375118885758*^9}, {
+  3.897375196456559*^9, 3.897375309685411*^9}, {3.897375341244368*^9, 
+  3.897375407995194*^9}, {3.897375457719212*^9, 3.897375611958219*^9}, {
+  3.897375654520626*^9, 3.897375678702667*^9}, {3.897375714097068*^9, 
+  3.8973758011008167`*^9}, {3.897375834504154*^9, 3.89737587536592*^9}, {
+  3.897375950186708*^9, 3.897375991936512*^9}, {3.897376048143429*^9, 
+  3.897376051567987*^9}, {3.897386217410921*^9, 3.897386218370206*^9}, {
+  3.89738669720889*^9, 3.897386699595306*^9}, {3.897386804950234*^9, 
+  3.897386824052846*^9}},
+ CellLabel->
+  "In[197]:=",ExpressionUUID->"d8275521-e391-40db-b082-a94a8262f57d"]
+},
+WindowSize->{1728, 977},
+WindowMargins->{{45, Automatic}, {0, Automatic}},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (June 8, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"13b94586-7e1d-4065-a602-3880602b28b4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[583, 22, 244, 4, 37, "Input",ExpressionUUID->"5ae539f4-ff0c-4a8d-9314-8c6523204e4e"],
+Cell[830, 28, 314, 4, 42, "Output",ExpressionUUID->"b1a17883-ffc7-4f5b-aa0a-c2101779ff20"]
+}, Open  ]],
+Cell[1159, 35, 493, 9, 90, "Input",ExpressionUUID->"3f7fa92d-e471-4851-992c-c5e8bc1cd8be"],
+Cell[1655, 46, 156, 3, 37, "Input",ExpressionUUID->"e1fbe312-0a23-4d1a-9bcf-1f8791de9a58"],
+Cell[1814, 51, 2552, 56, 246, "Input",ExpressionUUID->"d8275521-e391-40db-b082-a94a8262f57d"]
+}
+]
+*)
+
