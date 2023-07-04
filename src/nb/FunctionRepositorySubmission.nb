@@ -35,8 +35,6 @@ A function that generates a chemical space network from molecule data\
  CellTags->{"DefaultContent", "Description", "TabNext", "TemplateCell"},
  CellID->660820806,ExpressionUUID->"d7c00359-0607-403d-8059-4f4814557e35"],
 
-Cell[CellGroupData[{
-
 Cell[TextData[{
  "Definition",
  Cell[BoxData[
@@ -68,198 +66,6 @@ evaluated before creating the Examples section below.", "MoreInfoText"],
  DefaultNewCellStyle->"Input",
  CellTags->{"Definition", "Function", "TemplateCellGroup"},
  CellID->292731158,ExpressionUUID->"7a982c46-eca3-4dd3-90b7-e5de10c35967"],
-
-Cell[BoxData[{
- RowBox[{"Needs", "[", "\"\<WolframChemistry`MoleculeFingerprints`\>\"", 
-  "]"}], "\n", 
- RowBox[{
-  RowBox[{"validSmilesQ", "[", 
-   RowBox[{"smile_", "?", "StringQ"}], "]"}], ":=", "\[IndentingNewLine]", 
-  RowBox[{"MatchQ", "[", 
-   RowBox[{
-    RowBox[{"Quiet", "[", 
-     RowBox[{"Molecule", "[", "smile", "]"}], "]"}], ",", 
-    RowBox[{"Except", "[", "$Failed", "]"}]}], "]"}]}], "\n", 
- RowBox[{
-  RowBox[{"moleculeListQ", "[", "list_", "]"}], ":=", 
-  RowBox[{"AllTrue", "[", 
-   RowBox[{"list", ",", "MoleculeQ"}], "]"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"cleanDataset", "[", "data_Dataset", "]"}], ":=", 
-   "\[IndentingNewLine]", 
-   RowBox[{"data", "[", 
-    RowBox[{"Select", "[", 
-     RowBox[{
-      RowBox[{"StringFreeQ", "[", 
-       RowBox[{"#Smiles", ",", "\"\<.\>\""}], "]"}], "&"}], "]"}], "]"}]}], 
-  ";"}], "\n", 
- RowBox[{
-  RowBox[{"removeDuplicates", "[", "data_Dataset", "]"}], ":=", 
-  "\[IndentingNewLine]", 
-  RowBox[{"data", "[", 
-   RowBox[{
-    RowBox[{"GroupBy", "[", 
-     RowBox[{"#", ",", 
-      RowBox[{
-       RowBox[{"#\"Molecule ChEMBL ID\"", "&"}], "->", 
-       RowBox[{"(", 
-        RowBox[{
-         RowBox[{"<|", 
-          RowBox[{
-           RowBox[{"\"\<Smiles\>\"", "->", "#\"Smiles\""}], ",", 
-           RowBox[{"\"\<pKi\>\"", "->", "#\"pKi\""}]}], "|>"}], "&"}], 
-        ")"}]}], ",", "Mean"}], "]"}], "&"}], 
-   "]"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"moleculeGenerate", "[", "file_", "]"}], ":=", 
-  "\[IndentingNewLine]", 
-  RowBox[{"Module", "[", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{"data", ",", "dataset"}], "}"}], ",", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"data", "=", 
-      RowBox[{"Import", "[", 
-       RowBox[{"file", ",", "\"\<Table\>\"", ",", 
-        RowBox[{"\"\<FieldSeparators\>\"", "->", "\"\<;\>\""}], ",", 
-        RowBox[{"\"\<RepeatedSeparators\>\"", "->", "False"}]}], "]"}]}], ";",
-      "\[IndentingNewLine]", 
-     RowBox[{"dataset", "=", 
-      RowBox[{"Dataset", "[", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"AssociationThread", "[", 
-          RowBox[{
-           RowBox[{"First", "[", "data", "]"}], "->", "#"}], "]"}], "&"}], "/@", 
-        RowBox[{"Rest", "[", "data", "]"}]}], "]"}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"dataset", "=", 
-      RowBox[{"Molecule", "/@", 
-       RowBox[{"dataset", "[", 
-        RowBox[{"All", ",", "\"\<Smiles\>\""}], "]"}]}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"DeleteDuplicates", "[", "dataset", "]"}]}]}], 
-   "\[IndentingNewLine]", "]"}]}], "\n", 
- RowBox[{
-  RowBox[{"moleculeGenerate", "[", 
-   RowBox[{"smileString_", "?", "validSmilesQ"}], "]"}], ":=", 
-  RowBox[{"Molecule", "[", "smileString", "]"}]}], "\n", 
- RowBox[{
-  RowBox[{"moleculeGenerate", "[", "dataset_Dataset", "]"}], ":=", 
-  RowBox[{"Molecule", "/@", 
-   RowBox[{"dataset", "[", 
-    RowBox[{"All", ",", "\"\<Smiles\>\""}], "]"}]}]}], "\n", 
- RowBox[{
-  RowBox[{"generateDataset", "[", "file_", "]"}], ":=", "\[IndentingNewLine]", 
-  RowBox[{"Module", "[", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{"data", ",", "dataset"}], "}"}], ",", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"data", "=", 
-      RowBox[{"Import", "[", 
-       RowBox[{"file", ",", "\"\<Table\>\"", ",", 
-        RowBox[{"\"\<FieldSeparators\>\"", "->", "\"\<;\>\""}], ",", 
-        RowBox[{"\"\<RepeatedSeparators\>\"", "->", "False"}]}], "]"}]}], ";",
-      "\[IndentingNewLine]", 
-     RowBox[{"dataset", "=", 
-      RowBox[{"Dataset", "[", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"AssociationThread", "[", 
-          RowBox[{
-           RowBox[{"First", "[", "data", "]"}], "->", "#"}], "]"}], "&"}], "/@", 
-        RowBox[{"Rest", "[", "data", "]"}]}], "]"}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"dataset", "[", 
-       RowBox[{
-        RowBox[{"Select", "[", 
-         RowBox[{
-          RowBox[{"NumberQ", "[", 
-           RowBox[{"Slot", "[", "\"\<Standard Value\>\"", "]"}], "]"}], "&"}],
-          "]"}], ",", 
-        RowBox[{
-         RowBox[{"<|", 
-          RowBox[{
-           RowBox[{
-           "\"\<Molecule ChEMBL ID\>\"", "->", "#\"Molecule ChEMBL ID\""}], 
-           ",", 
-           RowBox[{"\"\<Smiles\>\"", "->", "#\"Smiles\""}], ",", 
-           RowBox[{"\"\<pKi\>\"", "->", 
-            RowBox[{"9", "-", 
-             RowBox[{"Log10", "[", "#\"Standard Value\"", "]"}]}]}]}], "|>"}],
-          "&"}]}], "]"}], "//", 
-      RowBox[{"SortBy", "[", 
-       RowBox[{"#\"Molecule ChEMBL ID\"", "&"}], "]"}]}]}]}], 
-   "\[IndentingNewLine]", "]"}]}], "\n", 
- RowBox[{
-  RowBox[{
-   RowBox[{"Options", "[", "assignFingerprints", "]"}], "=", 
-   RowBox[{"Join", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"\"\<Fingerprint\>\"", "->", "TopologicalFingerprint"}], "}"}], 
-     ",", 
-     RowBox[{"Options", "[", "TopologicalFingerprint", "]"}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"assignFingerprints", "[", 
-    RowBox[{"dataset_Dataset", ",", 
-     RowBox[{"opts", ":", 
-      RowBox[{"OptionsPattern", "[", "]"}]}]}], "]"}], ":=", 
-   RowBox[{"dataset", "[", 
-    RowBox[{"All", ",", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"With", "[", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"mol", "=", 
-          RowBox[{"Molecule", "[", 
-           RowBox[{"#\"Smiles\"", ",", 
-            RowBox[{"IncludeHydrogens", "->", "False"}]}], "]"}]}], "}"}], 
-        ",", 
-        RowBox[{"<|", 
-         RowBox[{"##", ",", "\[IndentingNewLine]", 
-          RowBox[{"\"\<Molecule\>\"", "->", "mol"}], ",", 
-          RowBox[{"\"\<Fingerprint\>\"", "->", 
-           RowBox[{
-            RowBox[{"OptionValue", "[", "\"\<Fingerprint\>\"", "]"}], "[", 
-            "mol", "]"}]}]}], "|>"}]}], "]"}], "&"}]}], "]"}]}], 
-  ";"}], "\n", 
- RowBox[{
-  RowBox[{
-   RowBox[{"Options", "[", "assignFingerprintsList", "]"}], "=", 
-   RowBox[{"{", 
-    RowBox[{"\"\<Fingerprint\>\"", "->", "TopologicalFingerprint"}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"assignFingerprintsList", "[", 
-   RowBox[{"molList_", ",", 
-    RowBox[{"OptionsPattern", "[", "]"}]}], "]"}], ":=", 
-  RowBox[{"Dataset", "[", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"AssociationThread", "[", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{"\"\<Molecule\>\"", ",", "\"\<Fingerprint\>\""}], "}"}], "->",
-        "#"}], "]"}], "&"}], "/@", 
-    RowBox[{"Map", "[", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{"#", ",", 
-         RowBox[{
-          RowBox[{"OptionValue", "[", "\"\<Fingerprint\>\"", "]"}], "[", "#", 
-          "]"}]}], "}"}], "&"}], ",", "molList"}], "]"}]}], "]"}]}]}], "Input",
- TaggingRules->{},
- CellChangeTimes->{{3.897294532813017*^9, 3.897294564162368*^9}},
- CellLabel->"In[1]:=",
- CellID->1787288264,ExpressionUUID->"6dd99f2b-05c6-4950-b649-439a2d0ae994"]
-}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -293,6 +99,7 @@ then pressing ",
                 If[$OperatingSystem === "MacOSX", "\[ReturnKey]", 
                  "\[EnterKey]"], StandardForm], SingleEvaluation -> True, 
                Evaluator -> "System"], ShowStringCharacters -> False]]], 
+           
            " to add a brief explanation of the function\[CloseCurlyQuote]s \
 behavior for that structure. Pressing ", 
            Cell[
@@ -384,8 +191,20 @@ Cell[TextData[Cell[BoxData[
      ButtonData->"ref/format/SMILES",
      ContentPadding->False],
     MouseAppearanceTag["LinkHand"]], 
-   StyleBox["stringswithedgeshavingsimilarity", "TI"]}], 
-  StyleBox["<=", "TI"], 
+   StyleBox["strings", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["with", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["edges", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["between", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["vertices", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["having", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["similarity", "TI"]}], 
+  StyleBox[">=", "TI"], 
   StyleBox["cutoff", "TI"]}]], "InlineFormula",
  FontFamily->
   "Source Sans Pro",ExpressionUUID->"e8448206-606c-412d-a8b0-4dd892841553"]], \
@@ -394,7 +213,8 @@ Cell[TextData[Cell[BoxData[
  CellChangeTimes->{{3.89729476350249*^9, 3.897294789794879*^9}, {
   3.897294934369711*^9, 3.8972949438562927`*^9}, {3.897295580482514*^9, 
   3.897295593370905*^9}, {3.897296300406204*^9, 3.8972963493006277`*^9}, {
-  3.8973152709839582`*^9, 3.8973152724864197`*^9}},
+  3.8973152709839582`*^9, 3.8973152724864197`*^9}, {3.897481710476885*^9, 
+  3.8974817440264263`*^9}},
  CellTags->{"DefaultContent", "TabNext"},
  CellID->746063541,ExpressionUUID->"9ddb5f09-c4f9-4fe9-9f77-38ef9f48b771"]
 }, Open  ]],
@@ -431,14 +251,21 @@ Cell[BoxData[
 
 Cell[TextData[Cell[BoxData[
  RowBox[{
-  RowBox[{"Generates", 
+  RowBox[{"Generates", " ", 
    StyleBox["a", "TI"], 
+   StyleBox[" ", "TI"], 
    StyleBox["chemical", "TI"], 
+   StyleBox[" ", "TI"], 
    StyleBox["space", "TI"], 
+   StyleBox[" ", "TI"], 
    StyleBox["graph", "TI"], 
+   StyleBox[" ", "TI"], 
    StyleBox["from", "TI"], 
+   StyleBox[" ", "TI"], 
    StyleBox["a", "TI"], 
+   StyleBox[" ", "TI"], 
    StyleBox["list", "TI"], 
+   StyleBox[" ", "TI"], 
    StyleBox["of", "TI"], 
    TagBox[
     ButtonBox[
@@ -454,8 +281,19 @@ Cell[TextData[Cell[BoxData[
      ButtonData->"ref/format/SMILES",
      ContentPadding->False],
     MouseAppearanceTag["LinkHand"]], 
-   StyleBox["stringswithedgeshavingsimilarity", "TI"]}], 
-  StyleBox["<=", "TI"], 
+   StyleBox["strings", "TI"], 
+   StyleBox["with", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["edges", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["between", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["vertices", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["having", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["similarity", "TI"]}], 
+  StyleBox[">=", "TI"], 
   StyleBox["cutoff", "TI"]}]], "InlineFormula",
  FontFamily->
   "Source Sans Pro",ExpressionUUID->"181933da-58d4-4946-ac39-23683485e7cb"]], \
@@ -464,8 +302,158 @@ Cell[TextData[Cell[BoxData[
  CellChangeTimes->{{3.897295038708143*^9, 3.897295048989983*^9}, {
   3.8972951762213593`*^9, 3.897295190769761*^9}, {3.8972956046859093`*^9, 
   3.897295606542264*^9}, {3.89729632489017*^9, 3.897296336057158*^9}, {
-  3.8973152751985064`*^9, 3.897315276599689*^9}},
+  3.8973152751985064`*^9, 3.897315276599689*^9}, {3.8974817530314493`*^9, 
+  3.897481814314496*^9}},
  CellID->1246017302,ExpressionUUID->"eb95a40d-8003-4af1-9da7-5ef8fdacc20a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   TagBox[
+    ButtonBox[
+     StyleBox["ResourceFunction", "SymbolsRefLink",
+      ShowStringCharacters->True,
+      FontFamily->"Source Sans Pro"],
+     BaseStyle->Dynamic[
+       FEPrivate`If[
+        CurrentValue["MouseOver"], {
+        "Link", FontColor -> RGBColor[0.854902, 0.396078, 0.145098]}, {
+        "Link"}]],
+     ButtonData->"paclet:ref/ResourceFunction",
+     ContentPadding->False],
+    MouseAppearanceTag["LinkHand"]], "[", "\"\<ChemicalSpaceNetwork\>\"", 
+   "]"}], "[", 
+  RowBox[{
+   StyleBox["list", "TI"], ",", 
+   StyleBox["cutoff", "TI"]}], "]"}]], "UsageInputs",
+ CellChangeTimes->{{3.897481765601089*^9, 3.8974817973939543`*^9}, 
+   3.897481864337965*^9},
+ FontFamily->"Source Sans Pro",
+ CellID->627246314,ExpressionUUID->"017e9267-9af8-4434-8f3b-1aace2ea8908"],
+
+Cell[TextData[Cell[BoxData[
+ RowBox[{
+  RowBox[{"Generates", 
+   StyleBox["a", "TI"], 
+   StyleBox["chemical", "TI"], 
+   StyleBox["space", "TI"], 
+   StyleBox["graph", "TI"], 
+   StyleBox["from", "TI"], 
+   StyleBox["a", "TI"], 
+   StyleBox["list", "TI"], 
+   StyleBox["of", "TI"], 
+   TagBox[
+    ButtonBox[
+     StyleBox["Molecule", "SymbolsRefLink",
+      ShowStringCharacters->True,
+      FontFamily->"Source Sans Pro"],
+     BaseStyle->Dynamic[
+       FEPrivate`If[
+        CurrentValue["MouseOver"], {
+        "Link", FontColor -> RGBColor[0.8549, 0.39608, 0.1451]}, {"Link"}]],
+     ButtonData->"paclet:ref/Molecule",
+     ContentPadding->False],
+    MouseAppearanceTag["LinkHand"]], 
+   StyleBox["objects", "TI"], 
+   StyleBox["with", "TI"], 
+   StyleBox["edges", "TI"], 
+   StyleBox["between", "TI"], 
+   StyleBox["vertices", "TI"], 
+   StyleBox["having", "TI"], 
+   StyleBox["similarity", "TI"]}], ">=", 
+  StyleBox["cutoff", "TI"]}]], "InlineFormula",
+ FontFamily->
+  "Source Sans Pro",ExpressionUUID->"95087cfe-d152-41d0-84ce-114de460c484"]], \
+"UsageDescription",
+ CellChangeTimes->{{3.897481818593266*^9, 3.897481868045415*^9}},
+ CellID->807127394,ExpressionUUID->"45da8f60-94e3-4db2-91e7-85096d1ab85d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   TagBox[
+    ButtonBox[
+     StyleBox["ResourceFunction", "SymbolsRefLink",
+      ShowStringCharacters->True,
+      FontFamily->"Source Sans Pro"],
+     BaseStyle->Dynamic[
+       FEPrivate`If[
+        CurrentValue["MouseOver"], {
+        "Link", FontColor -> RGBColor[0.854902, 0.396078, 0.145098]}, {
+        "Link"}]],
+     ButtonData->"paclet:ref/ResourceFunction",
+     ContentPadding->False],
+    MouseAppearanceTag["LinkHand"]], "[", "\"\<ChemicalSpaceNetwork\>\"", 
+   "]"}], "[", 
+  RowBox[{
+   RowBox[{
+    StyleBox["file", "TI"], ".", 
+    StyleBox["smi", "TI"]}], ",", 
+   StyleBox["cutoff", "TI"]}], "]"}]], "UsageInputs",
+ CellChangeTimes->{{3.897481886408621*^9, 3.8974818948476887`*^9}},
+ FontFamily->"Source Sans Pro",
+ CellID->131467426,ExpressionUUID->"f55f2ae1-7a21-4e3d-8390-afe07bbef512"],
+
+Cell[TextData[Cell[BoxData[
+ RowBox[{
+  RowBox[{"Generates", " ", 
+   StyleBox["a", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["chemical", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["space", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["graph", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["from", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["a", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["SMI", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["file", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["containing", "TI"], 
+   TagBox[
+    ButtonBox[
+     StyleBox[
+      StyleBox["\"\<SMILES\>\"", "FormatsRefLink",
+       ShowStringCharacters->True,
+       FontFamily->"Source Sans Pro"], "StringTypeLink",
+      StripOnInput->False],
+     BaseStyle->Dynamic[
+       FEPrivate`If[
+        CurrentValue["MouseOver"], {
+        "Link", FontColor -> RGBColor[0.8549, 0.39608, 0.1451]}, {"Link"}]],
+     ButtonData->"ref/format/SMILES",
+     ContentPadding->False],
+    MouseAppearanceTag["LinkHand"]], 
+   StyleBox["strings", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["with", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["edges", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["between", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["vertices", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["having", "TI"], 
+   StyleBox[" ", "TI"], 
+   StyleBox["similarity", "TI"]}], 
+  StyleBox[">=", "TI"], 
+  StyleBox["cutoff", "TI"]}]],
+ FontFamily->
+  "Source Sans Pro",ExpressionUUID->"a4e1b501-d45c-4443-8f34-e011aa15f563"]], \
+"UsageDescription",
+ CellChangeTimes->{{3.897481899360857*^9, 3.897481930836878*^9}},
+ CellID->983616839,ExpressionUUID->"cd63688e-1919-4c89-a706-1a3005ab0afd"]
 }, Open  ]]
 }, Open  ]],
 
@@ -506,6 +494,20 @@ function, its development, and its usage.", "MoreInfoText"], Background ->
  CellTags->{"Details & Options", "Notes", "TemplateCellGroup"},
  CellID->447261062,ExpressionUUID->"5c86beb4-e8d4-4ae0-8297-911d091a34e5"],
 
+Cell["\<\
+A chemical space network is a graph \[ScriptCapitalG] of molecules. The set \
+of vertices \[ScriptCapitalV](\[ScriptCapitalG]) is the set of molecules and \
+the edges \[ScriptE] \[Epsilon] \[ScriptCapitalE](\[ScriptCapitalG]) are \
+generated from molecules with similarity measures \[GreaterEqual] \[Alpha]. \
+See Maggiora, G. M., & Bajorath, J. (2014). Chemical space networks: A \
+powerful new paradigm for the description of chemical space. Journal of \
+Computer-Aided Molecular Design, 28(8), 795\[Dash]802. \
+https://doi.org/10.1007/s10822-014-9760-0 for more details. \
+\>", "Notes",
+ CellChangeTimes->{{3.897482055461547*^9, 3.897482245945058*^9}, {
+  3.897482311284335*^9, 3.897482330853788*^9}},
+ CellID->1846316115,ExpressionUUID->"1f38496a-810e-4d40-b25d-7146163c162c"],
+
 Cell[TextData[StyleBox["The edge cutoff is a real number \[Alpha] \
 between[0,1], all distance measures less than or equal to the cutoff generate \
 an edge in the network", "Text"]], "Notes",
@@ -515,13 +517,13 @@ an edge in the network", "Text"]], "Notes",
  CellID->805444828,ExpressionUUID->"d877054f-5c43-4011-b34c-27aeafe57ad5"],
 
 Cell["\<\
-The function accepts a csv formatted with at least an ID and SMILES string \
-for each molecule\
+The function accepts a csv formatted with at least a SMILES string for each \
+molecule\
 \>", "Notes",
  TaggingRules->{},
  CellChangeTimes->{{3.897314820354623*^9, 3.897314823434341*^9}, {
   3.897315189563006*^9, 3.897315195195942*^9}, {3.897315364319758*^9, 
-  3.897315412194644*^9}},
+  3.897315412194644*^9}, {3.8974819829258957`*^9, 3.8974819969319553`*^9}},
  CellID->1522191972,ExpressionUUID->"501245f6-64c0-4324-b075-baede492fd46"],
 
 Cell[BoxData[GridBox[{
@@ -543,11 +545,11 @@ Cell[BoxData[GridBox[{
      "TableText",ExpressionUUID->"6477d90a-bcf4-4ac2-9106-fb162c5404c6"], 
     Cell["the type of embedding used to render the final graph", "TableText",
      ExpressionUUID->"9f97e322-5783-48ee-8cfa-8fe768006833"]},
-   {Cell["Matrix", "TableText",ExpressionUUID->
+   {Cell["Embed Molecules", "TableText",ExpressionUUID->
      "94173be4-e4d7-4768-8904-542c999cbe99"], Cell[
     "False", "TableText",ExpressionUUID->
      "5d349a00-f0e9-45e7-bce4-6dbf15b2345b"], Cell[
-    "whether to return a distance matrix or a graph", "TableText",
+    "Whether to embed Molecule plots into the graph vertices", "TableText",
      ExpressionUUID->"dfe97556-01c1-4781-9728-f80577a22522"]},
    {Cell["Fingerprint", "TableText",ExpressionUUID->
      "86d90a63-9c2d-4603-abfa-c0e6acf5299e"], Cell[TextData[ButtonBox[
@@ -591,8 +593,17 @@ WolframChemistry/MoleculeFingerprints/ref/TopologicalFingerprint.html"]],
   3.897296133037812*^9}, {3.897296181212219*^9, 3.897296182243307*^9}, {
   3.897314827032927*^9, 3.897314939146854*^9}, {3.897315252287179*^9, 
   3.89731526114799*^9}, {3.897315413707489*^9, 3.897315421658277*^9}, {
-  3.897315899695511*^9, 3.8973158996956387`*^9}},
+  3.897315899695511*^9, 3.8973158996956387`*^9}, {3.897481943496232*^9, 
+  3.897481964977714*^9}, {3.8974823640692787`*^9, 3.897482367230728*^9}},
  CellID->1178444279,ExpressionUUID->"463642a8-95d6-456b-9dbb-8065bc87912b"],
+
+Cell["\<\
+Biological data is currently represented as a column titled \"Standard \
+Value\" for Ki data, which is converted to pKi and passed using a defualt \
+graph coloring scheme. \
+\>", "Notes",
+ CellChangeTimes->{{3.8974823696350183`*^9, 3.8974824119917603`*^9}},
+ CellID->1058375947,ExpressionUUID->"edac038b-2380-456f-9d0a-879a90975b40"],
 
 Cell["\<\
 The options for the Fingerprint option derive from the MolecularFingerprints \
@@ -863,17 +874,20 @@ Cell["Basic Examples", "Subsection",
  CellTags->"DefaultContent",
  CellID->619504543,ExpressionUUID->"07696751-26c7-47ea-b4f7-8fdb3fa7ea43"],
 
-Cell["Text about the example:", "Text",
+Cell["\<\
+The generation of a simple chemical space network without biological data \
+from a file \"D5Activities.csv\" that contains SMILES strings and IDs. \
+\>", "Text",
  TaggingRules->{},
+ CellChangeTimes->{{3.897482443951763*^9, 3.897482487060557*^9}},
  CellTags->"DefaultContent",
  CellID->586099280,ExpressionUUID->"4d1fb232-8af8-4e9f-bbdc-63fc4a07c1d5"],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{"MyFunction", "[", 
-  RowBox[{"x", ",", "y"}], "]"}]], "Input",
+Cell[BoxData[""], "Input",
  TaggingRules->{},
+ CellChangeTimes->{{3.897482494703786*^9, 3.897482510772593*^9}},
  CellTags->"DefaultContent",
  CellLabel->"In[1]:= ",
  CellID->298664010,ExpressionUUID->"43fecf25-9377-46e8-8f2f-7b6eed97f058"],
@@ -1913,6 +1927,7 @@ Cell[BoxData[
          StyleBox[
           TemplateBox[{
             CheckboxBox["WebEvaluation", {False, "WebEvaluation"}], "\" \"", 
+            
             TemplateBox[{
              "\"WebEvaluation\"", 
               "\"Cloud evaluation initiated by an HTTP request\""}, 
