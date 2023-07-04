@@ -494,18 +494,25 @@ function, its development, and its usage.", "MoreInfoText"], Background ->
  CellTags->{"Details & Options", "Notes", "TemplateCellGroup"},
  CellID->447261062,ExpressionUUID->"5c86beb4-e8d4-4ae0-8297-911d091a34e5"],
 
-Cell["\<\
-A chemical space network is a graph \[ScriptCapitalG] of molecules. The set \
+Cell[TextData[{
+ "A chemical space network is a graph \[ScriptCapitalG] of molecules. The set \
 of vertices \[ScriptCapitalV](\[ScriptCapitalG]) is the set of molecules and \
 the edges \[ScriptE] \[Epsilon] \[ScriptCapitalE](\[ScriptCapitalG]) are \
 generated from molecules with similarity measures \[GreaterEqual] \[Alpha]. \
-See Maggiora, G. M., & Bajorath, J. (2014). Chemical space networks: A \
-powerful new paradigm for the description of chemical space. Journal of \
-Computer-Aided Molecular Design, 28(8), 795\[Dash]802. \
-https://doi.org/10.1007/s10822-014-9760-0 for more details. \
-\>", "Notes",
+See ",
+ ButtonBox["Maggiora, G. M., & Bajorath, J. (2014). Chemical space networks: \
+A powerful new paradigm for the description of chemical space. Journal of \
+Computer-Aided Molecular Design, 28(8), 795\[Dash]802.",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://link.springer.com/article/10.1007/s10822-014-9760-0"], None},
+  
+  ButtonNote->"https://link.springer.com/article/10.1007/s10822-014-9760-0"],
+ " for more details. "
+}], "Notes",
  CellChangeTimes->{{3.897482055461547*^9, 3.897482245945058*^9}, {
-  3.897482311284335*^9, 3.897482330853788*^9}},
+  3.897482311284335*^9, 3.897482330853788*^9}, {3.8974987493998337`*^9, 
+  3.8974987494007177`*^9}},
  CellID->1846316115,ExpressionUUID->"1f38496a-810e-4d40-b25d-7146163c162c"],
 
 Cell[TextData[StyleBox["The edge cutoff is a real number \[Alpha] \
@@ -1916,7 +1923,6 @@ Cell[BoxData[
          StyleBox[
           TemplateBox[{
             CheckboxBox["Session", {False, "Session"}], "\" \"", 
-            
             TemplateBox[{
              "\"Session\"", "\"Local or cloud interactive session\""}, 
              "PrettyTooltipTemplate"]},
@@ -2259,6 +2265,7 @@ WyabbVsUI30dbWyR5mC4Y6npzAQV7A7CHW8e0ORJGTUV01ufdzMGR2GbTwVmCj3d8A9cd0NNHoiRcl\
    "94cf840c-af88-46b2-b3e8-489bd4993e01", 
     "49c58308-ebe5-4a77-84c7-b82a30445ed8"]},
 CreateCellID->True,
+Magnification:>1.25 Inherited,
 FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (June 8, 2023)",
 StyleDefinitions->Notebook[{
    Cell[
@@ -3027,7 +3034,6 @@ d6iSi6lVnsABhSUbGQCPs+GAmNIeAMvulj0=
                  Quiet[
                   
                   Block[{$ContextPath = RSNB`$cp$, 
-                    
                     ResourceSystemClient`$\
 AsyncronousResourceInformationUpdates = False, 
                     DefinitionNotebookClient`$ButtonCodeID = None}, 

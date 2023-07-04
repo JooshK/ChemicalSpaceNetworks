@@ -9,7 +9,7 @@ Needs["WolframChemistry`MoleculeFingerprints`"]
 
 
 (* ::Input::Initialization:: *)
-<<InputFunctions.wl
+<<../InputFunctions.wl
 
 
 (* ::Input::Initialization:: *)
@@ -46,5 +46,5 @@ Select[edges,#<=cutoff&]//Keys//Graph[Tooltip/@Union@@List@@@#,#,GraphLayout->Op
 
 (* ::Input::Initialization:: *)
 Options[chemicalSpaceNetwork]:=Join[{"Embed Molecules"->False},Options[generateGraph],Options[generateInput]];
-chemicalSpaceNetwork[userInput_,cutoff_Real?NumberQ,opts:OptionsPattern[]]:=With[{fingerprints=generateInput[userInput]},
-If[OptionValue["Embed Molecules"],generateGraphWithMols[fingerprints],generateGraph[fingerprints]]]
+chemicalSpaceNetwork[userInput_,cutoff_,opts:OptionsPattern[]]:=With[{fingerprints=generateInput[userInput]},
+If[OptionValue["Embed Molecules"],generateGraphWithMols[fingerprints,cutoff],generateGraph[fingerprints,cutoff]]]
