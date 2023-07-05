@@ -2,3 +2,6 @@
 .DS_Store
 Src/.DS_Store
 Src/.DS_Store
+.gitignore
+.gitattributes
+.idea

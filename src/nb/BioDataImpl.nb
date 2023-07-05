@@ -1,0 +1,179 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[      6237,        171]
+NotebookOptionsPosition[      5042,        143]
+NotebookOutlinePosition[      5436,        159]
+CellTagsIndexPosition[      5393,        156]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"SetDirectory", "@", 
+  RowBox[{"NotebookDirectory", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.897504149012883*^9, 3.8975041576898737`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"5668292f-f9ee-47da-967a-62bd88c2cd31"],
+
+Cell[BoxData["\<\"/Users/joshuakhorsandi/Documents/Summer Research - 2023/WSS \
+2023/Chem Space - \
+#225/ChemicalSpaceNetworks/ChemicalSpaceNetworks/src/nb\"\>"], "Output",
+ CellChangeTimes->{3.897504158252739*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"235d6c29-0108-4754-b831-385891a5a765"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"<<", "../ChemicalSpaceFunction.wl"}]], "Input",
+ CellChangeTimes->{{3.897504162364315*^9, 3.89750418170737*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"51ff8d5c-260b-480f-a925-af914390bdd0"],
+
+Cell[CellGroupData[{
+
+Cell["Generating Default pKi colors", "Subsection",
+ CellChangeTimes->{{3.897504195163197*^9, 
+  3.897504209410873*^9}},ExpressionUUID->"abad44af-e244-4ec2-bef5-\
+fb3af3cbca79"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"defualtpKiToColor", "[", "pKi_", "]"}], ":=", 
+   RowBox[{"Which", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"pKi", "<", "5"}], ",", 
+     RowBox[{"Darker", "@", "Red"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"5", "<=", "pKi", "<", "6"}], ",", "Red", ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"6", "<=", "pKi", "<", "7"}], ",", "Orange", ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"7", "<=", "pKi", "<", "8"}], ",", "Yellow", ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"8", "<=", "pKi", "<", "9"}], ",", 
+     RowBox[{"Darker", "@", "Green"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"9", "<=", "pKi", "<", "10"}], ",", "LightBlue", ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"10", "<=", "pKi"}], ",", "Blue", ",", "True", ",", "White"}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.897504212368429*^9, 3.897504298329755*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"8a655d8c-43cc-486c-a570-9494f3ecdd00"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Pulling vertices and assigning colors", "Subsection",
+ CellChangeTimes->{{3.897504314877549*^9, 
+  3.897504327959971*^9}},ExpressionUUID->"01a0381d-e3a3-4763-9173-\
+419cec3caf5c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Options", "[", "generateBioGraph", "]"}], "=", 
+   RowBox[{"{", 
+    RowBox[{"\"\<Coloring\>\"", "->", "defualtpKiToColor"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"generateBioVertex", "[", 
+   RowBox[{"edges_", ",", "fingerprintData_", ",", "graph_", ",", 
+    RowBox[{"OptionsPattern", "[", "]"}]}], "]"}], ":=", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"vertices", "=", 
+      RowBox[{"Union", "@@", 
+       RowBox[{"List", "@@@", "edges"}]}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"#", "->", 
+       RowBox[{
+        RowBox[{"OptionValue", "[", "\"\<Coloring\>\"", "]"}], "[", 
+        RowBox[{"fingerprintData", "[", 
+         RowBox[{"#", ",", "\"\<pKi\>\""}], "]"}], "]"}]}], "&"}], "/@", 
+     "vertices"}]}], "\[IndentingNewLine]", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.897504331940516*^9, 3.897504414884902*^9}, {
+  3.897504458613763*^9, 3.8975045354685926`*^9}, {3.897504579591503*^9, 
+  3.897504737988586*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"c3a28dca-52ed-4c15-ab67-eb1e322bc7d7"],
+
+Cell[BoxData[
+ RowBox[{"figure2", "=", 
+  RowBox[{
+   RowBox[{"Graph", "[", 
+    RowBox[{"verticesRDKit", ",", "edgesRDKit", ",", 
+     RowBox[{"GraphLayout", "->", "\"\<GravityEmbedding\>\""}], ",", 
+     RowBox[{"VertexStyle", "->", "vertexStyle"}], ",", 
+     RowBox[{"EdgeStyle", "->", "LightGray"}]}], "]"}], "//", 
+   RowBox[{
+    RowBox[{"Legended", "[", 
+     RowBox[{"#", ",", "pKiLegend"}], "]"}], "&"}]}]}]], "Input",
+ CellChangeTimes->{{3.897504742404812*^9, 
+  3.897504846455697*^9}},ExpressionUUID->"8ec6650f-f64f-4eba-a804-\
+f0c257be2ea1"],
+
+Cell[BoxData[
+ RowBox[{"pKiLegend", "=", 
+  RowBox[{"Row", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"BarLegend", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"pKiTocolor", ",", 
+         RowBox[{"{", 
+          RowBox[{"4", ",", "11"}], "}"}]}], "}"}], ",", "6"}], "]"}], ",", 
+     RowBox[{"Rotate", "[", 
+      RowBox[{"\"\<pKi\>\"", ",", 
+       RowBox[{"90", "Degree"}]}], "]"}]}], "}"}], "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.897504853008057*^9},ExpressionUUID->"12aaf15b-cbe2-48c4-840c-\
+16d4b7311a27"]
+}, Open  ]]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{90, Automatic}, {Automatic, 28}},
+FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (June 8, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"fc2a9471-3faf-40f6-8791-991b5c51d365"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[583, 22, 245, 4, 30, "Input",ExpressionUUID->"5668292f-f9ee-47da-967a-62bd88c2cd31"],
+Cell[831, 28, 292, 4, 34, "Output",ExpressionUUID->"235d6c29-0108-4754-b831-385891a5a765"]
+}, Open  ]],
+Cell[1138, 35, 214, 3, 30, "Input",ExpressionUUID->"51ff8d5c-260b-480f-a925-af914390bdd0"],
+Cell[CellGroupData[{
+Cell[1377, 42, 177, 3, 54, "Subsection",ExpressionUUID->"abad44af-e244-4ec2-bef5-fb3af3cbca79"],
+Cell[1557, 47, 1000, 21, 178, "Input",ExpressionUUID->"8a655d8c-43cc-486c-a570-9494f3ecdd00"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2594, 73, 185, 3, 54, "Subsection",ExpressionUUID->"01a0381d-e3a3-4763-9173-419cec3caf5c"],
+Cell[2782, 78, 1150, 29, 94, "Input",ExpressionUUID->"c3a28dca-52ed-4c15-ab67-eb1e322bc7d7"],
+Cell[3935, 109, 554, 13, 30, "Input",ExpressionUUID->"8ec6650f-f64f-4eba-a804-f0c257be2ea1"],
+Cell[4492, 124, 534, 16, 30, "Input",ExpressionUUID->"12aaf15b-cbe2-48c4-840c-16d4b7311a27"]
+}, Open  ]]
+}
+]
+*)
+
