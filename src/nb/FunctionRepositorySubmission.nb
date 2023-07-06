@@ -523,15 +523,41 @@ an edge in the network", "Text"]], "Notes",
    3.8973152195172157`*^9, 3.897315223440773*^9}, 3.897316802512038*^9},
  CellID->805444828,ExpressionUUID->"d877054f-5c43-4011-b34c-27aeafe57ad5"],
 
-Cell["\<\
-The function accepts a csv formatted with at least a SMILES string for each \
-molecule\
-\>", "Notes",
+Cell["The function accepts the following inputs", "Notes",
  TaggingRules->{},
  CellChangeTimes->{{3.897314820354623*^9, 3.897314823434341*^9}, {
-  3.897315189563006*^9, 3.897315195195942*^9}, {3.897315364319758*^9, 
-  3.897315412194644*^9}, {3.8974819829258957`*^9, 3.8974819969319553`*^9}},
+   3.897315189563006*^9, 3.897315195195942*^9}, {3.897315364319758*^9, 
+   3.897315412194644*^9}, {3.8974819829258957`*^9, 3.8974819969319553`*^9}, {
+   3.89755959627829*^9, 3.8975596117972403`*^9}, 3.897559737426939*^9},
  CellID->1522191972,ExpressionUUID->"501245f6-64c0-4324-b075-baede492fd46"],
+
+Cell[BoxData[GridBox[{
+   {Cell[".csv file", "TableText",ExpressionUUID->
+     "6a4a89f5-0c58-490d-ae07-2f65539bcd66"], Cell["\<\
+file formatted with each molecule having at least a SMILES string\
+\>", "TableText",ExpressionUUID->"76933c84-ec7f-4a41-beaa-4af3370dc106"]},
+   {Cell[".smi file", "TableText",ExpressionUUID->
+     "45149766-3734-4c53-b477-7764158185e8"], Cell[
+    "file in the SMILE format", "TableText",ExpressionUUID->
+     "ea9b3a27-bc45-4f26-a40e-21ca11216c36"]},
+   {Cell["list of Molecules[]", "TableText",ExpressionUUID->
+     "70e310ad-a1df-434a-9c66-5b2dd8b800eb"], Cell[
+    "a list of Molecule objects", "TableText",ExpressionUUID->
+     "d79480bf-de1e-4755-a448-b9cac252757a"]},
+   {Cell["SMILE strings", "TableText",ExpressionUUID->
+     "0d01849b-3f19-4abc-bdc3-05dbe580e939"], Cell[
+    "a list of SMILE strings", "TableText",ExpressionUUID->
+     "c05ca82c-c3ff-4108-9760-a27b3d5a39bf"]}
+  }]], "TableNotes",
+ CellChangeTimes->{{3.897559627560133*^9, 3.897559732079631*^9}, {
+  3.897559790531684*^9, 3.8975598162314243`*^9}},
+ CellID->54263717,ExpressionUUID->"ed4348ca-82b7-41fc-a5ec-b6657abce402"],
+
+Cell[CellGroupData[{
+
+Cell["Graph Computation Options", "Subsubsection",
+ CellChangeTimes->{{3.897559739732008*^9, 3.897559762400016*^9}},
+ CellID->1410542124,ExpressionUUID->"01f56e21-d5ae-492d-9895-b2b338180fb6"],
 
 Cell[BoxData[GridBox[{
    {Cell["BioData", "TableText",ExpressionUUID->
@@ -714,6 +740,7 @@ DistanceFunctions are used."
   3.8973162155581093`*^9, 3.897316216136216*^9}, {3.89731670189013*^9, 
   3.89731670358794*^9}},
  CellID->48358283,ExpressionUUID->"bc8c648d-99d2-49c9-b8da-2655640aadc2"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
@@ -1923,6 +1950,7 @@ Cell[BoxData[
          StyleBox[
           TemplateBox[{
             CheckboxBox["Session", {False, "Session"}], "\" \"", 
+            
             TemplateBox[{
              "\"Session\"", "\"Local or cloud interactive session\""}, 
              "PrettyTooltipTemplate"]},

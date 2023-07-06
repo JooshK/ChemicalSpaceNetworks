@@ -65,9 +65,7 @@ If[OptionValue["BioData"],
 vertices=VertexList[graph];
 style=#->OptionValue["Coloring"][fingerprints[#,"pKi"]]&/@vertices;
 legend=Row[{BarLegend[{OptionValue["Coloring"],{4,11}},6],Rotate["pKi",90Degree]}];
-SetProperty[graph,VertexStyle->style]//Legended[#,legend]&
+SetProperty[graph,VertexStyle->style]//Legended[#,legend]&,graph
 ]
 ]
-
-
 
