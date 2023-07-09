@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[     93632,       1894]
-NotebookOptionsPosition[     90910,       1840]
-NotebookOutlinePosition[     91335,       1857]
-CellTagsIndexPosition[     91292,       1854]
+NotebookDataLength[    114018,       2243]
+NotebookOptionsPosition[    111388,       2190]
+NotebookOutlinePosition[    111813,       2207]
+CellTagsIndexPosition[    111770,       2204]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -41,8 +41,9 @@ Cell[BoxData["\<\"/Users/joshuakhorsandi/Documents/Summer Research - 2023/WSS \
    3.897651960773703*^9, 3.897661177821582*^9, 3.897902236381835*^9, 
    3.8979023005656137`*^9, 3.897903023737249*^9, {3.897907161838517*^9, 
    3.8979071826681957`*^9}, {3.897909855166759*^9, 3.8979098561503687`*^9}, 
-   3.8979170406343803`*^9, 3.897917406632311*^9},
- CellLabel->"Out[1]=",ExpressionUUID->"22adcc05-19df-4905-afba-377e3bbd2326"]
+   3.8979170406343803`*^9, 3.897917406632311*^9, {3.897920375762278*^9, 
+   3.897920376779808*^9}, 3.89792847634601*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"9db3a73b-cc96-47b1-b879-1ad8e4696d2c"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -63,8 +64,9 @@ Cell[BoxData[
    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
   "Column"]], "Output",
  CellChangeTimes->{{3.897907178127243*^9, 3.897907190610128*^9}, 
-   3.897909855848914*^9, 3.897917407342105*^9},
- CellLabel->"Out[2]=",ExpressionUUID->"838028f1-543c-4326-a466-000633d52f3a"]
+   3.897909855848914*^9, 3.897917407342105*^9, 3.897920376466866*^9, 
+   3.8979284770369177`*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"88ce9b40-a555-4bd6-bbd9-a5026b3200f3"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -479,12 +481,13 @@ Cell[BoxData[
      RowBox[{
       RowBox[{
        RowBox[{"Subgraph", "[", 
-        RowBox[{"graphD5", ",", "#"}], "]"}], "&"}], ",", 
+        RowBox[{"$graph", ",", "#"}], "]"}], "&"}], ",", 
       RowBox[{"FindGraphCommunities", "[", "graph", "]"}]}], "]"}]}], 
    "]"}]}]], "Input",
  InitializationCell->True,
- CellChangeTimes->{{3.8976579539447823`*^9, 3.89765796666525*^9}},
- CellLabel->"In[18]:=",ExpressionUUID->"c28f8504-5b1d-485c-baf7-d39762d64e12"],
+ CellChangeTimes->{{3.8976579539447823`*^9, 3.89765796666525*^9}, 
+   3.897920426320628*^9},
+ CellLabel->"In[14]:=",ExpressionUUID->"c28f8504-5b1d-485c-baf7-d39762d64e12"],
 
 Cell[BoxData[
  RowBox[{
@@ -497,13 +500,13 @@ Cell[BoxData[
   ";"}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.8979055746848917`*^9, 3.897905630632876*^9}},
- CellLabel->"In[19]:=",ExpressionUUID->"aa497742-5d2f-46e0-a3fb-bbc8a25c2396"],
+ CellLabel->"In[15]:=",ExpressionUUID->"aa497742-5d2f-46e0-a3fb-bbc8a25c2396"],
 
 Cell[BoxData[
  RowBox[{"ClearAll", "[", "$graph", "]"}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.8979182343284817`*^9, 3.8979182398682547`*^9}},
- CellLabel->"In[29]:=",ExpressionUUID->"03532ecb-7e26-4916-b615-9a873da60157"],
+ CellLabel->"In[17]:=",ExpressionUUID->"03532ecb-7e26-4916-b615-9a873da60157"],
 
 Cell["D5 Receptor Network", "Text",
  CellChangeTimes->{{3.897918268476457*^9, 
@@ -531,30 +534,13 @@ Cell[BoxData[
    3.897916948874086*^9, 3.8979169646657352`*^9}, {3.897917033064476*^9, 
    3.8979170355875893`*^9}, {3.8979170749847193`*^9, 3.897917075750144*^9}, 
    3.8979174164710293`*^9, {3.8979182216332808`*^9, 3.897918228830744*^9}, {
-   3.897918261761364*^9, 
-   3.897918263377328*^9}},ExpressionUUID->"852924ed-e133-4ea7-9bcf-\
-91be32d9b452"],
+   3.897918261761364*^9, 3.897918263377328*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"852924ed-e133-4ea7-9bcf-91be32d9b452"],
 
 Cell["Glucocorticoid Antagonist Network - Scalfani et. al", "Text",
  CellChangeTimes->{{3.897918252972159*^9, 
   3.897918316474824*^9}},ExpressionUUID->"5b424510-2eee-4f89-8194-\
 d3b2dc86344b"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"degCentralityRep", "[", "graph_", "]"}], ":=", 
-  RowBox[{"First", "@", 
-   RowBox[{"Part", "[", 
-    RowBox[{
-     RowBox[{"VertexList", "[", "graph", "]"}], ",", 
-     RowBox[{"Ordering", "[", 
-      RowBox[{
-       RowBox[{"DegreeCentrality", "[", "graph", "]"}], ",", "All", ",", 
-       "Greater"}], "]"}]}], "]"}]}]}]], "Input",
- CellChangeTimes->{{3.897919735619277*^9, 3.897919756113096*^9}, {
-  3.897919795252583*^9, 3.897919804219076*^9}, {3.897919837845162*^9, 
-  3.897919841996072*^9}, {3.897919885671739*^9, 3.8979198975175867`*^9}},
- CellLabel->"In[40]:=",ExpressionUUID->"bdd71737-1f4d-42a7-901d-cb73b1aaa541"],
 
 Cell[BoxData[
  RowBox[{
@@ -579,11 +565,11 @@ Cell[BoxData[
       RowBox[{"{", "}"}]}], ",", 
      RowBox[{"graph", "=", "$graph"}], ",", 
      RowBox[{"edges", "=", 
-      RowBox[{"EdgeList", "[", "graphD5", "]"}]}], ",", 
+      RowBox[{"EdgeList", "[", "$graph", "]"}]}], ",", 
      RowBox[{"vertices", "=", 
       RowBox[{"Union", "@@", 
        RowBox[{"List", "@@@", 
-        RowBox[{"EdgeList", "[", "graphD5", "]"}]}]}]}], ",", 
+        RowBox[{"EdgeList", "[", "$graph", "]"}]}]}]}], ",", 
      RowBox[{"clickable", "=", "False"}], ",", 
      RowBox[{"bioData", "=", "False"}]}], "}"}], ",", "\[IndentingNewLine]", 
    RowBox[{"Panel", "[", "\[IndentingNewLine]", 
@@ -663,7 +649,7 @@ Cell[BoxData[
                  RowBox[{"Export", "[", 
                   RowBox[{"\"\<adjMatrixSpectra.wxf\>\"", ",", 
                    RowBox[{"Eigenvalues", "[", 
-                    RowBox[{"WeightedAdjacencyMatrix", "[", "graphD5", "]"}], 
+                    RowBox[{"WeightedAdjacencyMatrix", "[", "$graph", "]"}], 
                     "]"}]}], "]"}], ")"}]}]}], "\[IndentingNewLine]", "}"}]}],
              "]"}], ",", "\[IndentingNewLine]", 
            RowBox[{"ActionMenu", "[", 
@@ -682,12 +668,13 @@ Cell[BoxData[
            RowBox[{"ActionMenu", "[", 
             RowBox[{"\"\<Representative Molecule\>\"", ",", 
              RowBox[{"{", "\[IndentingNewLine]", 
-              RowBox[{"\"\<Degree Centrality\>\"", ":>", 
-               RowBox[{"CreateDialog", "[", 
-                RowBox[{"MoleculePlot", "[", 
-                 RowBox[{"$fingerprintData", "[", 
-                  RowBox[{
-                   RowBox[{"First", "@", 
+              RowBox[{
+               RowBox[{"\"\<Show Plot\>\"", ":>", 
+                RowBox[{"CreateDialog", "[", 
+                 RowBox[{"MoleculePlot", "[", 
+                  RowBox[{"$fingerprintData", "[", 
+                   RowBox[{
+                    RowBox[{"First", "@", 
                     RowBox[{"Part", "[", 
                     RowBox[{
                     RowBox[{"VertexList", "[", "graph", "]"}], ",", 
@@ -695,8 +682,22 @@ Cell[BoxData[
                     RowBox[{
                     RowBox[{"DegreeCentrality", "[", "graph", "]"}], ",", 
                     "All", ",", "Greater"}], "]"}]}], "]"}]}], ",", 
-                   "\"\<Molecule\>\""}], "]"}], "]"}], "]"}]}], 
-              "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                    "\"\<Molecule\>\""}], "]"}], "]"}], "]"}]}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"\"\<Highlight\>\"", ":>", 
+                RowBox[{"(", 
+                 RowBox[{"graph", "=", 
+                  RowBox[{"HighlightGraph", "[", 
+                   RowBox[{"graph", ",", 
+                    RowBox[{"First", "@", 
+                    RowBox[{"Part", "[", 
+                    RowBox[{
+                    RowBox[{"VertexList", "[", "graph", "]"}], ",", 
+                    RowBox[{"Ordering", "[", 
+                    RowBox[{
+                    RowBox[{"DegreeCentrality", "[", "graph", "]"}], ",", 
+                    "All", ",", "Greater"}], "]"}]}], "]"}]}]}], "]"}]}], 
+                 ")"}]}]}], "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
            "\[IndentingNewLine]", 
            RowBox[{"ActionMenu", "[", 
             RowBox[{"\"\<Reset\>\"", ",", 
@@ -704,7 +705,7 @@ Cell[BoxData[
               RowBox[{
                RowBox[{"\"\<Graph\>\"", ":>", 
                 RowBox[{"(", 
-                 RowBox[{"graph", "=", "graphD5"}], ")"}]}], ",", 
+                 RowBox[{"graph", "=", "$graph"}], ")"}]}], ",", 
                "\[IndentingNewLine]", 
                RowBox[{"\"\<Selected\>\"", ":>", 
                 RowBox[{"(", 
@@ -713,7 +714,7 @@ Cell[BoxData[
                RowBox[{"\"\<All\>\"", ":>", 
                 RowBox[{"(", 
                  RowBox[{
-                  RowBox[{"graph", "=", "graphD5"}], ";", 
+                  RowBox[{"graph", "=", "$graph"}], ";", 
                   RowBox[{"vertexClicked", "=", 
                    RowBox[{"{", "}"}]}]}], ")"}]}]}], "\[IndentingNewLine]", 
               "}"}]}], "]"}]}], "\[IndentingNewLine]", "}"}], "]"}], ",", 
@@ -917,31 +918,385 @@ Cell[BoxData[
    3.897918870430064*^9, 3.897918901494212*^9}, {3.897919045511383*^9, 
    3.897919064549329*^9}, {3.897919471893552*^9, 3.89791957939552*^9}, {
    3.897919922241747*^9, 3.897919962596324*^9}, {3.89792001877035*^9, 
-   3.897920027832*^9}},
- CellLabel->"In[42]:=",ExpressionUUID->"55d89b25-929d-4d09-b8f4-a28fae3b2db6"],
+   3.897920027832*^9}, {3.897920393409713*^9, 3.8979205168823347`*^9}, {
+   3.897920557191349*^9, 3.897920619260544*^9}, {3.897920902213333*^9, 
+   3.897920914483966*^9}, {3.897920947644999*^9, 3.897921075244727*^9}, {
+   3.897921234030403*^9, 3.897921237760284*^9}, {3.897921304181028*^9, 
+   3.897921411515617*^9}, {3.897921460699074*^9, 3.897921461283977*^9}, {
+   3.897921511392146*^9, 3.897921547716505*^9}, {3.897921667175939*^9, 
+   3.897921737298367*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"55d89b25-929d-4d09-b8f4-a28fae3b2db6"],
 
 Cell[BoxData[
- DynamicModuleBox[{$CellContext`vertexClicked$$ = {
-  "CHEMBL103", "CHEMBL1092578", "CHEMBL237122", "CHEMBL384467", "CHEMBL131", 
-   "CHEMBL717", "CHEMBL1095097", "CHEMBL1393"}, $CellContext`graph$$ = 
-  Graph[{"CHEMBL103", "CHEMBL1092578", "CHEMBL237122", "CHEMBL384467", 
-    "CHEMBL131", "CHEMBL717", "CHEMBL1095097", "CHEMBL1393"}, {
-   Null, {{1, 2}, {3, 2}, {4, 2}, {4, 5}, {5, 2}, {3, 6}, {5, 6}, {6, 2}, {3, 
-    7}, {6, 7}, {8, 6}}}, {
+ DynamicModuleBox[{$CellContext`vertexClicked$$ = {}, $CellContext`graph$$ = 
+  Graph[{"CHEMBL1258223", "CHEMBL1258671", "CHEMBL137781", "CHEMBL138989", 
+    "CHEMBL1457510", "CHEMBL1632158", "CHEMBL1632174", "CHEMBL1643901", 
+    "CHEMBL1672288", "CHEMBL1765683", "CHEMBL1765684", "CHEMBL1829958", 
+    "CHEMBL1829959", "CHEMBL1829961", "CHEMBL184049", "CHEMBL184050", 
+    "CHEMBL184073", "CHEMBL186720", "CHEMBL187367", "CHEMBL1940402", 
+    "CHEMBL1940403", "CHEMBL1940404", "CHEMBL1940406", "CHEMBL1940408", 
+    "CHEMBL1940409", "CHEMBL1940411", "CHEMBL1940415", "CHEMBL1940416", 
+    "CHEMBL1940418", "CHEMBL1940419", "CHEMBL1940420", "CHEMBL194206", 
+    "CHEMBL195927", "CHEMBL196169", "CHEMBL196370", "CHEMBL196598", 
+    "CHEMBL197408", "CHEMBL197796", "CHEMBL199824", "CHEMBL201093", 
+    "CHEMBL201170", "CHEMBL201525", "CHEMBL203047", "CHEMBL2031737", 
+    "CHEMBL203637", "CHEMBL204065", "CHEMBL204098", "CHEMBL209497", 
+    "CHEMBL212912", "CHEMBL213336", "CHEMBL213424", "CHEMBL213492", 
+    "CHEMBL213834", "CHEMBL229429", "CHEMBL2334885", "CHEMBL238717", 
+    "CHEMBL238718", "CHEMBL238915", "CHEMBL238916", "CHEMBL238917", 
+    "CHEMBL239700", "CHEMBL239917", "CHEMBL24077", "CHEMBL240774", 
+    "CHEMBL240995", "CHEMBL240996", "CHEMBL2420769", "CHEMBL2420770", 
+    "CHEMBL2420771", "CHEMBL2420772", "CHEMBL2420773", "CHEMBL2420774", 
+    "CHEMBL2420775", "CHEMBL2420776", "CHEMBL2420777", "CHEMBL2420778", 
+    "CHEMBL2420779", "CHEMBL2420780", "CHEMBL2420781", "CHEMBL2420782", 
+    "CHEMBL2420890", "CHEMBL2420891", "CHEMBL2420892", "CHEMBL2420893", 
+    "CHEMBL2420894", "CHEMBL2420895", "CHEMBL2429890", "CHEMBL2432042", 
+    "CHEMBL2432043", "CHEMBL2432051", "CHEMBL2432056", "CHEMBL2432062", 
+    "CHEMBL263881", "CHEMBL267014", "CHEMBL268371", "CHEMBL286080", 
+    "CHEMBL298406", "CHEMBL3104092", "CHEMBL3104093", "CHEMBL324017", 
+    "CHEMBL3286429", "CHEMBL3289645", "CHEMBL3289646", "CHEMBL3289647", 
+    "CHEMBL3289648", "CHEMBL3289649", "CHEMBL3321788", "CHEMBL3321789", 
+    "CHEMBL343755", "CHEMBL364565", "CHEMBL365697", "CHEMBL370128", 
+    "CHEMBL372453", "CHEMBL3752512", "CHEMBL3752882", "CHEMBL3753195", 
+    "CHEMBL3753266", "CHEMBL3754576", "CHEMBL378669", "CHEMBL378825", 
+    "CHEMBL380464", "CHEMBL381936", "CHEMBL382010", "CHEMBL393492", 
+    "CHEMBL394080", "CHEMBL394110", "CHEMBL395933", "CHEMBL398813", 
+    "CHEMBL42", "CHEMBL425069", "CHEMBL426317", "CHEMBL435505", 
+    "CHEMBL4442460", "CHEMBL448891", "CHEMBL4544086", "CHEMBL4633950", 
+    "CHEMBL4635277", "CHEMBL4635423", "CHEMBL4636741", "CHEMBL4637246", 
+    "CHEMBL4637938", "CHEMBL4640497", "CHEMBL4642592", "CHEMBL4642805", 
+    "CHEMBL4643069", "CHEMBL4643426", "CHEMBL4643886", "CHEMBL4645139", 
+    "CHEMBL4647167", "CHEMBL4649012", "CHEMBL467094", "CHEMBL4845850", 
+    "CHEMBL4846574", "CHEMBL4848380", "CHEMBL4848838", "CHEMBL4851349", 
+    "CHEMBL4856060", "CHEMBL4857492", "CHEMBL4872572", "CHEMBL4875858", 
+    "CHEMBL4878587", "CHEMBL490533", "CHEMBL50498", "CHEMBL5074765", 
+    "CHEMBL5075741", "CHEMBL5079653", "CHEMBL5090079", "CHEMBL515472", 
+    "CHEMBL516088", "CHEMBL5191141", "CHEMBL5201983", "CHEMBL555146", 
+    "CHEMBL591685", "CHEMBL596622", "CHEMBL596824", "CHEMBL597909", 
+    "CHEMBL598515", "CHEMBL599282", "CHEMBL599487", "CHEMBL600986", 
+    "CHEMBL600987", "CHEMBL603485", "CHEMBL62", "CHEMBL715"}, {
+   Null, CompressedData["
+1:eJwVxedb3HQAAODaFkVte8emg3EsycXLyZLutL092LNA26RGhlBmW0xCB4iY
+YUJ22asM1yW3fz6P/5z65X0dz2e6n58/d+7cP//x/0sPlh4udSw9Wuq5c/vO
+3Ttvb9+9/bZurq62rrqupq6qbrbOUVcZy8TiMRDLxqxYMpaKpWN4zIwl+jv7
+n/b39vv72/v7+rs7ezv9ne2dHZ2+zu7OSPNic0PzSvNyc0tzY3PTT1999mkm
+ngGZbMbKpDN4xswkfv0QB/Fs3Ion46l4Oo7HzXiCgAhASARNIARLoIRIWARO
+YIROUIRJMIRKaIRB8IRAKARHyAuvFuYXXi+8XKhfbFhcWVxebFlsXGxqWGlY
+bmhpaGxomqudq56rmauam51zzFWGPWF/OBAOhX1hbzgajoSDT148ufDkIgQg
+GJIgO0RDNgiBWAiFMMgFOSEdoiA3RELC8ODwwPDIcO7w0OPBx7mDA4Mjg7mD
+QwAGEqABArKABSgQgQWSIAXSAAcYcAEdUMAEDFCBBgyQACTggQAUwAH5yy9g
+GkZgFLbgJJyCcRiDXbATpmATTsBumJy2T69O26bzp/OmZ6YLPjn/av7V69rq
+2praqtrZWkdt5cDIwJBES4jESqgkSpaESbpESabESKqkSYbES4KkSJwkP3j4
+4NH9Z/ff3H9Xca1irKK8YryirGKiYvRpn522r9ptdsSeb5+xU7SNRmiWRmmM
+dtFOWqcp2k2TtDCSOzLU6+9t7/X1dvdGPH5PwBPy+DxeT9QT8QT9AX+7P+T3
++b3+bn/UH/EHV22r+at5qzOrBd89tyG2fNuMjUJQREQwxIU4EQphEBXREANx
+IyTCIwrCIXJ+Xv5MfsHK8krLSuNK02TRZOFk8eTU+3vvb76/Ne+cfz3/cr7+
+4aNrV6+VZq1sOotnzWzietn1ies3/vr62Ztn74oKi4qLpopK8mbyClrXWjdb
+c1oPW4/evLv7dqx8bHysbGxibHS5ZblxuWn5bxZlRRZjdZZiTZZhVVZjDZZn
+BVZhOVZGRdRCcRRDdZRCTZRBVVRDDdSNkiiPCqiCcqhcWFw4VVjy+bcfcj4c
+/fD9TEF1TXVV9Wy1o7qyeKq4pKaqZrbGUVN57+a9WzdvHewc7B/sHewebBxs
+7+zv7O3s7mzsbO/v7e/ub+xv7+3ubextl18tHy8vK58oHy2/IVoiJrpEXTRF
+RlRFTTREUuRFQVRETpStpJWy0hZuYZZumRZjqZZmJSzSEizOkpOpZDqJJ81k
+IoWnzFQijafNdGJtcy1n7XDtCMdwE0/gJC5PlVTNVjmqKmcds5WBrkBHIBTw
+BbyBvkBPoC0QDUQCwXZfe3d7W3sE0zEKMzEGUzENMzA3RmI8JmAKxmHy7799
+vPzx0scrLy68uNjV0dXX1dPV3dXW0dfR09HWEQz5Qt5QNBQJBX1eX9QX8QW9
+UW/EG+zr6WtzOV2Uy3QxLtWludwu0sW5ZCfldDtJZ/3V0vGy8YnxGxcuOip1
+Sjd1Rld1TTd0Xhd0Red0mXJTJCWYjKmammmYCZM0eVMwFZMz5Z62nmBbMBqJ
+BiNBRmU0xmBIhmcERmE4RlY11VBJlVcFVVE5VdYMjdR4TdAUjdNkgzcEQzE4
+Q/7mx8uXLl9xky2NLU0kR8qXrmzmbB5uHjU2/fHny/rdjd3t0/XTrdPj07PT
+k19+LpsoGy0rnRidKOUFXuE5XhYUgRNkhVPknMOco/Wt9eP1s/UTTt463jrb
+Ojk82tg+Pjs+OTv5F1ebOsY=
+    "]}, {
    AnnotationRules -> {
-     "CHEMBL131" -> {Tooltip -> "CHEMBL131"}, 
-      "CHEMBL103" -> {Tooltip -> "CHEMBL103"}, 
-      "CHEMBL384467" -> {Tooltip -> "CHEMBL384467"}, 
-      "CHEMBL717" -> {Tooltip -> "CHEMBL717"}, 
-      "CHEMBL237122" -> {Tooltip -> "CHEMBL237122"}, 
-      "CHEMBL1095097" -> {Tooltip -> "CHEMBL1095097"}, 
-      "CHEMBL1393" -> {Tooltip -> "CHEMBL1393"}, 
-      "CHEMBL1092578" -> {Tooltip -> "CHEMBL1092578"}}, 
-    EdgeWeight -> {0.5953177257525084, 0.5886214442013129, 0.6296296296296297,
-      0.7171492204899776, 0.853731343283582, 0.630901287553648, 
-     0.5975609756097561, 0.6808510638297872, 0.7842741935483871, 
-     0.5979797979797981, 0.6025641025641026}, GraphLayout -> 
-    "GravityEmbedding"}], $CellContext`edges$$ = {
+     "CHEMBL1940403" -> {Tooltip -> "CHEMBL1940403"}, 
+      "CHEMBL603485" -> {Tooltip -> "CHEMBL603485"}, 
+      "CHEMBL4647167" -> {Tooltip -> "CHEMBL4647167"}, 
+      "CHEMBL2432042" -> {Tooltip -> "CHEMBL2432042"}, 
+      "CHEMBL2420771" -> {Tooltip -> "CHEMBL2420771"}, 
+      "CHEMBL1632174" -> {Tooltip -> "CHEMBL1632174"}, 
+      "CHEMBL3753195" -> {Tooltip -> "CHEMBL3753195"}, 
+      "CHEMBL239917" -> {Tooltip -> "CHEMBL239917"}, 
+      "CHEMBL212912" -> {Tooltip -> "CHEMBL212912"}, 
+      "CHEMBL3752882" -> {Tooltip -> "CHEMBL3752882"}, 
+      "CHEMBL435505" -> {Tooltip -> "CHEMBL435505"}, 
+      "CHEMBL2432043" -> {Tooltip -> "CHEMBL2432043"}, 
+      "CHEMBL2420780" -> {Tooltip -> "CHEMBL2420780"}, 
+      "CHEMBL201093" -> {Tooltip -> "CHEMBL201093"}, 
+      "CHEMBL3752512" -> {Tooltip -> "CHEMBL3752512"}, 
+      "CHEMBL186720" -> {Tooltip -> "CHEMBL186720"}, 
+      "CHEMBL197796" -> {Tooltip -> "CHEMBL197796"}, 
+      "CHEMBL4442460" -> {Tooltip -> "CHEMBL4442460"}, 
+      "CHEMBL596824" -> {Tooltip -> "CHEMBL596824"}, 
+      "CHEMBL1940406" -> {Tooltip -> "CHEMBL1940406"}, 
+      "CHEMBL324017" -> {Tooltip -> "CHEMBL324017"}, 
+      "CHEMBL2420778" -> {Tooltip -> "CHEMBL2420778"}, 
+      "CHEMBL2420776" -> {Tooltip -> "CHEMBL2420776"}, 
+      "CHEMBL2420894" -> {Tooltip -> "CHEMBL2420894"}, 
+      "CHEMBL4643069" -> {Tooltip -> "CHEMBL4643069"}, 
+      "CHEMBL394110" -> {Tooltip -> "CHEMBL394110"}, 
+      "CHEMBL5079653" -> {Tooltip -> "CHEMBL5079653"}, 
+      "CHEMBL1632158" -> {Tooltip -> "CHEMBL1632158"}, 
+      "CHEMBL598515" -> {Tooltip -> "CHEMBL598515"}, 
+      "CHEMBL382010" -> {Tooltip -> "CHEMBL382010"}, 
+      "CHEMBL240995" -> {Tooltip -> "CHEMBL240995"}, 
+      "CHEMBL4857492" -> {Tooltip -> "CHEMBL4857492"}, 
+      "CHEMBL4649012" -> {Tooltip -> "CHEMBL4649012"}, 
+      "CHEMBL4878587" -> {Tooltip -> "CHEMBL4878587"}, 
+      "CHEMBL3289649" -> {Tooltip -> "CHEMBL3289649"}, 
+      "CHEMBL596622" -> {Tooltip -> "CHEMBL596622"}, 
+      "CHEMBL187367" -> {Tooltip -> "CHEMBL187367"}, 
+      "CHEMBL204098" -> {Tooltip -> "CHEMBL204098"}, 
+      "CHEMBL3104093" -> {Tooltip -> "CHEMBL3104093"}, 
+      "CHEMBL239700" -> {Tooltip -> "CHEMBL239700"}, 
+      "CHEMBL1940411" -> {Tooltip -> "CHEMBL1940411"}, 
+      "CHEMBL1765683" -> {Tooltip -> "CHEMBL1765683"}, 
+      "CHEMBL2420891" -> {Tooltip -> "CHEMBL2420891"}, 
+      "CHEMBL197408" -> {Tooltip -> "CHEMBL197408"}, 
+      "CHEMBL3753266" -> {Tooltip -> "CHEMBL3753266"}, 
+      "CHEMBL448891" -> {Tooltip -> "CHEMBL448891"}, 
+      "CHEMBL1940409" -> {Tooltip -> "CHEMBL1940409"}, 
+      "CHEMBL4848380" -> {Tooltip -> "CHEMBL4848380"}, 
+      "CHEMBL203047" -> {Tooltip -> "CHEMBL203047"}, 
+      "CHEMBL1829961" -> {Tooltip -> "CHEMBL1829961"}, 
+      "CHEMBL203637" -> {Tooltip -> "CHEMBL203637"}, 
+      "CHEMBL268371" -> {Tooltip -> "CHEMBL268371"}, 
+      "CHEMBL4642805" -> {Tooltip -> "CHEMBL4642805"}, 
+      "CHEMBL380464" -> {Tooltip -> "CHEMBL380464"}, 
+      "CHEMBL1829958" -> {Tooltip -> "CHEMBL1829958"}, 
+      "CHEMBL184050" -> {Tooltip -> "CHEMBL184050"}, 
+      "CHEMBL42" -> {Tooltip -> "CHEMBL42"}, 
+      "CHEMBL599282" -> {Tooltip -> "CHEMBL599282"}, 
+      "CHEMBL2420772" -> {Tooltip -> "CHEMBL2420772"}, 
+      "CHEMBL213424" -> {Tooltip -> "CHEMBL213424"}, 
+      "CHEMBL467094" -> {Tooltip -> "CHEMBL467094"}, 
+      "CHEMBL238917" -> {Tooltip -> "CHEMBL238917"}, 
+      "CHEMBL238915" -> {Tooltip -> "CHEMBL238915"}, 
+      "CHEMBL370128" -> {Tooltip -> "CHEMBL370128"}, 
+      "CHEMBL2420777" -> {Tooltip -> "CHEMBL2420777"}, 
+      "CHEMBL196370" -> {Tooltip -> "CHEMBL196370"}, 
+      "CHEMBL4635423" -> {Tooltip -> "CHEMBL4635423"}, 
+      "CHEMBL4643886" -> {Tooltip -> "CHEMBL4643886"}, 
+      "CHEMBL597909" -> {Tooltip -> "CHEMBL597909"}, 
+      "CHEMBL378669" -> {Tooltip -> "CHEMBL378669"}, 
+      "CHEMBL4872572" -> {Tooltip -> "CHEMBL4872572"}, 
+      "CHEMBL2420782" -> {Tooltip -> "CHEMBL2420782"}, 
+      "CHEMBL1643901" -> {Tooltip -> "CHEMBL1643901"}, 
+      "CHEMBL298406" -> {Tooltip -> "CHEMBL298406"}, 
+      "CHEMBL195927" -> {Tooltip -> "CHEMBL195927"}, 
+      "CHEMBL490533" -> {Tooltip -> "CHEMBL490533"}, 
+      "CHEMBL3289648" -> {Tooltip -> "CHEMBL3289648"}, 
+      "CHEMBL196598" -> {Tooltip -> "CHEMBL196598"}, 
+      "CHEMBL2334885" -> {Tooltip -> "CHEMBL2334885"}, 
+      "CHEMBL2429890" -> {Tooltip -> "CHEMBL2429890"}, 
+      "CHEMBL2420770" -> {Tooltip -> "CHEMBL2420770"}, 
+      "CHEMBL2432056" -> {Tooltip -> "CHEMBL2432056"}, 
+      "CHEMBL238916" -> {Tooltip -> "CHEMBL238916"}, 
+      "CHEMBL204065" -> {Tooltip -> "CHEMBL204065"}, 
+      "CHEMBL4845850" -> {Tooltip -> "CHEMBL4845850"}, 
+      "CHEMBL2432051" -> {Tooltip -> "CHEMBL2432051"}, 
+      "CHEMBL398813" -> {Tooltip -> "CHEMBL398813"}, 
+      "CHEMBL201525" -> {Tooltip -> "CHEMBL201525"}, 
+      "CHEMBL1940402" -> {Tooltip -> "CHEMBL1940402"}, 
+      "CHEMBL4635277" -> {Tooltip -> "CHEMBL4635277"}, 
+      "CHEMBL62" -> {Tooltip -> "CHEMBL62"}, 
+      "CHEMBL4640497" -> {Tooltip -> "CHEMBL4640497"}, 
+      "CHEMBL2420773" -> {Tooltip -> "CHEMBL2420773"}, 
+      "CHEMBL194206" -> {Tooltip -> "CHEMBL194206"}, 
+      "CHEMBL201170" -> {Tooltip -> "CHEMBL201170"}, 
+      "CHEMBL3286429" -> {Tooltip -> "CHEMBL3286429"}, 
+      "CHEMBL24077" -> {Tooltip -> "CHEMBL24077"}, 
+      "CHEMBL184073" -> {Tooltip -> "CHEMBL184073"}, 
+      "CHEMBL2432062" -> {Tooltip -> "CHEMBL2432062"}, 
+      "CHEMBL138989" -> {Tooltip -> "CHEMBL138989"}, 
+      "CHEMBL4633950" -> {Tooltip -> "CHEMBL4633950"}, 
+      "CHEMBL4637938" -> {Tooltip -> "CHEMBL4637938"}, 
+      "CHEMBL184049" -> {Tooltip -> "CHEMBL184049"}, 
+      "CHEMBL5191141" -> {Tooltip -> "CHEMBL5191141"}, 
+      "CHEMBL1258671" -> {Tooltip -> "CHEMBL1258671"}, 
+      "CHEMBL240774" -> {Tooltip -> "CHEMBL240774"}, 
+      "CHEMBL240996" -> {Tooltip -> "CHEMBL240996"}, 
+      "CHEMBL1765684" -> {Tooltip -> "CHEMBL1765684"}, 
+      "CHEMBL238718" -> {Tooltip -> "CHEMBL238718"}, 
+      "CHEMBL1940418" -> {Tooltip -> "CHEMBL1940418"}, 
+      "CHEMBL3321789" -> {Tooltip -> "CHEMBL3321789"}, 
+      "CHEMBL238717" -> {Tooltip -> "CHEMBL238717"}, 
+      "CHEMBL196169" -> {Tooltip -> "CHEMBL196169"}, 
+      "CHEMBL343755" -> {Tooltip -> "CHEMBL343755"}, 
+      "CHEMBL209497" -> {Tooltip -> "CHEMBL209497"}, 
+      "CHEMBL286080" -> {Tooltip -> "CHEMBL286080"}, 
+      "CHEMBL2420779" -> {Tooltip -> "CHEMBL2420779"}, 
+      "CHEMBL50498" -> {Tooltip -> "CHEMBL50498"}, 
+      "CHEMBL4544086" -> {Tooltip -> "CHEMBL4544086"}, 
+      "CHEMBL3289647" -> {Tooltip -> "CHEMBL3289647"}, 
+      "CHEMBL4846574" -> {Tooltip -> "CHEMBL4846574"}, 
+      "CHEMBL213834" -> {Tooltip -> "CHEMBL213834"}, 
+      "CHEMBL515472" -> {Tooltip -> "CHEMBL515472"}, 
+      "CHEMBL365697" -> {Tooltip -> "CHEMBL365697"}, 
+      "CHEMBL381936" -> {Tooltip -> "CHEMBL381936"}, 
+      "CHEMBL229429" -> {Tooltip -> "CHEMBL229429"}, 
+      "CHEMBL3321788" -> {Tooltip -> "CHEMBL3321788"}, 
+      "CHEMBL213492" -> {Tooltip -> "CHEMBL213492"}, 
+      "CHEMBL4636741" -> {Tooltip -> "CHEMBL4636741"}, 
+      "CHEMBL378825" -> {Tooltip -> "CHEMBL378825"}, 
+      "CHEMBL4643426" -> {Tooltip -> "CHEMBL4643426"}, 
+      "CHEMBL1457510" -> {Tooltip -> "CHEMBL1457510"}, 
+      "CHEMBL394080" -> {Tooltip -> "CHEMBL394080"}, 
+      "CHEMBL1672288" -> {Tooltip -> "CHEMBL1672288"}, 
+      "CHEMBL372453" -> {Tooltip -> "CHEMBL372453"}, 
+      "CHEMBL591685" -> {Tooltip -> "CHEMBL591685"}, 
+      "CHEMBL2420774" -> {Tooltip -> "CHEMBL2420774"}, 
+      "CHEMBL2420775" -> {Tooltip -> "CHEMBL2420775"}, 
+      "CHEMBL5090079" -> {Tooltip -> "CHEMBL5090079"}, 
+      "CHEMBL4848838" -> {Tooltip -> "CHEMBL4848838"}, 
+      "CHEMBL1829959" -> {Tooltip -> "CHEMBL1829959"}, 
+      "CHEMBL1940408" -> {Tooltip -> "CHEMBL1940408"}, 
+      "CHEMBL5201983" -> {Tooltip -> "CHEMBL5201983"}, 
+      "CHEMBL2420769" -> {Tooltip -> "CHEMBL2420769"}, 
+      "CHEMBL263881" -> {Tooltip -> "CHEMBL263881"}, 
+      "CHEMBL3754576" -> {Tooltip -> "CHEMBL3754576"}, 
+      "CHEMBL4856060" -> {Tooltip -> "CHEMBL4856060"}, 
+      "CHEMBL2420890" -> {Tooltip -> "CHEMBL2420890"}, 
+      "CHEMBL267014" -> {Tooltip -> "CHEMBL267014"}, 
+      "CHEMBL393492" -> {Tooltip -> "CHEMBL393492"}, 
+      "CHEMBL1258223" -> {Tooltip -> "CHEMBL1258223"}, 
+      "CHEMBL4875858" -> {Tooltip -> "CHEMBL4875858"}, 
+      "CHEMBL599487" -> {Tooltip -> "CHEMBL599487"}, 
+      "CHEMBL4637246" -> {Tooltip -> "CHEMBL4637246"}, 
+      "CHEMBL4851349" -> {Tooltip -> "CHEMBL4851349"}, 
+      "CHEMBL2420893" -> {Tooltip -> "CHEMBL2420893"}, 
+      "CHEMBL600986" -> {Tooltip -> "CHEMBL600986"}, 
+      "CHEMBL2420781" -> {Tooltip -> "CHEMBL2420781"}, 
+      "CHEMBL600987" -> {Tooltip -> "CHEMBL600987"}, 
+      "CHEMBL425069" -> {Tooltip -> "CHEMBL425069"}, 
+      "CHEMBL199824" -> {Tooltip -> "CHEMBL199824"}, 
+      "CHEMBL516088" -> {Tooltip -> "CHEMBL516088"}, 
+      "CHEMBL1940415" -> {Tooltip -> "CHEMBL1940415"}, 
+      "CHEMBL1940416" -> {Tooltip -> "CHEMBL1940416"}, 
+      "CHEMBL1940404" -> {Tooltip -> "CHEMBL1940404"}, 
+      "CHEMBL213336" -> {Tooltip -> "CHEMBL213336"}, 
+      "CHEMBL1940419" -> {Tooltip -> "CHEMBL1940419"}, 
+      "CHEMBL715" -> {Tooltip -> "CHEMBL715"}, 
+      "CHEMBL3289645" -> {Tooltip -> "CHEMBL3289645"}, 
+      "CHEMBL5074765" -> {Tooltip -> "CHEMBL5074765"}, 
+      "CHEMBL555146" -> {Tooltip -> "CHEMBL555146"}, 
+      "CHEMBL3289646" -> {Tooltip -> "CHEMBL3289646"}, 
+      "CHEMBL137781" -> {Tooltip -> "CHEMBL137781"}, 
+      "CHEMBL426317" -> {Tooltip -> "CHEMBL426317"}, 
+      "CHEMBL1940420" -> {Tooltip -> "CHEMBL1940420"}, 
+      "CHEMBL2420892" -> {Tooltip -> "CHEMBL2420892"}, 
+      "CHEMBL5075741" -> {Tooltip -> "CHEMBL5075741"}, 
+      "CHEMBL2420895" -> {Tooltip -> "CHEMBL2420895"}, 
+      "CHEMBL2031737" -> {Tooltip -> "CHEMBL2031737"}, 
+      "CHEMBL4645139" -> {Tooltip -> "CHEMBL4645139"}, 
+      "CHEMBL4642592" -> {Tooltip -> "CHEMBL4642592"}, 
+      "CHEMBL364565" -> {Tooltip -> "CHEMBL364565"}, 
+      "CHEMBL3104092" -> {Tooltip -> "CHEMBL3104092"}, 
+      "CHEMBL395933" -> {Tooltip -> "CHEMBL395933"}}, 
+    EdgeWeight -> CompressedData["
+1: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
+oA==
+     "], GraphLayout -> "GravityEmbedding"}], $CellContext`edges$$ = {
    UndirectedEdge["CHEMBL393492", "CHEMBL240774"], 
    UndirectedEdge["CHEMBL393492", "CHEMBL240995"], 
    UndirectedEdge["CHEMBL393492", "CHEMBL2420781"], 
@@ -1720,15 +2075,14 @@ $CellContext`colorCommunities[$CellContext`graph$$]), "\"Export\"" :>
              WeightedAdjacencyMatrix[$CellContext`graph$$]], 
            "\"Export Spectra\"" :> Export["adjMatrixSpectra.wxf", 
              Eigenvalues[
-              WeightedAdjacencyMatrix[$CellContext`graphD5]]]}], 
+              WeightedAdjacencyMatrix[$CellContext`$graph]]]}], 
          ActionMenuBox[
          "\"Switch Embedding\"", {
           "\"Spring Electrical\"" :> ($CellContext`graph$$ = 
             Annotate[$CellContext`graph$$, GraphLayout -> 
               "SpringElectricalEmbedding"])}], 
          ActionMenuBox[
-         "\"Representative Molecule\"", {
-          "\"Degree Centrality\"" :> CreateDialog[
+         "\"Representative Molecule\"", {"\"Show Plot\"" :> CreateDialog[
              MoleculePlot[
               $CellContext`$fingerprintData[
                First[
@@ -1736,12 +2090,20 @@ $CellContext`colorCommunities[$CellContext`graph$$]), "\"Export\"" :>
                  VertexList[$CellContext`graph$$], 
                  Ordering[
                   DegreeCentrality[$CellContext`graph$$], All, Greater]]], 
-               "Molecule"]]]}], 
+               "Molecule"]]], 
+           "\"Highlight\"" :> ($CellContext`graph$$ = 
+            HighlightGraph[$CellContext`graph$$, 
+              First[
+               Part[
+                VertexList[$CellContext`graph$$], 
+                Ordering[
+                 DegreeCentrality[$CellContext`graph$$], All, Greater]]]])}], 
+         
          ActionMenuBox[
          "\"Reset\"", {
-          "\"Graph\"" :> ($CellContext`graph$$ = $CellContext`graphD5), 
+          "\"Graph\"" :> ($CellContext`graph$$ = $CellContext`$graph), 
            "\"Selected\"" :> ($CellContext`vertexClicked$$ = {}), 
-           "\"All\"" :> ($CellContext`graph$$ = $CellContext`graphD5; \
+           "\"All\"" :> ($CellContext`graph$$ = $CellContext`$graph; \
 $CellContext`vertexClicked$$ = {})}]},
         "RowDefault"]},
       {
@@ -1811,7 +2173,7 @@ $CellContext`graph$$ =
       {
        PanelBox[
         DynamicBox[ToBoxes[$CellContext`graph$$, StandardForm],
-         ImageSizeCache->{450., {228., 234.}}],
+         ImageSizeCache->{962., {461., 468.}}],
         Alignment->Center]}
      },
      DefaultBaseStyle->"Column",
@@ -1820,22 +2182,10 @@ $CellContext`graph$$ =
     "Column"]],
   DynamicModuleValues:>{}]], "Output",
  CellChangeTimes->{
-  3.897905914456601*^9, 3.897905953944508*^9, 3.8979060096113253`*^9, 
-   3.897906044933744*^9, 3.89790689409002*^9, 3.897907402021226*^9, 
-   3.897907526507704*^9, {3.897907583142934*^9, 3.897907620477395*^9}, 
-   3.897907734540497*^9, 3.897907854244671*^9, 3.897908102987507*^9, 
-   3.897908685078425*^9, 3.89790980245746*^9, 3.897909874088633*^9, 
-   3.89790992384741*^9, {3.897910020786961*^9, 3.897910032973522*^9}, 
-   3.897913524889723*^9, 3.897913640949829*^9, 3.89791399750863*^9, 
-   3.897914162703371*^9, 3.897915484665277*^9, 3.89791551639285*^9, {
-   3.897915549558711*^9, 3.897915553294612*^9}, 3.897915846168689*^9, 
-   3.897916009284017*^9, 3.897916856978471*^9, 3.8979170889535637`*^9, 
-   3.897917178681772*^9, {3.897917211924271*^9, 3.897917221902843*^9}, 
-   3.897917451408486*^9, 3.897917811050305*^9, 3.897917884264195*^9, 
-   3.897917969135065*^9, 3.8979180420855494`*^9, {3.8979181368839207`*^9, 
-   3.8979181974595137`*^9}, 3.89791849062164*^9, 3.897919066395611*^9, 
-   3.897919549653708*^9, 3.8979199656746407`*^9, 3.897920034435089*^9},
- CellLabel->"Out[42]=",ExpressionUUID->"72d24cae-fc80-40da-a1f4-87085a1cfc22"]
+  3.897921463779367*^9, {3.897921534390008*^9, 3.897921549679409*^9}, 
+   3.8979216936493893`*^9, {3.8979217239768972`*^9, 3.8979217417034693`*^9}, 
+   3.897928493536693*^9},
+ CellLabel->"Out[19]=",ExpressionUUID->"99b1a3b3-3b1e-4c8c-9c1f-c5121a07b7e1"]
 }, Open  ]]
 },
 WindowSize->{Full, Full},
@@ -1859,42 +2209,41 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[583, 22, 319, 6, 57, "Input",ExpressionUUID->"89a1c28e-04f8-490d-9f99-8b8f42a52b01",
  InitializationCell->True],
-Cell[905, 30, 956, 14, 42, "Output",ExpressionUUID->"22adcc05-19df-4905-afba-377e3bbd2326",
+Cell[905, 30, 1027, 15, 42, "Output",ExpressionUUID->"9db3a73b-cc96-47b1-b879-1ad8e4696d2c",
  InitializationCell->True]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1898, 49, 165, 3, 57, "Input",ExpressionUUID->"f3045fcd-3c29-4015-aafe-d45fbe3c7fbf",
+Cell[1969, 50, 165, 3, 57, "Input",ExpressionUUID->"f3045fcd-3c29-4015-aafe-d45fbe3c7fbf",
  InitializationCell->True],
-Cell[2066, 54, 609, 12, 67, "Output",ExpressionUUID->"838028f1-543c-4326-a466-000633d52f3a"]
+Cell[2137, 55, 659, 13, 67, "Output",ExpressionUUID->"88ce9b40-a555-4bd6-bbd9-a5026b3200f3"]
 }, Open  ]],
-Cell[2690, 69, 305, 6, 57, "Input",ExpressionUUID->"dfc0a8e7-c3a8-4b33-9207-b299d1f1f1b6",
+Cell[2811, 71, 305, 6, 57, "Input",ExpressionUUID->"dfc0a8e7-c3a8-4b33-9207-b299d1f1f1b6",
  InitializationCell->True],
-Cell[2998, 77, 235, 4, 57, "Input",ExpressionUUID->"f44a5f93-15a8-4afb-86ab-f3af63db4ac2",
+Cell[3119, 79, 235, 4, 57, "Input",ExpressionUUID->"f44a5f93-15a8-4afb-86ab-f3af63db4ac2",
  InitializationCell->True],
-Cell[3236, 83, 1066, 22, 240, "Input",ExpressionUUID->"e19d7f81-6f45-4e16-b11e-8a6d9f3bb150",
+Cell[3357, 85, 1066, 22, 240, "Input",ExpressionUUID->"e19d7f81-6f45-4e16-b11e-8a6d9f3bb150",
  InitializationCell->True],
-Cell[4305, 107, 3664, 78, 370, "Input",ExpressionUUID->"beb8e9ba-a476-41e4-ad6c-c0c6e6971a38",
+Cell[4426, 109, 3664, 78, 370, "Input",ExpressionUUID->"beb8e9ba-a476-41e4-ad6c-c0c6e6971a38",
  InitializationCell->True],
-Cell[7972, 187, 3717, 91, 240, "Input",ExpressionUUID->"f9965f40-3dfb-4084-a4a0-e97fc3161afd",
+Cell[8093, 189, 3717, 91, 214, "Input",ExpressionUUID->"f9965f40-3dfb-4084-a4a0-e97fc3161afd",
  InitializationCell->True],
-Cell[11692, 280, 4241, 95, 214, "Input",ExpressionUUID->"b3f3e12d-3a33-474c-983d-40c43ba7d4db",
+Cell[11813, 282, 4241, 95, 214, "Input",ExpressionUUID->"b3f3e12d-3a33-474c-983d-40c43ba7d4db",
  InitializationCell->True],
-Cell[15936, 377, 3956, 93, 292, "Input",ExpressionUUID->"9e3f27a0-8ae2-4642-8ed6-7d268d0f5131",
+Cell[16057, 379, 3956, 93, 292, "Input",ExpressionUUID->"9e3f27a0-8ae2-4642-8ed6-7d268d0f5131",
  InitializationCell->True],
-Cell[19895, 472, 554, 14, 57, "Input",ExpressionUUID->"c28f8504-5b1d-485c-baf7-d39762d64e12",
+Cell[20016, 474, 579, 15, 57, "Input",ExpressionUUID->"c28f8504-5b1d-485c-baf7-d39762d64e12",
  InitializationCell->True],
-Cell[20452, 488, 438, 11, 57, "Input",ExpressionUUID->"aa497742-5d2f-46e0-a3fb-bbc8a25c2396",
+Cell[20598, 491, 438, 11, 57, "Input",ExpressionUUID->"aa497742-5d2f-46e0-a3fb-bbc8a25c2396",
  InitializationCell->True],
-Cell[20893, 501, 242, 4, 57, "Input",ExpressionUUID->"03532ecb-7e26-4916-b615-9a873da60157",
+Cell[21039, 504, 242, 4, 57, "Input",ExpressionUUID->"03532ecb-7e26-4916-b615-9a873da60157",
  InitializationCell->True],
-Cell[21138, 507, 161, 3, 44, "Text",ExpressionUUID->"1a0fd861-a2f8-4295-b97d-819b67290d97"],
-Cell[21302, 512, 1459, 23, 37, "Input",ExpressionUUID->"852924ed-e133-4ea7-9bcf-91be32d9b452"],
-Cell[22764, 537, 193, 3, 44, "Text",ExpressionUUID->"5b424510-2eee-4f89-8194-d3b2dc86344b"],
-Cell[22960, 542, 660, 14, 37, "Input",ExpressionUUID->"bdd71737-1f4d-42a7-901d-cb73b1aaa541"],
-Cell[23623, 558, 527, 10, 37, "Input",ExpressionUUID->"1b7e3ff5-b61f-430e-b54f-54a6783737f9"],
+Cell[21284, 510, 161, 3, 44, "Text",ExpressionUUID->"1a0fd861-a2f8-4295-b97d-819b67290d97"],
+Cell[21448, 515, 1477, 22, 37, "Input",ExpressionUUID->"852924ed-e133-4ea7-9bcf-91be32d9b452"],
+Cell[22928, 539, 193, 3, 44, "Text",ExpressionUUID->"5b424510-2eee-4f89-8194-d3b2dc86344b"],
+Cell[23124, 544, 527, 10, 37, "Input",ExpressionUUID->"1b7e3ff5-b61f-430e-b54f-54a6783737f9"],
 Cell[CellGroupData[{
-Cell[24175, 572, 18308, 348, 1494, "Input",ExpressionUUID->"55d89b25-929d-4d09-b8f4-a28fae3b2db6"],
-Cell[42486, 922, 48408, 915, 604, "Output",ExpressionUUID->"72d24cae-fc80-40da-a1f4-87085a1cfc22"]
+Cell[23676, 558, 19444, 369, 1494, "Input",ExpressionUUID->"55d89b25-929d-4d09-b8f4-a28fae3b2db6"],
+Cell[43123, 929, 68249, 1258, 1071, "Output",ExpressionUUID->"99b1a3b3-3b1e-4c8c-9c1f-c5121a07b7e1"]
 }, Open  ]]
 }
 ]

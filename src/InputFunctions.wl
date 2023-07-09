@@ -22,8 +22,9 @@ makeID[prefix_String, number_Integer?Positive, maxDigits_Integer?Positive] :=
 
 
 (* ::Input::Initialization:: *)
-generateDataset[file_] := Module[{data, dataset, idKey, ids},
-  data = Import[file, "Table", "FieldSeparators" -> ";", "RepeatedSeparators" -> False];
+Options[generateDataset]={"FieldSeparator"->";"}
+generateDataset[file_,OptionsPattern[]] := Module[{data, dataset, idKey, ids},
+  data = Import[file, "Table", "FieldSeparators" -> OptionValue["FieldSeperator"], "RepeatedSeparators" -> False];
   dataset = Dataset[AssociationThread[First[data] -> #]& /@ Rest[data]];
   idKey = SelectFirst[Keys[First[dataset]] // Normal, StringMatchQ[RegularExpression["(?i).*ID.*"]]];
   ids = If[MissingQ[idKey], makeID["ID", Range[Length[dataset]], Ceiling[Log10[Length[dataset]]]], Normal@dataset[All, idKey]];
@@ -32,8 +33,9 @@ generateDataset[file_] := Module[{data, dataset, idKey, ids},
 
 
 (* ::Input::Initialization:: *)
-generateDatasetBio[file_] := Module[{data, dataset, idKey, ids},
-  data = Import[file, "Table", "FieldSeparators" -> ";", "RepeatedSeparators" -> False];
+Options[generateDatasetBio]={"FieldSeparator"->";"}
+generateDatasetBio[file_,OptionsPattern[]] := Module[{data, dataset, idKey, ids},
+  data = Import[file, "Table", "FieldSeparators" -> OptionValue["FieldSeperator"], "RepeatedSeparators" -> False];
   dataset = Dataset[AssociationThread[First[data] -> #]& /@ Rest[data]];
   idKey = SelectFirst[Keys[First[dataset]] // Normal, StringMatchQ[RegularExpression["(?i).*ID.*"]]];
   ids = If[MissingQ[idKey], makeID["ID", Range[Length[dataset]], Ceiling[Log10[Length[dataset]]]], Normal@dataset[All, idKey]];
@@ -44,13 +46,13 @@ generateDatasetBio[file_] := Module[{data, dataset, idKey, ids},
 
 
 (* ::Input::Initialization:: *)
-Options[assignFingerprintsList] = Join[{"Fingerprint" -> TopologicalFingerprint}, Options[TopologicalFingerprint]];
+Options[assignFingerprintsList] = Join[{"Fingerprint" -> TopologicalFingerprint}, Options[TopologicalFingerprint],Options[generateDataset]];
 assignFingerprintsList[molList_, OptionsPattern[]] :=
     Dataset[AssociationThread[{"Molecule", "Fingerprint"} -> #]& /@ Map[{#, OptionValue["Fingerprint"][#]}&, molList]]
 
 
 (* ::Input::Initialization:: *)
-Options[assignFingerprints] = Join[{"Fingerprint" -> TopologicalFingerprint}, Options[TopologicalFingerprint]];
+Options[assignFingerprints] = Join[{"Fingerprint" -> TopologicalFingerprint}, Options[TopologicalFingerprint],Options[generateDataset]];
 assignFingerprints[dataset_Dataset, opts : OptionsPattern[]] := dataset[All,
   With[{mol = Molecule[#"Smiles", IncludeHydrogens -> False]}, <|##,
     "Molecule" -> mol, "Fingerprint" -> OptionValue["Fingerprint"][mol]|>]&];
