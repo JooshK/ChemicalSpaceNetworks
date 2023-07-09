@@ -22,7 +22,7 @@ makeID[prefix_String, number_Integer?Positive, maxDigits_Integer?Positive] :=
 
 
 (* ::Input::Initialization:: *)
-Options[generateDataset]={"FieldSeparator"->";"}
+Options[generateDataset]={"FieldSeparator"->";"};
 generateDataset[file_,OptionsPattern[]] := Module[{data, dataset, idKey, ids},
   data = Import[file, "Table", "FieldSeparators" -> OptionValue["FieldSeperator"], "RepeatedSeparators" -> False];
   dataset = Dataset[AssociationThread[First[data] -> #]& /@ Rest[data]];
@@ -33,15 +33,15 @@ generateDataset[file_,OptionsPattern[]] := Module[{data, dataset, idKey, ids},
 
 
 (* ::Input::Initialization:: *)
-Options[generateDatasetBio]={"FieldSeparator"->";"}
-generateDatasetBio[file_,OptionsPattern[]] := Module[{data, dataset, idKey, ids},
-  data = Import[file, "Table", "FieldSeparators" -> OptionValue["FieldSeperator"], "RepeatedSeparators" -> False];
+Options[generateDatasetBio]={"FieldSeparator"->";"};
+generateDatasetBio[file_,biotype_,OptionsPattern[]] := Module[{data, dataset, idKey, ids},
+  data = Import[file, "Table", "FieldSeparators" -> OptionValue["FieldSeparator"], "RepeatedSeparators" -> False];
   dataset = Dataset[AssociationThread[First[data] -> #]& /@ Rest[data]];
   idKey = SelectFirst[Keys[First[dataset]] // Normal, StringMatchQ[RegularExpression["(?i).*ID.*"]]];
   ids = If[MissingQ[idKey], makeID["ID", Range[Length[dataset]], Ceiling[Log10[Length[dataset]]]], Normal@dataset[All, idKey]];
   dataset = AssociationThread[ids, Normal@dataset[All, {"Smiles", "Standard Value"}]] // Dataset;
   dataset = dataset[Select[NumericQ[#"Standard Value"]&]] // cleanDataset;
-  dataset[All, {"Standard Value" -> (9 - Log10[#]&)}][All, KeyMap[# /. "Standard Value" -> "pKi"&]]
+  dataset[All, {"Standard Value" -> (9 - Log10[#]&)}][All, KeyMap[# /. "Standard Value" -> biotype&]]
 ]
 
 
