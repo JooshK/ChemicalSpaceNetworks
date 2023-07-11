@@ -1,0 +1,499 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[     24909,        491]
+NotebookOptionsPosition[     24473,        476]
+NotebookOutlinePosition[     24865,        492]
+CellTagsIndexPosition[     24822,        489]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{"SetDirectory", "@", "NotebookDirectory"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "../ChemicalSpaceFunction.wl"}]}], "Input",
+ CellChangeTimes->{{3.898090526761956*^9, 3.898090557091586*^9}},
+ CellLabel->
+  "In[125]:=",ExpressionUUID->"d48b5dd2-06a1-479a-ac05-523f489cf34d"],
+
+Cell[BoxData[
+ RowBox[{"DynamicModule", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"vertexClicked", "=", 
+      RowBox[{"{", "}"}]}], ",", 
+     RowBox[{"graph", "=", "$graph"}], ",", 
+     RowBox[{"edges", "=", 
+      RowBox[{"EdgeList", "[", "$graph", "]"}]}], ",", 
+     RowBox[{"vertices", "=", 
+      RowBox[{"Union", "@@", 
+       RowBox[{"List", "@@@", 
+        RowBox[{"EdgeList", "[", "$graph", "]"}]}]}]}], ",", 
+     RowBox[{"bioType", "=", "\"\<pKi\>\""}], ",", 
+     RowBox[{"bioData", "=", "False"}], ",", 
+     RowBox[{"emb", "=", "\"\<GravityEmbedding\>\""}], ",", 
+     RowBox[{"clickable", "=", "False"}]}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"plotLegend", "=", 
+     RowBox[{"Row", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"BarLegend", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"defaultBioToColor", ",", 
+            RowBox[{"{", 
+             RowBox[{"4", ",", "11"}], "}"}]}], "}"}], ",", "6"}], "]"}], ",", 
+        RowBox[{"Rotate", "[", 
+         RowBox[{"bioType", ",", 
+          RowBox[{"90", "Degree"}]}], "]"}]}], "}"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"defaultVertexStyle", "=", 
+     RowBox[{
+      RowBox[{"#", "->", 
+       RowBox[{"defaultBioToColor", "[", 
+        RowBox[{"$fingerprintData", "[", 
+         RowBox[{"#", ",", "bioType"}], "]"}], "]"}]}], "&"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"vertexCoordinates", "=", 
+     RowBox[{"GraphEmbedding", "[", "$graph", "]"}]}], ";", 
+    RowBox[{"vertexSize", "=", 
+     RowBox[{"EuclideanDistance", "[", 
+      RowBox[{
+       RowBox[{"vertexCoordinates", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], ",", 
+       RowBox[{"vertexCoordinates", "[", 
+        RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Panel", "[", "\[IndentingNewLine]", 
+     RowBox[{"Column", "[", 
+      RowBox[{
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Row", "[", 
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"ActionMenu", "[", 
+             RowBox[{"\"\<Communities\>\"", ",", 
+              RowBox[{"{", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"\"\<Highlight\>\"", ":>", 
+                 RowBox[{"(", 
+                  RowBox[{"graph", "=", 
+                   RowBox[{"colorCommunities", "[", "graph", "]"}]}], ")"}]}],
+                 ",", "\[IndentingNewLine]", 
+                RowBox[{"\"\<Export\>\"", ":>", 
+                 RowBox[{"Export", "[", 
+                  RowBox[{"\"\<communities.wxf\>\"", ",", 
+                   RowBox[{"FindGraphCommunities", "[", "graph", "]"}]}], 
+                  "]"}]}]}], "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"ActionMenu", "[", 
+             RowBox[{"\"\<Connected components\>\"", ",", 
+              RowBox[{"{", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"\"\<Highlight\>\"", ":>", 
+                 RowBox[{"(", 
+                  RowBox[{"graph", "=", 
+                   RowBox[{"HighlightGraph", "[", 
+                    RowBox[{"graph", ",", 
+                    RowBox[{"ConnectedComponents", "[", "graph", "]"}]}], 
+                    "]"}]}], ")"}]}], ",", "\[IndentingNewLine]", 
+                RowBox[{"\"\<Export\>\"", ":>", 
+                 RowBox[{"Export", "[", 
+                  RowBox[{"\"\<connectedComponents.wxf\>\"", ",", 
+                   RowBox[{"ConnectedComponents", "[", "graph", "]"}]}], 
+                  "]"}]}]}], "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"ActionMenu", "[", 
+             RowBox[{"\"\<Subgraph\>\"", ",", 
+              RowBox[{"{", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"\"\<Generate from selected\>\"", ":>", 
+                 RowBox[{"(", 
+                  RowBox[{"graph", "=", 
+                   RowBox[{"Subgraph", "[", 
+                    RowBox[{"graph", ",", "vertexClicked", ",", 
+                    RowBox[{"VertexStyle", "->", "Automatic"}]}], "]"}]}], 
+                  ")"}]}], ",", "\[IndentingNewLine]", 
+                RowBox[{"\"\<Export\>\"", ":>", 
+                 RowBox[{"(", 
+                  RowBox[{"Export", "[", 
+                   RowBox[{
+                    RowBox[{"StringJoin", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "\"\<subgraph\>\"", ",", "vertexClicked", ",", 
+                    "\"\<.wxf\>\""}], "}"}], "]"}], ",", "graph"}], "]"}], 
+                  ")"}]}]}], "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"ActionMenu", "[", 
+             RowBox[{"\"\<Adjacency Matrix\>\"", ",", 
+              RowBox[{"{", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"\"\<Export\>\"", ":>", 
+                 RowBox[{"(", 
+                  RowBox[{"Export", "[", 
+                   RowBox[{"\"\<graphAdjMatrix.wxf\>\"", ",", 
+                    RowBox[{"WeightedAdjacencyMatrix", "[", "graph", "]"}]}], 
+                   "]"}], ")"}]}], ",", "\[IndentingNewLine]", 
+                RowBox[{"\"\<Export Spectra\>\"", ":>", 
+                 RowBox[{"(", 
+                  RowBox[{"Export", "[", 
+                   RowBox[{"\"\<adjMatrixSpectra.wxf\>\"", ",", 
+                    RowBox[{"Eigenvalues", "[", 
+                    RowBox[{"WeightedAdjacencyMatrix", "[", "$graph", "]"}], 
+                    "]"}]}], "]"}], ")"}]}]}], "\[IndentingNewLine]", "}"}]}],
+              "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"ActionMenu", "[", 
+             RowBox[{"\"\<Switch Embedding\>\"", ",", 
+              RowBox[{"{", "\[IndentingNewLine]", 
+               RowBox[{"\"\<Spring Electrical\>\"", ":>", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"graph", "=", 
+                   RowBox[{"Annotate", "[", 
+                    RowBox[{"graph", ",", 
+                    RowBox[{
+                    "GraphLayout", "->", 
+                    "\"\<SpringElectricalEmbedding\>\""}]}], "]"}]}], ";", 
+                  RowBox[{"emb", "=", "\"\<SpringElectrical\>\""}]}], ")"}]}],
+                "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"ActionMenu", "[", 
+             RowBox[{"\"\<Representative Molecule\>\"", ",", 
+              RowBox[{"{", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"\"\<Show Plot\>\"", ":>", 
+                 RowBox[{"CreateDialog", "[", 
+                  RowBox[{"MoleculePlot", "[", 
+                   RowBox[{"$fingerprintData", "[", 
+                    RowBox[{
+                    RowBox[{"First", "@", 
+                    RowBox[{"Part", "[", 
+                    RowBox[{
+                    RowBox[{"VertexList", "[", "graph", "]"}], ",", 
+                    RowBox[{"Ordering", "[", 
+                    RowBox[{
+                    RowBox[{"DegreeCentrality", "[", "graph", "]"}], ",", 
+                    "All", ",", "Greater"}], "]"}]}], "]"}]}], ",", 
+                    "\"\<Molecule\>\""}], "]"}], "]"}], "]"}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"\"\<Highlight\>\"", ":>", 
+                 RowBox[{"(", 
+                  RowBox[{"graph", "=", 
+                   RowBox[{"HighlightGraph", "[", 
+                    RowBox[{"graph", ",", 
+                    RowBox[{"First", "@", 
+                    RowBox[{"Part", "[", 
+                    RowBox[{
+                    RowBox[{"VertexList", "[", "graph", "]"}], ",", 
+                    RowBox[{"Ordering", "[", 
+                    RowBox[{
+                    RowBox[{"DegreeCentrality", "[", "graph", "]"}], ",", 
+                    "All", ",", "Greater"}], "]"}]}], "]"}]}]}], "]"}]}], 
+                  ")"}]}]}], "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"ActionMenu", "[", 
+             RowBox[{"\"\<Reset\>\"", ",", 
+              RowBox[{"{", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"\"\<Graph\>\"", ":>", 
+                 RowBox[{"(", 
+                  RowBox[{"graph", "=", "$graph"}], ")"}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"\"\<Selected\>\"", ":>", 
+                 RowBox[{"(", 
+                  RowBox[{"vertexClicked", "=", 
+                   RowBox[{"{", "}"}]}], ")"}]}], ",", "\[IndentingNewLine]", 
+                
+                RowBox[{"\"\<BioData\>\"", ":>", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"bioData", "=", "False"}], ";", 
+                   RowBox[{"graph", "=", 
+                    RowBox[{"First", "@", "graph"}]}], ";", 
+                   RowBox[{"graph", "=", 
+                    RowBox[{"Annotate", "[", 
+                    RowBox[{"graph", ",", 
+                    RowBox[{"VertexStyle", "->", "Automatic"}]}], "]"}]}]}], 
+                  ")"}]}], ",", "\[IndentingNewLine]", 
+                RowBox[{"\"\<All\>\"", ":>", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"graph", "=", "$graph"}], ";", 
+                   RowBox[{"vertexClicked", "=", 
+                    RowBox[{"{", "}"}]}]}], ")"}]}]}], "\[IndentingNewLine]", 
+               "}"}]}], "]"}]}], "\[IndentingNewLine]", "}"}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Row", "[", 
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"Button", "[", 
+             RowBox[{"\"\<Select Vertices\>\"", ",", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"clickable", "=", 
+                RowBox[{"Not", "[", "clickable", "]"}]}], ";", 
+               RowBox[{"If", "[", 
+                RowBox[{"clickable", ",", 
+                 RowBox[{
+                  RowBox[{"graph", "=", 
+                   RowBox[{"Annotate", "[", 
+                    RowBox[{"graph", ",", 
+                    RowBox[{
+                    "VertexShapeFunction", "->", "\[IndentingNewLine]", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"EventHandler", "[", 
+                    RowBox[{
+                    RowBox[{"Disk", "[", 
+                    RowBox[{"#1", ",", "0.05"}], "]"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"\"\<MouseClicked\>\"", ":>", 
+                    RowBox[{"(", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"CurrentValue", "[", "\"\<ShiftKey\>\"", "]"}], 
+                    ",", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"vertexClicked", "=", 
+                    RowBox[{"Join", "[", 
+                    RowBox[{"vertexClicked", ",", 
+                    RowBox[{"First", "@", 
+                    RowBox[{"ConnectedComponents", "[", 
+                    RowBox[{"graph", ",", "#2"}], "]"}]}]}], "]"}]}], ";", 
+                    RowBox[{"graph", "=", 
+                    RowBox[{"Annotate", "[", 
+                    RowBox[{"graph", ",", 
+                    RowBox[{"VertexStyle", "->", 
+                    RowBox[{"Thread", "[", 
+                    RowBox[{"vertexClicked", "->", "Red"}], "]"}]}]}], 
+                    "]"}]}]}], ",", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"vertexClicked", "=", 
+                    RowBox[{"Append", "[", 
+                    RowBox[{"vertexClicked", ",", "#2"}], "]"}]}], ";", 
+                    RowBox[{"graph", "=", 
+                    RowBox[{"Annotate", "[", 
+                    RowBox[{"graph", ",", 
+                    RowBox[{"VertexStyle", "->", 
+                    RowBox[{"Thread", "[", 
+                    RowBox[{"vertexClicked", "->", "Red"}], "]"}]}]}], 
+                    "]"}]}]}]}], "]"}], "\[IndentingNewLine]", ")"}]}]}], 
+                    "]"}], "&"}], ")"}]}]}], "]"}]}], ";"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"graph", "=", 
+                  RowBox[{"Annotate", "[", 
+                   RowBox[{"graph", ",", 
+                    RowBox[{"VertexShapeFunction", "->", "Automatic"}]}], 
+                   "]"}]}]}], "]"}], ";"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Button", "[", 
+             RowBox[{"\"\<Show distances\>\"", ",", 
+              RowBox[{"(", 
+               RowBox[{"graph", "=", 
+                RowBox[{"Annotate", "[", 
+                 RowBox[{"graph", ",", 
+                  RowBox[{"EdgeLabels", "->", "\"\<EdgeWeight\>\""}]}], 
+                 "]"}]}], ")"}]}], "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"Button", "[", 
+             RowBox[{"\"\<Show Molecules\>\"", ",", "\[IndentingNewLine]", 
+              RowBox[{"(", 
+               RowBox[{"graph", "=", 
+                RowBox[{"Annotate", "[", 
+                 RowBox[{"graph", ",", 
+                  RowBox[{"VertexShapeFunction", "->", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"pos", ",", "v", ",", "size"}], "}"}], "|->", 
+                    RowBox[{"Inset", "[", 
+                    RowBox[{
+                    RowBox[{"MoleculePlot", "[", 
+                    RowBox[{"$fingerprintData", "[", 
+                    RowBox[{"v", ",", "\"\<Molecule\>\""}], "]"}], "]"}], ",",
+                     "pos", ",", "Center", ",", 
+                    RowBox[{"20", "*", "size"}]}], "]"}]}], ")"}]}]}], 
+                 "\[IndentingNewLine]", "]"}]}], ")"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Button", "[", 
+             RowBox[{"\"\<Show Bio Data\>\"", ",", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"bioData", "=", 
+                RowBox[{"Not", "[", "bioData", "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"If", "[", 
+                RowBox[{"bioData", ",", "\[IndentingNewLine]", 
+                 RowBox[{"graph", "=", 
+                  RowBox[{
+                   RowBox[{"Annotate", "[", 
+                    RowBox[{"graph", ",", 
+                    RowBox[{"VertexStyle", "->", 
+                    RowBox[{"defaultVertexStyle", "/@", "vertices"}]}]}], 
+                    "]"}], "//", 
+                   RowBox[{
+                    RowBox[{"Legended", "[", 
+                    RowBox[{"#", ",", "plotLegend"}], "]"}], "&"}]}]}]}], 
+                "]"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"Button", "[", 
+             RowBox[{"\"\<Draw Edge Weights\>\"", ",", 
+              RowBox[{"graph", "=", 
+               RowBox[{"graph", "//", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"IGEdgeMap", "[", 
+                  RowBox[{"Identity", ",", 
+                   RowBox[{"\"\<weight\>\"", "->", 
+                    RowBox[{"IGEdgeProp", "[", "EdgeWeight", "]"}]}]}], "]"}],
+                  "/*", "\[IndentingNewLine]", 
+                 RowBox[{"IGEdgeMap", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"Directive", "[", 
+                    RowBox[{"AbsoluteThickness", "[", 
+                    RowBox[{"9", " ", "#1"}], "]"}], "]"}], "&"}], ",", 
+                   RowBox[{"EdgeStyle", "->", 
+                    RowBox[{"{", 
+                    RowBox[{"IGEdgeProp", "[", "\"\<weight\>\"", "]"}], 
+                    "}"}]}]}], "]"}]}]}]}]}], "]"}]}], "\[IndentingNewLine]", 
+           "}"}], "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Panel", "[", 
+          RowBox[{
+           RowBox[{"Dynamic", "[", "graph", "]"}], ",", 
+           RowBox[{"Alignment", "->", "Center"}]}], "]"}]}], 
+        "\[IndentingNewLine]", "}"}], ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], "\[IndentingNewLine]", 
+     "]"}]}]}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.897655164656643*^9, 3.897655269690185*^9}, {
+   3.89765530291199*^9, 3.897655609411001*^9}, {3.897655643619697*^9, 
+   3.897655858472313*^9}, {3.897655891437516*^9, 3.897655897402966*^9}, {
+   3.897657746593268*^9, 3.8976579421242733`*^9}, 3.897657978799637*^9, {
+   3.897658021347492*^9, 3.8976580731937933`*^9}, {3.897658111887741*^9, 
+   3.8976582376323423`*^9}, {3.8976582686831093`*^9, 3.89765834942638*^9}, {
+   3.897658436132053*^9, 3.897658488401744*^9}, {3.8976585447361727`*^9, 
+   3.8976585661748457`*^9}, {3.897658610979274*^9, 3.8976586833829603`*^9}, {
+   3.8976587148020906`*^9, 3.897658730583857*^9}, {3.897658764355722*^9, 
+   3.897658802138524*^9}, {3.897658920597939*^9, 3.8976589380693007`*^9}, {
+   3.897659013714634*^9, 3.8976590810483837`*^9}, {3.897659111624838*^9, 
+   3.897659164129986*^9}, {3.897659224423716*^9, 3.8976592281080923`*^9}, {
+   3.897659280725618*^9, 3.8976592896006613`*^9}, {3.897659323181239*^9, 
+   3.897659337246078*^9}, {3.897659493186513*^9, 3.8976595318678703`*^9}, {
+   3.897659568329213*^9, 3.897659624185362*^9}, {3.897659692808943*^9, 
+   3.897659695392701*^9}, {3.897659805732833*^9, 3.8976599156725073`*^9}, {
+   3.8976601868795443`*^9, 3.897660407495219*^9}, {3.897660438943775*^9, 
+   3.897660469594305*^9}, {3.8976605275852337`*^9, 3.897660604567429*^9}, {
+   3.8976606388851357`*^9, 3.8976606497688093`*^9}, {3.8976606840284357`*^9, 
+   3.8976608118254023`*^9}, {3.897660925875684*^9, 3.897661115307838*^9}, {
+   3.8976612972938213`*^9, 3.897661474175487*^9}, {3.897661568245111*^9, 
+   3.897661587371711*^9}, {3.897661619826313*^9, 3.897661621725873*^9}, {
+   3.897661730488019*^9, 3.897661732241238*^9}, {3.8976617861127872`*^9, 
+   3.8976618993837337`*^9}, {3.897661954128509*^9, 3.8976619786029987`*^9}, {
+   3.897662015313218*^9, 3.8976620521618357`*^9}, {3.8976621253540277`*^9, 
+   3.897662154846044*^9}, {3.897662187149267*^9, 3.89766222941214*^9}, {
+   3.897662260871023*^9, 3.897662295187994*^9}, {3.897662399022444*^9, 
+   3.897662422292616*^9}, {3.897902124707036*^9, 3.897902150099592*^9}, {
+   3.897902186161499*^9, 3.8979022316312857`*^9}, {3.897902344674465*^9, 
+   3.897902410786557*^9}, {3.897902445893838*^9, 3.897902472099865*^9}, {
+   3.897902512080724*^9, 3.8979027119327097`*^9}, {3.89790277073125*^9, 
+   3.897902798144153*^9}, {3.8979028285652447`*^9, 3.897902867715844*^9}, {
+   3.897902927839118*^9, 3.89790302075737*^9}, {3.897903058331357*^9, 
+   3.89790305970877*^9}, {3.897903095064011*^9, 3.897903135649579*^9}, {
+   3.897903172217008*^9, 3.897903192220755*^9}, 3.897903236488776*^9, {
+   3.8979033167525787`*^9, 3.897903601669816*^9}, {3.897903646705781*^9, 
+   3.897903662415732*^9}, {3.8979036926998672`*^9, 3.897903735318656*^9}, {
+   3.897903777786199*^9, 3.897903814585958*^9}, {3.897903871975675*^9, 
+   3.897903876933557*^9}, {3.897903923915924*^9, 3.897903969935861*^9}, {
+   3.897904000853478*^9, 3.8979040261663303`*^9}, {3.8979040684020243`*^9, 
+   3.897904173286049*^9}, {3.897904307076582*^9, 3.897904326745722*^9}, {
+   3.897904416184517*^9, 3.8979044972431173`*^9}, {3.8979045305041037`*^9, 
+   3.897904600892295*^9}, 3.897904687171413*^9, {3.897904931054673*^9, 
+   3.8979049607203693`*^9}, {3.897905018071069*^9, 3.897905081402272*^9}, {
+   3.897905113714262*^9, 3.897905202349338*^9}, {3.8979052683651733`*^9, 
+   3.897905269497346*^9}, {3.897905401340928*^9, 3.8979054253878927`*^9}, {
+   3.897905484137179*^9, 3.897905543416223*^9}, {3.897905651346352*^9, 
+   3.897905656088026*^9}, {3.897905822385684*^9, 3.897905913206497*^9}, {
+   3.897905966679521*^9, 3.897905968270351*^9}, {3.89790600215451*^9, 
+   3.8979060438605423`*^9}, {3.897906254162674*^9, 3.897906339699976*^9}, {
+   3.897906407499374*^9, 3.897906452563102*^9}, {3.8979065252912197`*^9, 
+   3.897906549243607*^9}, 3.897906722030855*^9, {3.897906799223847*^9, 
+   3.8979068186873302`*^9}, {3.897906853236415*^9, 3.897906893342656*^9}, {
+   3.897907343918314*^9, 3.897907427687523*^9}, {3.897907458848474*^9, 
+   3.8979074592973833`*^9}, {3.897907491802937*^9, 3.897907518035221*^9}, {
+   3.897907581716566*^9, 3.897907659418263*^9}, {3.897907848653919*^9, 
+   3.897907850226143*^9}, {3.897910030398486*^9, 3.897910032110601*^9}, {
+   3.897910275382099*^9, 3.897910328641489*^9}, {3.8979104687163973`*^9, 
+   3.8979104689162827`*^9}, {3.897910801765732*^9, 3.897910802387658*^9}, {
+   3.897911051129463*^9, 3.8979110525912743`*^9}, 3.897911108475905*^9, {
+   3.897913993770319*^9, 3.897913996402771*^9}, {3.897915468159524*^9, 
+   3.8979155127102947`*^9}, {3.897915839679811*^9, 3.897915858812076*^9}, {
+   3.8979160008051853`*^9, 3.89791600669493*^9}, {3.89791683386974*^9, 
+   3.897916854779531*^9}, {3.89791716782113*^9, 3.8979172205009604`*^9}, {
+   3.8979178095746117`*^9, 3.897917831530962*^9}, {3.89791787823351*^9, 
+   3.897917916095109*^9}, {3.8979179596092653`*^9, 3.897917963819186*^9}, {
+   3.897918040661436*^9, 3.897918041047275*^9}, {3.8979181220147543`*^9, 
+   3.897918219556533*^9}, {3.897918754928368*^9, 3.897918761265312*^9}, {
+   3.897918870430064*^9, 3.897918901494212*^9}, {3.897919045511383*^9, 
+   3.897919064549329*^9}, {3.897919471893552*^9, 3.89791957939552*^9}, {
+   3.897919922241747*^9, 3.897919962596324*^9}, {3.89792001877035*^9, 
+   3.897920027832*^9}, {3.897920393409713*^9, 3.8979205168823347`*^9}, {
+   3.897920557191349*^9, 3.897920619260544*^9}, {3.897920902213333*^9, 
+   3.897920914483966*^9}, {3.897920947644999*^9, 3.897921075244727*^9}, {
+   3.897921234030403*^9, 3.897921237760284*^9}, {3.897921304181028*^9, 
+   3.897921411515617*^9}, {3.897921460699074*^9, 3.897921461283977*^9}, {
+   3.897921511392146*^9, 3.897921547716505*^9}, {3.897921667175939*^9, 
+   3.897921737298367*^9}, {3.897928605528473*^9, 3.8979286394248533`*^9}, {
+   3.8979290458268147`*^9, 3.8979290582420893`*^9}, {3.897930132356036*^9, 
+   3.897930188260345*^9}, {3.897930246033251*^9, 3.897930339595796*^9}, {
+   3.8979314146331778`*^9, 3.897931422367063*^9}, {3.897931485074361*^9, 
+   3.897931487765191*^9}, {3.897931850693221*^9, 3.897931851326482*^9}, {
+   3.897931900641501*^9, 3.8979319168483477`*^9}, {3.897931976429558*^9, 
+   3.89793199189635*^9}, {3.8979320975110397`*^9, 3.8979321013834343`*^9}, 
+   3.89793222099584*^9, {3.897932294062558*^9, 3.897932316509933*^9}, {
+   3.897932347658605*^9, 3.897932348736362*^9}, {3.89793248105329*^9, 
+   3.897932501631235*^9}, {3.897932693151888*^9, 3.897932753768087*^9}, {
+   3.8979327911605587`*^9, 3.8979328054804783`*^9}, {3.897932885197193*^9, 
+   3.897933029604829*^9}, {3.897933071515986*^9, 3.897933096252267*^9}, {
+   3.897933137762165*^9, 3.897933175111586*^9}, {3.897933299452276*^9, 
+   3.897933335635989*^9}, {3.897934225343698*^9, 3.8979342787715807`*^9}, {
+   3.897934959680011*^9, 3.897934973271633*^9}, {3.897935050961628*^9, 
+   3.897935051354259*^9}, {3.8979351210708113`*^9, 3.897935279427965*^9}, {
+   3.8979353101788387`*^9, 3.897935411921131*^9}, {3.897935448101872*^9, 
+   3.897935486848489*^9}, {3.8979355550130873`*^9, 3.8979356567602797`*^9}, {
+   3.897935697704818*^9, 3.897935711730444*^9}, {3.897994282623291*^9, 
+   3.897994332512439*^9}, {3.8979943675038137`*^9, 3.897994368934471*^9}, {
+   3.897999657799589*^9, 3.897999667711152*^9}, {3.897999726846167*^9, 
+   3.8979997299979897`*^9}, {3.89799982097491*^9, 3.897999840551058*^9}},
+ CellLabel->
+  "In[181]:=",ExpressionUUID->"ad556c4c-deb4-4452-b76c-9321d886d4fa"]
+},
+WindowSize->{808, 879},
+WindowMargins->{{12, Automatic}, {Automatic, 24}},
+FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (June 8, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f67c99ae-bdc4-443c-849d-8608a28f2fbc"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[561, 20, 299, 5, 52, "Input",ExpressionUUID->"d48b5dd2-06a1-479a-ac05-523f489cf34d"],
+Cell[863, 27, 23606, 447, 1837, "Input",ExpressionUUID->"ad556c4c-deb4-4452-b76c-9321d886d4fa"]
+}
+]
+*)
+
