@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[    130004,       2514]
-NotebookOptionsPosition[    126986,       2456]
-NotebookOutlinePosition[    127411,       2473]
-CellTagsIndexPosition[    127368,       2470]
+NotebookDataLength[    121445,       2391]
+NotebookOptionsPosition[    118331,       2332]
+NotebookOutlinePosition[    118755,       2349]
+CellTagsIndexPosition[    118712,       2346]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -26,7 +26,8 @@ Cell[BoxData[
  InitializationCell->True,
  CellChangeTimes->{{3.897478900315876*^9, 3.897478910494087*^9}, {
   3.897907155946089*^9, 3.897907181582858*^9}},
- CellLabel->"In[43]:=",ExpressionUUID->"89a1c28e-04f8-490d-9f99-8b8f42a52b01"],
+ CellLabel->
+  "In[159]:=",ExpressionUUID->"89a1c28e-04f8-490d-9f99-8b8f42a52b01"],
 
 Cell[BoxData["\<\"/Users/joshuakhorsandi/Documents/Summer Research - 2023/WSS \
 2023/Chem Space - \
@@ -43,8 +44,9 @@ Cell[BoxData["\<\"/Users/joshuakhorsandi/Documents/Summer Research - 2023/WSS \
    3.8979071826681957`*^9}, {3.897909855166759*^9, 3.8979098561503687`*^9}, 
    3.8979170406343803`*^9, 3.897917406632311*^9, {3.897920375762278*^9, 
    3.897920376779808*^9}, 3.89792847634601*^9, 3.897930670462233*^9, 
-   3.897931741024393*^9, 3.8979350125681334`*^9},
- CellLabel->"Out[43]=",ExpressionUUID->"9a696bfd-9313-47ae-8069-e58bb9ed0d08"]
+   3.897931741024393*^9, 3.8979350125681334`*^9, 3.898009641643272*^9},
+ CellLabel->
+  "Out[159]=",ExpressionUUID->"560f7f8f-3b7c-43a6-9337-2abc63733fec"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -482,8 +484,11 @@ Cell[BoxData[{
    3.8975593605168247`*^9, 3.897559395895697*^9}, {3.897568589095602*^9, 
    3.897568592647971*^9}, {3.8979059240596848`*^9, 3.897905943629613*^9}, {
    3.8979098993223457`*^9, 3.897909900615004*^9}, {3.897929869944709*^9, 
-   3.897929889907961*^9}, 3.897929977776209*^9},
- CellLabel->"In[54]:=",ExpressionUUID->"9e3f27a0-8ae2-4642-8ed6-7d268d0f5131"],
+   3.897929889907961*^9}, 3.897929977776209*^9, {3.898010074540133*^9, 
+   3.8980101047433453`*^9}, {3.898010140548975*^9, 3.898010146046804*^9}, {
+   3.898010930643383*^9, 
+   3.898010931050497*^9}},ExpressionUUID->"9e3f27a0-8ae2-4642-8ed6-\
+7d268d0f5131"],
 
 Cell[BoxData[
  RowBox[{
@@ -494,19 +499,21 @@ Cell[BoxData[
      RowBox[{
       RowBox[{
        RowBox[{"Subgraph", "[", 
-        RowBox[{"$graph", ",", "#"}], "]"}], "&"}], ",", 
+        RowBox[{"graph", ",", "#"}], "]"}], "&"}], ",", 
       RowBox[{"FindGraphCommunities", "[", "graph", "]"}]}], "]"}]}], 
    "]"}]}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.8976579539447823`*^9, 3.89765796666525*^9}, 
-   3.897920426320628*^9},
- CellLabel->"In[56]:=",ExpressionUUID->"c28f8504-5b1d-485c-baf7-d39762d64e12"],
+   3.897920426320628*^9, 3.898010980355562*^9},
+ CellLabel->
+  "In[179]:=",ExpressionUUID->"c28f8504-5b1d-485c-baf7-d39762d64e12"],
 
 Cell[BoxData[
  RowBox[{"ClearAll", "[", "$graph", "]"}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.8979182343284817`*^9, 3.8979182398682547`*^9}},
- CellLabel->"In[57]:=",ExpressionUUID->"03532ecb-7e26-4916-b615-9a873da60157"],
+ CellLabel->
+  "In[177]:=",ExpressionUUID->"03532ecb-7e26-4916-b615-9a873da60157"],
 
 Cell[TextData[StyleBox["D5 Receptor Network", "Subsubsection"]], "Text",
  CellChangeTimes->{{3.897918268476457*^9, 
@@ -535,9 +542,11 @@ Cell[BoxData[
    3.8979170355875893`*^9}, {3.8979170749847193`*^9, 3.897917075750144*^9}, 
    3.8979174164710293`*^9, {3.8979182216332808`*^9, 3.897918228830744*^9}, {
    3.897918261761364*^9, 3.897918263377328*^9}, {3.897930106637053*^9, 
-   3.897930107126474*^9}, {3.897999055083622*^9, 
-   3.897999067436699*^9}},ExpressionUUID->"852924ed-e133-4ea7-9bcf-\
-91be32d9b452"],
+   3.897930107126474*^9}, {3.897999055083622*^9, 3.897999067436699*^9}, 
+   3.89800962714911*^9, 3.89800966551343*^9, 3.898010083612753*^9, 
+   3.8980101365588923`*^9, {3.8980109129793863`*^9, 3.898010919232563*^9}},
+ CellLabel->
+  "In[180]:=",ExpressionUUID->"852924ed-e133-4ea7-9bcf-91be32d9b452"],
 
 Cell[TextData[StyleBox["Glucocorticoid Antagonist Network - Scalfani et. al", \
 "Subsubsection"]], "Text",
@@ -1043,7 +1052,8 @@ Cell[BoxData[
    3.897994332512439*^9}, {3.8979943675038137`*^9, 3.897994368934471*^9}, {
    3.897999657799589*^9, 3.897999667711152*^9}, {3.897999726846167*^9, 
    3.8979997299979897`*^9}, {3.89799982097491*^9, 3.897999840551058*^9}},
- CellLabel->"In[85]:=",ExpressionUUID->"55d89b25-929d-4d09-b8f4-a28fae3b2db6"],
+ CellLabel->
+  "In[181]:=",ExpressionUUID->"55d89b25-929d-4d09-b8f4-a28fae3b2db6"],
 
 Cell[BoxData[
  DynamicModuleBox[{$CellContext`vertexClicked$$ = {}, $CellContext`graph$$ = 
@@ -1131,9 +1141,9 @@ Ojk82tg+Pjs+OTv5F1ebOsY=
       "CHEMBL4647167" -> {Tooltip -> "CHEMBL4647167"}, 
       "CHEMBL2432042" -> {Tooltip -> "CHEMBL2432042"}, 
       "CHEMBL2420771" -> {Tooltip -> "CHEMBL2420771"}, 
-      "CHEMBL239917" -> {Tooltip -> "CHEMBL239917"}, 
-      "CHEMBL3753195" -> {Tooltip -> "CHEMBL3753195"}, 
       "CHEMBL1632174" -> {Tooltip -> "CHEMBL1632174"}, 
+      "CHEMBL3753195" -> {Tooltip -> "CHEMBL3753195"}, 
+      "CHEMBL239917" -> {Tooltip -> "CHEMBL239917"}, 
       "CHEMBL212912" -> {Tooltip -> "CHEMBL212912"}, 
       "CHEMBL3752882" -> {Tooltip -> "CHEMBL3752882"}, 
       "CHEMBL435505" -> {Tooltip -> "CHEMBL435505"}, 
@@ -1143,17 +1153,17 @@ Ojk82tg+Pjs+OTv5F1ebOsY=
       "CHEMBL3752512" -> {Tooltip -> "CHEMBL3752512"}, 
       "CHEMBL186720" -> {Tooltip -> "CHEMBL186720"}, 
       "CHEMBL197796" -> {Tooltip -> "CHEMBL197796"}, 
-      "CHEMBL1940406" -> {Tooltip -> "CHEMBL1940406"}, 
-      "CHEMBL596824" -> {Tooltip -> "CHEMBL596824"}, 
       "CHEMBL4442460" -> {Tooltip -> "CHEMBL4442460"}, 
+      "CHEMBL596824" -> {Tooltip -> "CHEMBL596824"}, 
+      "CHEMBL1940406" -> {Tooltip -> "CHEMBL1940406"}, 
       "CHEMBL324017" -> {Tooltip -> "CHEMBL324017"}, 
       "CHEMBL2420778" -> {Tooltip -> "CHEMBL2420778"}, 
       "CHEMBL2420776" -> {Tooltip -> "CHEMBL2420776"}, 
       "CHEMBL2420894" -> {Tooltip -> "CHEMBL2420894"}, 
       "CHEMBL4643069" -> {Tooltip -> "CHEMBL4643069"}, 
-      "CHEMBL1632158" -> {Tooltip -> "CHEMBL1632158"}, 
-      "CHEMBL5079653" -> {Tooltip -> "CHEMBL5079653"}, 
       "CHEMBL394110" -> {Tooltip -> "CHEMBL394110"}, 
+      "CHEMBL5079653" -> {Tooltip -> "CHEMBL5079653"}, 
+      "CHEMBL1632158" -> {Tooltip -> "CHEMBL1632158"}, 
       "CHEMBL598515" -> {Tooltip -> "CHEMBL598515"}, 
       "CHEMBL382010" -> {Tooltip -> "CHEMBL382010"}, 
       "CHEMBL240995" -> {Tooltip -> "CHEMBL240995"}, 
@@ -1176,30 +1186,30 @@ Ojk82tg+Pjs+OTv5F1ebOsY=
       "CHEMBL4848380" -> {Tooltip -> "CHEMBL4848380"}, 
       "CHEMBL203047" -> {Tooltip -> "CHEMBL203047"}, 
       "CHEMBL1829961" -> {Tooltip -> "CHEMBL1829961"}, 
-      "CHEMBL268371" -> {Tooltip -> "CHEMBL268371"}, 
       "CHEMBL203637" -> {Tooltip -> "CHEMBL203637"}, 
+      "CHEMBL268371" -> {Tooltip -> "CHEMBL268371"}, 
       "CHEMBL4642805" -> {Tooltip -> "CHEMBL4642805"}, 
-      "CHEMBL1829958" -> {Tooltip -> "CHEMBL1829958"}, 
       "CHEMBL380464" -> {Tooltip -> "CHEMBL380464"}, 
-      "CHEMBL42" -> {Tooltip -> "CHEMBL42"}, 
+      "CHEMBL1829958" -> {Tooltip -> "CHEMBL1829958"}, 
       "CHEMBL184050" -> {Tooltip -> "CHEMBL184050"}, 
+      "CHEMBL42" -> {Tooltip -> "CHEMBL42"}, 
       "CHEMBL599282" -> {Tooltip -> "CHEMBL599282"}, 
       "CHEMBL2420772" -> {Tooltip -> "CHEMBL2420772"}, 
       "CHEMBL213424" -> {Tooltip -> "CHEMBL213424"}, 
-      "CHEMBL238917" -> {Tooltip -> "CHEMBL238917"}, 
       "CHEMBL467094" -> {Tooltip -> "CHEMBL467094"}, 
+      "CHEMBL238917" -> {Tooltip -> "CHEMBL238917"}, 
       "CHEMBL238915" -> {Tooltip -> "CHEMBL238915"}, 
-      "CHEMBL196370" -> {Tooltip -> "CHEMBL196370"}, 
-      "CHEMBL2420777" -> {Tooltip -> "CHEMBL2420777"}, 
       "CHEMBL370128" -> {Tooltip -> "CHEMBL370128"}, 
+      "CHEMBL2420777" -> {Tooltip -> "CHEMBL2420777"}, 
+      "CHEMBL196370" -> {Tooltip -> "CHEMBL196370"}, 
       "CHEMBL4635423" -> {Tooltip -> "CHEMBL4635423"}, 
       "CHEMBL4643886" -> {Tooltip -> "CHEMBL4643886"}, 
       "CHEMBL597909" -> {Tooltip -> "CHEMBL597909"}, 
       "CHEMBL378669" -> {Tooltip -> "CHEMBL378669"}, 
       "CHEMBL4872572" -> {Tooltip -> "CHEMBL4872572"}, 
       "CHEMBL2420782" -> {Tooltip -> "CHEMBL2420782"}, 
-      "CHEMBL298406" -> {Tooltip -> "CHEMBL298406"}, 
       "CHEMBL1643901" -> {Tooltip -> "CHEMBL1643901"}, 
+      "CHEMBL298406" -> {Tooltip -> "CHEMBL298406"}, 
       "CHEMBL195927" -> {Tooltip -> "CHEMBL195927"}, 
       "CHEMBL490533" -> {Tooltip -> "CHEMBL490533"}, 
       "CHEMBL3289648" -> {Tooltip -> "CHEMBL3289648"}, 
@@ -1221,15 +1231,15 @@ Ojk82tg+Pjs+OTv5F1ebOsY=
       "CHEMBL2420773" -> {Tooltip -> "CHEMBL2420773"}, 
       "CHEMBL194206" -> {Tooltip -> "CHEMBL194206"}, 
       "CHEMBL201170" -> {Tooltip -> "CHEMBL201170"}, 
-      "CHEMBL24077" -> {Tooltip -> "CHEMBL24077"}, 
       "CHEMBL3286429" -> {Tooltip -> "CHEMBL3286429"}, 
+      "CHEMBL24077" -> {Tooltip -> "CHEMBL24077"}, 
       "CHEMBL184073" -> {Tooltip -> "CHEMBL184073"}, 
       "CHEMBL2432062" -> {Tooltip -> "CHEMBL2432062"}, 
       "CHEMBL138989" -> {Tooltip -> "CHEMBL138989"}, 
       "CHEMBL4633950" -> {Tooltip -> "CHEMBL4633950"}, 
       "CHEMBL4637938" -> {Tooltip -> "CHEMBL4637938"}, 
-      "CHEMBL5191141" -> {Tooltip -> "CHEMBL5191141"}, 
       "CHEMBL184049" -> {Tooltip -> "CHEMBL184049"}, 
+      "CHEMBL5191141" -> {Tooltip -> "CHEMBL5191141"}, 
       "CHEMBL1258671" -> {Tooltip -> "CHEMBL1258671"}, 
       "CHEMBL240774" -> {Tooltip -> "CHEMBL240774"}, 
       "CHEMBL240996" -> {Tooltip -> "CHEMBL240996"}, 
@@ -1237,13 +1247,13 @@ Ojk82tg+Pjs+OTv5F1ebOsY=
       "CHEMBL238718" -> {Tooltip -> "CHEMBL238718"}, 
       "CHEMBL1940418" -> {Tooltip -> "CHEMBL1940418"}, 
       "CHEMBL3321789" -> {Tooltip -> "CHEMBL3321789"}, 
-      "CHEMBL343755" -> {Tooltip -> "CHEMBL343755"}, 
       "CHEMBL238717" -> {Tooltip -> "CHEMBL238717"}, 
       "CHEMBL196169" -> {Tooltip -> "CHEMBL196169"}, 
+      "CHEMBL343755" -> {Tooltip -> "CHEMBL343755"}, 
       "CHEMBL209497" -> {Tooltip -> "CHEMBL209497"}, 
       "CHEMBL286080" -> {Tooltip -> "CHEMBL286080"}, 
-      "CHEMBL50498" -> {Tooltip -> "CHEMBL50498"}, 
       "CHEMBL2420779" -> {Tooltip -> "CHEMBL2420779"}, 
+      "CHEMBL50498" -> {Tooltip -> "CHEMBL50498"}, 
       "CHEMBL4544086" -> {Tooltip -> "CHEMBL4544086"}, 
       "CHEMBL3289647" -> {Tooltip -> "CHEMBL3289647"}, 
       "CHEMBL4846574" -> {Tooltip -> "CHEMBL4846574"}, 
@@ -1254,14 +1264,14 @@ Ojk82tg+Pjs+OTv5F1ebOsY=
       "CHEMBL229429" -> {Tooltip -> "CHEMBL229429"}, 
       "CHEMBL3321788" -> {Tooltip -> "CHEMBL3321788"}, 
       "CHEMBL213492" -> {Tooltip -> "CHEMBL213492"}, 
-      "CHEMBL378825" -> {Tooltip -> "CHEMBL378825"}, 
       "CHEMBL4636741" -> {Tooltip -> "CHEMBL4636741"}, 
+      "CHEMBL378825" -> {Tooltip -> "CHEMBL378825"}, 
       "CHEMBL4643426" -> {Tooltip -> "CHEMBL4643426"}, 
       "CHEMBL1457510" -> {Tooltip -> "CHEMBL1457510"}, 
-      "CHEMBL591685" -> {Tooltip -> "CHEMBL591685"}, 
       "CHEMBL394080" -> {Tooltip -> "CHEMBL394080"}, 
       "CHEMBL1672288" -> {Tooltip -> "CHEMBL1672288"}, 
       "CHEMBL372453" -> {Tooltip -> "CHEMBL372453"}, 
+      "CHEMBL591685" -> {Tooltip -> "CHEMBL591685"}, 
       "CHEMBL2420774" -> {Tooltip -> "CHEMBL2420774"}, 
       "CHEMBL2420775" -> {Tooltip -> "CHEMBL2420775"}, 
       "CHEMBL5090079" -> {Tooltip -> "CHEMBL5090079"}, 
@@ -1270,46 +1280,46 @@ Ojk82tg+Pjs+OTv5F1ebOsY=
       "CHEMBL1940408" -> {Tooltip -> "CHEMBL1940408"}, 
       "CHEMBL5201983" -> {Tooltip -> "CHEMBL5201983"}, 
       "CHEMBL2420769" -> {Tooltip -> "CHEMBL2420769"}, 
-      "CHEMBL3754576" -> {Tooltip -> "CHEMBL3754576"}, 
       "CHEMBL263881" -> {Tooltip -> "CHEMBL263881"}, 
+      "CHEMBL3754576" -> {Tooltip -> "CHEMBL3754576"}, 
       "CHEMBL4856060" -> {Tooltip -> "CHEMBL4856060"}, 
       "CHEMBL2420890" -> {Tooltip -> "CHEMBL2420890"}, 
       "CHEMBL267014" -> {Tooltip -> "CHEMBL267014"}, 
       "CHEMBL393492" -> {Tooltip -> "CHEMBL393492"}, 
       "CHEMBL1258223" -> {Tooltip -> "CHEMBL1258223"}, 
-      "CHEMBL599487" -> {Tooltip -> "CHEMBL599487"}, 
       "CHEMBL4875858" -> {Tooltip -> "CHEMBL4875858"}, 
+      "CHEMBL599487" -> {Tooltip -> "CHEMBL599487"}, 
       "CHEMBL4637246" -> {Tooltip -> "CHEMBL4637246"}, 
       "CHEMBL4851349" -> {Tooltip -> "CHEMBL4851349"}, 
       "CHEMBL2420893" -> {Tooltip -> "CHEMBL2420893"}, 
       "CHEMBL600986" -> {Tooltip -> "CHEMBL600986"}, 
       "CHEMBL2420781" -> {Tooltip -> "CHEMBL2420781"}, 
       "CHEMBL600987" -> {Tooltip -> "CHEMBL600987"}, 
-      "CHEMBL199824" -> {Tooltip -> "CHEMBL199824"}, 
       "CHEMBL425069" -> {Tooltip -> "CHEMBL425069"}, 
-      "CHEMBL1940415" -> {Tooltip -> "CHEMBL1940415"}, 
+      "CHEMBL199824" -> {Tooltip -> "CHEMBL199824"}, 
       "CHEMBL516088" -> {Tooltip -> "CHEMBL516088"}, 
-      "CHEMBL1940404" -> {Tooltip -> "CHEMBL1940404"}, 
+      "CHEMBL1940415" -> {Tooltip -> "CHEMBL1940415"}, 
       "CHEMBL1940416" -> {Tooltip -> "CHEMBL1940416"}, 
+      "CHEMBL1940404" -> {Tooltip -> "CHEMBL1940404"}, 
       "CHEMBL213336" -> {Tooltip -> "CHEMBL213336"}, 
       "CHEMBL1940419" -> {Tooltip -> "CHEMBL1940419"}, 
       "CHEMBL715" -> {Tooltip -> "CHEMBL715"}, 
       "CHEMBL3289645" -> {Tooltip -> "CHEMBL3289645"}, 
       "CHEMBL5074765" -> {Tooltip -> "CHEMBL5074765"}, 
-      "CHEMBL3289646" -> {Tooltip -> "CHEMBL3289646"}, 
       "CHEMBL555146" -> {Tooltip -> "CHEMBL555146"}, 
+      "CHEMBL3289646" -> {Tooltip -> "CHEMBL3289646"}, 
       "CHEMBL137781" -> {Tooltip -> "CHEMBL137781"}, 
       "CHEMBL426317" -> {Tooltip -> "CHEMBL426317"}, 
       "CHEMBL1940420" -> {Tooltip -> "CHEMBL1940420"}, 
-      "CHEMBL5075741" -> {Tooltip -> "CHEMBL5075741"}, 
       "CHEMBL2420892" -> {Tooltip -> "CHEMBL2420892"}, 
+      "CHEMBL5075741" -> {Tooltip -> "CHEMBL5075741"}, 
       "CHEMBL2420895" -> {Tooltip -> "CHEMBL2420895"}, 
       "CHEMBL2031737" -> {Tooltip -> "CHEMBL2031737"}, 
       "CHEMBL4645139" -> {Tooltip -> "CHEMBL4645139"}, 
       "CHEMBL4642592" -> {Tooltip -> "CHEMBL4642592"}, 
       "CHEMBL364565" -> {Tooltip -> "CHEMBL364565"}, 
-      "CHEMBL395933" -> {Tooltip -> "CHEMBL395933"}, 
-      "CHEMBL3104092" -> {Tooltip -> "CHEMBL3104092"}}, 
+      "CHEMBL3104092" -> {Tooltip -> "CHEMBL3104092"}, 
+      "CHEMBL395933" -> {Tooltip -> "CHEMBL395933"}}, 
     EdgeWeight -> CompressedData["
 1:eJy9V3lcTG3YJlSitFAhoZKSLVoouQhJlIRUVELZsr3kLUQikl6S0EKytZA1
 QrTYKku0qd6Qc87MmZkzM02L5VXK+z3Ty/jj+33/fnd3v2fmzJwzz30/133d
@@ -1414,133 +1424,7 @@ Aa+SP8Rfj4e5l92b7TewGDYyyYK1FYDd3ceowpXC0igto+/xTRjaJfRliKtR
 WjsmToCBequWxW2hseh4yZkRUgEsU+YeHCSVIVJWYab7VYCTPlknfLJo6Pq3
 DPBvYdEw3Slt8VIKXjN7ExdhfPYDpahUBmnrT6jPnkfm97brFrV9aPwPuXY5
 oA==
-     "], GraphLayout -> "GravityEmbedding", 
-    VertexStyle -> {
-     "CHEMBL2420776" -> RGBColor[1, 0, 0], "CHEMBL3754576" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL42" -> RGBColor[1, 0.5, 0], "CHEMBL1940404" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL1632158" -> RGBColor[1, 0, 0], 
-      "CHEMBL4649012" -> RGBColor[1, 0.5, 0], "CHEMBL5075741" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL515472" -> RGBColor[1, 0, 0], 
-      "CHEMBL204065" -> RGBColor[1, 1, 0], "CHEMBL4645139" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL186720" -> RGBColor[1, 0.5, 0], 
-      "CHEMBL2432051" -> RGBColor[1, 0, 0], "CHEMBL394110" -> 
-      RGBColor[1, 0, 0], "CHEMBL1940406" -> RGBColor[1, 0.5, 0], 
-      "CHEMBL467094" -> RGBColor[1, 0, 0], "CHEMBL3753266" -> RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL435505" -> RGBColor[1, 0.5, 0], 
-      "CHEMBL1829958" -> RGBColor[1, 0, 0], "CHEMBL5079653" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL213492" -> RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL1940408" -> RGBColor[1, 0, 0], 
-      "CHEMBL1940415" -> RGBColor[1, 0, 0], "CHEMBL199824" -> 
-      RGBColor[1, 0, 0], "CHEMBL2420773" -> RGBColor[1, 0, 0], "CHEMBL201525" -> 
-      RGBColor[1, 1, 0], "CHEMBL2420770" -> RGBColor[1, 0, 0], "CHEMBL268371" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL238917" -> RGBColor[1, 0, 0], 
-      "CHEMBL4872572" -> RGBColor[1, 0, 0], "CHEMBL239917" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL380464" -> RGBColor[0.87, 0.94, 1], 
-      "CHEMBL1940418" -> RGBColor[1, 0, 0], "CHEMBL201093" -> 
-      RGBColor[1, 1, 0], "CHEMBL2432043" -> RGBColor[1, 0, 0], 
-      "CHEMBL3289647" -> RGBColor[1, 0, 0], "CHEMBL62" -> RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL263881" -> RGBColor[1, 0.5, 0], 
-      "CHEMBL184073" -> RGBColor[1, 0.5, 0], "CHEMBL4637938" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL3289649" -> RGBColor[1, 0, 0], 
-      "CHEMBL195927" -> RGBColor[1, 0, 0], "CHEMBL4857492" -> 
-      RGBColor[1, 0, 0], "CHEMBL197796" -> RGBColor[1, 0, 0], "CHEMBL213424" -> 
-      RGBColor[1, 1, 0], "CHEMBL240996" -> RGBColor[1, 1, 0], "CHEMBL196169" -> 
-      RGBColor[1, 0, 0], "CHEMBL4642805" -> RGBColor[1, 0.5, 0], 
-      "CHEMBL298406" -> RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL599487" -> RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL1643901" -> RGBColor[1, 0, 0], 
-      "CHEMBL364565" -> RGBColor[1, 1, 0], "CHEMBL238915" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL3753195" -> RGBColor[1, 0.5, 0], 
-      "CHEMBL238718" -> RGBColor[1, 0.5, 0], "CHEMBL2420779" -> 
-      RGBColor[1, 0, 0], "CHEMBL2420891" -> RGBColor[1, 0, 0], 
-      "CHEMBL1940411" -> RGBColor[1, 0, 0], "CHEMBL2420769" -> 
-      RGBColor[1, 0, 0], "CHEMBL2420774" -> RGBColor[1, 0, 0], "CHEMBL365697" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL378669" -> RGBColor[1, 1, 0], 
-      "CHEMBL2420892" -> RGBColor[1, 0, 0], "CHEMBL138989" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL4635277" -> RGBColor[1, 1, 0], 
-      "CHEMBL240995" -> RGBColor[1, 1, 0], "CHEMBL600987" -> RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL213834" -> RGBColor[1, 0.5, 0], 
-      "CHEMBL2420780" -> RGBColor[1, 0, 0], "CHEMBL201170" -> RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL194206" -> RGBColor[1, 0, 0], 
-      "CHEMBL2420893" -> RGBColor[1, 0, 0], "CHEMBL324017" -> RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL4848838" -> RGBColor[1, 0, 0], 
-      "CHEMBL603485" -> RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL196598" -> RGBColor[1, 0, 0], 
-      "CHEMBL184050" -> RGBColor[0.87, 0.94, 1], "CHEMBL394080" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL1765684" -> RGBColor[1, 0, 0], 
-      "CHEMBL196370" -> RGBColor[1, 0, 0], "CHEMBL343755" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL596622" -> RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL1940420" -> RGBColor[1, 0, 0], 
-      "CHEMBL1258223" -> RGBColor[1, 0.5, 0], "CHEMBL229429" -> 
-      RGBColor[1, 0, 0], "CHEMBL3752512" -> RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL370128" -> RGBColor[1, 0, 0], 
-      "CHEMBL209497" -> RGBColor[1, 0.5, 0], "CHEMBL2420771" -> 
-      RGBColor[1, 0, 0], "CHEMBL1258671" -> RGBColor[1, 0, 0], "CHEMBL372453" -> 
-      RGBColor[1, 0, 0], "CHEMBL4643069" -> RGBColor[1, 1, 0], "CHEMBL490533" -> 
-      RGBColor[1, 1, 0], "CHEMBL3321789" -> RGBColor[1, 0, 0], 
-      "CHEMBL2420890" -> RGBColor[1, 0, 0], "CHEMBL213336" -> 
-      RGBColor[1, 1, 0], "CHEMBL516088" -> RGBColor[1, 0, 0], "CHEMBL715" -> 
-      RGBColor[1, 1, 0], "CHEMBL3752882" -> RGBColor[1, 0.5, 0], 
-      "CHEMBL395933" -> RGBColor[1, 0.5, 0], "CHEMBL3321788" -> 
-      RGBColor[1, 0, 0], "CHEMBL5201983" -> RGBColor[0.87, 0.94, 1], 
-      "CHEMBL4637246" -> RGBColor[1, 0.5, 0], "CHEMBL393492" -> 
-      RGBColor[1, 1, 0], "CHEMBL4643426" -> RGBColor[1, 1, 0], "CHEMBL597909" -> 
-      RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL2429890" -> RGBColor[1, 0, 0], 
-      "CHEMBL203047" -> RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL3286429" -> RGBColor[1, 0, 0], 
-      "CHEMBL2420778" -> RGBColor[1, 0, 0], "CHEMBL4851349" -> 
-      RGBColor[1, 0, 0], "CHEMBL2420781" -> RGBColor[1, 0, 0], 
-      "CHEMBL1457510" -> RGBColor[1, 1, 0], "CHEMBL1829961" -> 
-      RGBColor[1, 0, 0], "CHEMBL2420895" -> RGBColor[1, 0, 0], "CHEMBL599282" -> 
-      RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL1940409" -> RGBColor[1, 0, 0], 
-      "CHEMBL2432042" -> RGBColor[1, 0, 0], "CHEMBL3104093" -> 
-      RGBColor[1, 0, 0], "CHEMBL4643886" -> RGBColor[1, 0.5, 0], 
-      "CHEMBL267014" -> RGBColor[1, 0, 0], "CHEMBL5074765" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL381936" -> RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL4845850" -> RGBColor[1, 0, 0], 
-      "CHEMBL239700" -> RGBColor[1, 0, 0], "CHEMBL4875858" -> 
-      RGBColor[1, 0, 0], "CHEMBL184049" -> RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL137781" -> RGBColor[1, 0.5, 0], 
-      "CHEMBL4848380" -> RGBColor[1, 0, 0], "CHEMBL240774" -> 
-      RGBColor[1, 1, 0], "CHEMBL2420772" -> RGBColor[1, 0, 0], "CHEMBL212912" -> 
-      RGBColor[1, 1, 0], "CHEMBL3289648" -> RGBColor[1, 0, 0], "CHEMBL425069" -> 
-      RGBColor[1, 1, 0], "CHEMBL596824" -> RGBColor[1, 1, 0], "CHEMBL50498" -> 
-      RGBColor[1, 0, 0], "CHEMBL4636741" -> RGBColor[1, 1, 0], 
-      "CHEMBL4846574" -> RGBColor[1, 0.5, 0], "CHEMBL426317" -> 
-      RGBColor[1, 0, 0], "CHEMBL5191141" -> RGBColor[0.87, 0.94, 1], 
-      "CHEMBL2334885" -> RGBColor[1, 0.5, 0], "CHEMBL4642592" -> 
-      RGBColor[1, 0, 0], "CHEMBL1940403" -> RGBColor[1, 0.5, 0], 
-      "CHEMBL24077" -> RGBColor[0.87, 0.94, 1], "CHEMBL286080" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL2432062" -> RGBColor[1, 0, 0], 
-      "CHEMBL4640497" -> RGBColor[1, 1, 0], "CHEMBL1765683" -> 
-      RGBColor[1, 0, 0], "CHEMBL4544086" -> RGBColor[1, 0.5, 0], 
-      "CHEMBL1829959" -> RGBColor[1, 0, 0], "CHEMBL5090079" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL591685" -> RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL238717" -> RGBColor[1, 0, 0], 
-      "CHEMBL4647167" -> RGBColor[1, 0.5, 0], "CHEMBL378825" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL4635423" -> RGBColor[1, 0.5, 0], 
-      "CHEMBL197408" -> RGBColor[1, 0, 0], "CHEMBL448891" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL4856060" -> RGBColor[1, 0, 0], 
-      "CHEMBL2031737" -> RGBColor[1, 0, 0], "CHEMBL1632174" -> 
-      RGBColor[1, 0, 0], "CHEMBL4878587" -> RGBColor[1, 0.5, 0], 
-      "CHEMBL4633950" -> RGBColor[1, 1, 0], "CHEMBL2420777" -> 
-      RGBColor[1, 0, 0], "CHEMBL555146" -> RGBColor[1, 0, 0], "CHEMBL3289645" -> 
-      RGBColor[1, 0, 0], "CHEMBL3104092" -> RGBColor[1, 0, 0], 
-      "CHEMBL2420894" -> RGBColor[1, 0, 0], "CHEMBL2420782" -> 
-      RGBColor[1, 0, 0], "CHEMBL2432056" -> RGBColor[1, 0, 0], 
-      "CHEMBL3289646" -> RGBColor[1, 0, 0], "CHEMBL1940419" -> 
-      RGBColor[1, 0, 0], "CHEMBL1672288" -> RGBColor[1, 0, 0], "CHEMBL382010" -> R\
-GBColor[1, 1, 0], "CHEMBL600986" -> RGBColor[0, 
-        Rational[2, 3], 0], "CHEMBL204098" -> RGBColor[1, 0.5, 0], 
-      "CHEMBL2420775" -> RGBColor[1, 0, 0], "CHEMBL1940402" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL238916" -> RGBColor[1, 0, 0], 
-      "CHEMBL1940416" -> RGBColor[1, 0, 0], "CHEMBL187367" -> 
-      RGBColor[1, 0.5, 0], "CHEMBL398813" -> RGBColor[1, 0, 0], 
-      "CHEMBL4442460" -> RGBColor[1, 0.5, 0], "CHEMBL203637" -> 
-      RGBColor[0, 0, 1], "CHEMBL598515" -> RGBColor[0, 
-        Rational[2, 3], 0]}}], $CellContext`edges$$ = {
+     "], GraphLayout -> "GravityEmbedding"}], $CellContext`edges$$ = {
    UndirectedEdge["CHEMBL393492", "CHEMBL240774"], 
    UndirectedEdge["CHEMBL393492", "CHEMBL240995"], 
    UndirectedEdge["CHEMBL393492", "CHEMBL2420781"], 
@@ -2288,7 +2172,7 @@ GBColor[1, 1, 0], "CHEMBL600986" -> RGBColor[0,
    "CHEMBL599282", "CHEMBL599487", "CHEMBL600986", "CHEMBL600987", 
    "CHEMBL603485", "CHEMBL62", "CHEMBL715"}, $CellContext`bioType$$ = 
   "pKi", $CellContext`bioData$$ = False, $CellContext`emb$$ = 
-  "GravityEmbedding", $CellContext`clickable$$ = False}, 
+  "SpringElectrical", $CellContext`clickable$$ = False}, 
   PanelBox[
    TagBox[GridBox[{
       {
@@ -2426,7 +2310,7 @@ $CellContext`vertices$$]]]]), Appearance -> Automatic, Evaluator -> Automatic,
       {
        PanelBox[
         DynamicBox[ToBoxes[$CellContext`graph$$, StandardForm],
-         ImageSizeCache->{450., {214., 220.}}],
+         ImageSizeCache->{1028., {493., 499.}}],
         Alignment->Center]}
      },
      DefaultBaseStyle->"Column",
@@ -2434,28 +2318,20 @@ $CellContext`vertices$$]]]]), Appearance -> Automatic, Evaluator -> Automatic,
      GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
     "Column"]],
   DynamicModuleValues:>{}]], "Output",
- CellChangeTimes->{
-  3.897921463779367*^9, {3.897921534390008*^9, 3.897921549679409*^9}, 
-   3.8979216936493893`*^9, {3.8979217239768972`*^9, 3.8979217417034693`*^9}, 
-   3.897928493536693*^9, {3.8979286141160383`*^9, 3.897928639932171*^9}, 
-   3.897930114583843*^9, {3.897930328212078*^9, 3.897930345830106*^9}, 
-   3.897931150412085*^9, 3.8979317898444023`*^9, {3.897931858561379*^9, 
-   3.8979318626986847`*^9}, 3.897931919919237*^9, 3.897932102525847*^9, 
-   3.897932349196924*^9, 3.8979325025709667`*^9, {3.897932736741674*^9, 
-   3.8979327570395393`*^9}, {3.897932792377643*^9, 3.897932805901791*^9}, 
-   3.8979330306177597`*^9, 3.897933098486635*^9, 3.897933143118031*^9, 
-   3.8979331755495987`*^9, {3.897935013147434*^9, 3.897935027611093*^9}, 
-   3.897935061437888*^9, 3.8979351230811853`*^9, {3.8979352742157288`*^9, 
-   3.8979352846073093`*^9}, {3.8979353863485394`*^9, 3.897935491590382*^9}, 
-   3.897935578305458*^9, 3.897935661585618*^9, 3.897935712017152*^9, 
-   3.897994293460451*^9, 3.897994377263194*^9, 3.8979996699438477`*^9, 
-   3.897999841183097*^9},
- CellLabel->"Out[85]=",ExpressionUUID->"d40f4991-2175-45e9-be2b-9a39325a00f1"]
-}, Open  ]]
+ CellChangeTimes->{{3.898010832953886*^9, 3.898010874252982*^9}, 
+   3.8980109947516413`*^9},
+ CellLabel->
+  "Out[181]=",ExpressionUUID->"25b808fa-fcf4-4166-a340-f2d3c5497b69"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.898010829836046*^9, 
+  3.8980108298710833`*^9}},ExpressionUUID->"9e88422a-a245-4705-95ab-\
+4348ab8e29a8"]
 }, Open  ]]
 },
 WindowSize->{Full, Full},
-WindowMargins->{{171, Automatic}, {Automatic, 0}},
+WindowMargins->{{71, Automatic}, {Automatic, 0}},
 Magnification:>1.25 Inherited,
 FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (June 8, 2023)",
 StyleDefinitions->"Default.nb",
@@ -2473,48 +2349,49 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[583, 22, 320, 6, 57, "Input",ExpressionUUID->"89a1c28e-04f8-490d-9f99-8b8f42a52b01",
+Cell[583, 22, 324, 7, 57, "Input",ExpressionUUID->"89a1c28e-04f8-490d-9f99-8b8f42a52b01",
  InitializationCell->True],
-Cell[906, 30, 1100, 16, 42, "Output",ExpressionUUID->"9a696bfd-9313-47ae-8069-e58bb9ed0d08",
+Cell[910, 31, 1126, 17, 42, "Output",ExpressionUUID->"560f7f8f-3b7c-43a6-9337-2abc63733fec",
  InitializationCell->True]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2043, 51, 166, 3, 57, "Input",ExpressionUUID->"f3045fcd-3c29-4015-aafe-d45fbe3c7fbf",
+Cell[2073, 53, 166, 3, 57, "Input",ExpressionUUID->"f3045fcd-3c29-4015-aafe-d45fbe3c7fbf",
  InitializationCell->True],
-Cell[2212, 56, 734, 14, 67, "Output",ExpressionUUID->"dabe28f5-b2a5-4b5b-87a5-2858b36da11d"]
+Cell[2242, 58, 734, 14, 67, "Output",ExpressionUUID->"dabe28f5-b2a5-4b5b-87a5-2858b36da11d"]
 }, Open  ]],
-Cell[2961, 73, 306, 6, 57, "Input",ExpressionUUID->"dfc0a8e7-c3a8-4b33-9207-b299d1f1f1b6",
+Cell[2991, 75, 306, 6, 57, "Input",ExpressionUUID->"dfc0a8e7-c3a8-4b33-9207-b299d1f1f1b6",
  InitializationCell->True],
-Cell[3270, 81, 236, 4, 57, "Input",ExpressionUUID->"f44a5f93-15a8-4afb-86ab-f3af63db4ac2",
+Cell[3300, 83, 236, 4, 57, "Input",ExpressionUUID->"f44a5f93-15a8-4afb-86ab-f3af63db4ac2",
  InitializationCell->True],
-Cell[3509, 87, 1119, 23, 240, "Input",ExpressionUUID->"e19d7f81-6f45-4e16-b11e-8a6d9f3bb150",
+Cell[3539, 89, 1119, 23, 240, "Input",ExpressionUUID->"e19d7f81-6f45-4e16-b11e-8a6d9f3bb150",
  InitializationCell->True],
-Cell[4631, 112, 4001, 85, 370, "Input",ExpressionUUID->"beb8e9ba-a476-41e4-ad6c-c0c6e6971a38",
+Cell[4661, 114, 4001, 85, 396, "Input",ExpressionUUID->"beb8e9ba-a476-41e4-ad6c-c0c6e6971a38",
  InitializationCell->True],
-Cell[8635, 199, 3718, 91, 214, "Input",ExpressionUUID->"f9965f40-3dfb-4084-a4a0-e97fc3161afd",
+Cell[8665, 201, 3718, 91, 240, "Input",ExpressionUUID->"f9965f40-3dfb-4084-a4a0-e97fc3161afd",
  InitializationCell->True],
-Cell[12356, 292, 4241, 95, 214, "Input",ExpressionUUID->"b3f3e12d-3a33-474c-983d-40c43ba7d4db",
+Cell[12386, 294, 4241, 95, 214, "Input",ExpressionUUID->"b3f3e12d-3a33-474c-983d-40c43ba7d4db",
  InitializationCell->True],
-Cell[16600, 389, 4141, 96, 292, "Input",ExpressionUUID->"9e3f27a0-8ae2-4642-8ed6-7d268d0f5131",
+Cell[16630, 391, 4271, 99, 292, "Input",ExpressionUUID->"9e3f27a0-8ae2-4642-8ed6-7d268d0f5131",
  InitializationCell->True],
-Cell[20744, 487, 579, 15, 57, "Input",ExpressionUUID->"c28f8504-5b1d-485c-baf7-d39762d64e12",
+Cell[20904, 492, 604, 16, 57, "Input",ExpressionUUID->"c28f8504-5b1d-485c-baf7-d39762d64e12",
  InitializationCell->True],
-Cell[21326, 504, 242, 4, 57, "Input",ExpressionUUID->"03532ecb-7e26-4916-b615-9a873da60157",
+Cell[21511, 510, 246, 5, 57, "Input",ExpressionUUID->"03532ecb-7e26-4916-b615-9a873da60157",
  InitializationCell->True],
-Cell[21571, 510, 198, 3, 50, "Text",ExpressionUUID->"1a0fd861-a2f8-4295-b97d-819b67290d97"],
-Cell[21772, 515, 1555, 24, 37, "Input",ExpressionUUID->"852924ed-e133-4ea7-9bcf-91be32d9b452"],
-Cell[23330, 541, 232, 4, 50, "Text",ExpressionUUID->"5b424510-2eee-4f89-8194-d3b2dc86344b"],
-Cell[23565, 547, 527, 10, 37, "Input",ExpressionUUID->"1b7e3ff5-b61f-430e-b54f-54a6783737f9"],
+Cell[21760, 517, 198, 3, 50, "Text",ExpressionUUID->"1a0fd861-a2f8-4295-b97d-819b67290d97"],
+Cell[21961, 522, 1721, 26, 37, "Input",ExpressionUUID->"852924ed-e133-4ea7-9bcf-91be32d9b452"],
+Cell[23685, 550, 232, 4, 50, "Text",ExpressionUUID->"5b424510-2eee-4f89-8194-d3b2dc86344b"],
+Cell[23920, 556, 527, 10, 37, "Input",ExpressionUUID->"1b7e3ff5-b61f-430e-b54f-54a6783737f9"],
 Cell[CellGroupData[{
-Cell[24117, 561, 182, 3, 56, "Subsubsection",ExpressionUUID->"8e177fd5-9944-44f9-b2ea-67b0b1ab33b9"],
-Cell[24302, 566, 153, 3, 44, "Text",ExpressionUUID->"e4d9415b-fd60-4280-b901-c50c9fc3270f"],
-Cell[24458, 571, 357, 7, 37, "Input",ExpressionUUID->"555dacf5-177e-4663-9725-21ab7957a0a7"],
-Cell[24818, 580, 157, 2, 44, "Text",ExpressionUUID->"e88b09b9-0357-4e45-a807-ec834bff1830"],
-Cell[24978, 584, 523, 11, 37, "Input",ExpressionUUID->"40d275e4-6926-4db0-be5d-9388c244a19e"],
+Cell[24472, 570, 182, 3, 56, "Subsubsection",ExpressionUUID->"8e177fd5-9944-44f9-b2ea-67b0b1ab33b9"],
+Cell[24657, 575, 153, 3, 44, "Text",ExpressionUUID->"e4d9415b-fd60-4280-b901-c50c9fc3270f"],
+Cell[24813, 580, 357, 7, 37, "Input",ExpressionUUID->"555dacf5-177e-4663-9725-21ab7957a0a7"],
+Cell[25173, 589, 157, 2, 44, "Text",ExpressionUUID->"e88b09b9-0357-4e45-a807-ec834bff1830"],
+Cell[25333, 593, 523, 11, 37, "Input",ExpressionUUID->"40d275e4-6926-4db0-be5d-9388c244a19e"],
 Cell[CellGroupData[{
-Cell[25526, 599, 23602, 446, 1676, "Input",ExpressionUUID->"55d89b25-929d-4d09-b8f4-a28fae3b2db6"],
-Cell[49131, 1047, 77827, 1405, 576, "Output",ExpressionUUID->"d40f4991-2175-45e9-be2b-9a39325a00f1"]
-}, Open  ]]
+Cell[25881, 608, 23606, 447, 1702, "Input",ExpressionUUID->"55d89b25-929d-4d09-b8f4-a28fae3b2db6"],
+Cell[49490, 1057, 68656, 1266, 1134, "Output",ExpressionUUID->"25b808fa-fcf4-4166-a340-f2d3c5497b69"]
+}, Open  ]],
+Cell[118161, 2326, 154, 3, 37, "Input",ExpressionUUID->"9e88422a-a245-4705-95ab-4348ab8e29a8"]
 }, Open  ]]
 }
 ]
