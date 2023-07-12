@@ -10,21 +10,14 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[     24909,        491]
-NotebookOptionsPosition[     24473,        476]
-NotebookOutlinePosition[     24865,        492]
-CellTagsIndexPosition[     24822,        489]
+NotebookDataLength[     24566,        483]
+NotebookOptionsPosition[     24218,        469]
+NotebookOutlinePosition[     24613,        485]
+CellTagsIndexPosition[     24570,        482]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-Cell[BoxData[{
- RowBox[{"SetDirectory", "@", "NotebookDirectory"}], "\[IndentingNewLine]", 
- RowBox[{"<<", "../ChemicalSpaceFunction.wl"}]}], "Input",
- CellChangeTimes->{{3.898090526761956*^9, 3.898090557091586*^9}},
- CellLabel->
-  "In[125]:=",ExpressionUUID->"d48b5dd2-06a1-479a-ac05-523f489cf34d"],
-
 Cell[BoxData[
  RowBox[{"DynamicModule", "[", "\[IndentingNewLine]", 
   RowBox[{
@@ -39,7 +32,7 @@ Cell[BoxData[
       RowBox[{"Union", "@@", 
        RowBox[{"List", "@@@", 
         RowBox[{"EdgeList", "[", "$graph", "]"}]}]}]}], ",", 
-     RowBox[{"bioType", "=", "\"\<pKi\>\""}], ",", 
+     RowBox[{"bioType", "=", "\"\<pIC50\>\""}], ",", 
      RowBox[{"bioData", "=", "False"}], ",", 
      RowBox[{"emb", "=", "\"\<GravityEmbedding\>\""}], ",", 
      RowBox[{"clickable", "=", "False"}]}], "}"}], ",", "\[IndentingNewLine]", 
@@ -470,12 +463,12 @@ Cell[BoxData[
    3.897935697704818*^9, 3.897935711730444*^9}, {3.897994282623291*^9, 
    3.897994332512439*^9}, {3.8979943675038137`*^9, 3.897994368934471*^9}, {
    3.897999657799589*^9, 3.897999667711152*^9}, {3.897999726846167*^9, 
-   3.8979997299979897`*^9}, {3.89799982097491*^9, 3.897999840551058*^9}},
- CellLabel->
-  "In[181]:=",ExpressionUUID->"ad556c4c-deb4-4452-b76c-9321d886d4fa"]
+   3.8979997299979897`*^9}, {3.89799982097491*^9, 3.897999840551058*^9}, {
+   3.898110836193232*^9, 3.898110837984599*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"ad556c4c-deb4-4452-b76c-9321d886d4fa"]
 },
-WindowSize->{808, 879},
-WindowMargins->{{12, Automatic}, {Automatic, 24}},
+WindowSize->{Full, Full},
+WindowMargins->{{Automatic, 373}, {43, Automatic}},
 FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (June 8, 2023)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"f67c99ae-bdc4-443c-849d-8608a28f2fbc"
@@ -491,8 +484,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[561, 20, 299, 5, 52, "Input",ExpressionUUID->"d48b5dd2-06a1-479a-ac05-523f489cf34d"],
-Cell[863, 27, 23606, 447, 1837, "Input",ExpressionUUID->"ad556c4c-deb4-4452-b76c-9321d886d4fa"]
+Cell[561, 20, 23653, 447, 1333, "Input",ExpressionUUID->"ad556c4c-deb4-4452-b76c-9321d886d4fa"]
 }
 ]
 *)
